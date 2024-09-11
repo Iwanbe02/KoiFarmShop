@@ -1,0 +1,11 @@
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.deps.json
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.dll
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.pdb
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.GeneratedMSBuildEditorConfig.editorconfig
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfoInputs.cache
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.AssemblyInfo.cs
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.csproj.CoreCompileInputs.cache
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.dll
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\obj\Debug\net8.0\refint\DataAccessObjects.dll
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.pdb
+E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\obj\Debug\net8.0\ref\DataAccessObjects.dll

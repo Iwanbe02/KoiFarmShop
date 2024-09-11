@@ -1,0 +1,11 @@
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\bin\Debug\net8.0\Repositories.deps.json
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\bin\Debug\net8.0\Repositories.dll
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\bin\Debug\net8.0\Repositories.pdb
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\obj\Debug\net8.0\Repositories.GeneratedMSBuildEditorConfig.editorconfig
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfoInputs.cache
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfo.cs
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\obj\Debug\net8.0\Repositories.csproj.CoreCompileInputs.cache
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\obj\Debug\net8.0\Repositories.dll
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\obj\Debug\net8.0\refint\Repositories.dll
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\obj\Debug\net8.0\Repositories.pdb
+E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\obj\Debug\net8.0\ref\Repositories.dll
