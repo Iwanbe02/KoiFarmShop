@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\KoiFarmShop_WebAPI.props" />
-</Project>

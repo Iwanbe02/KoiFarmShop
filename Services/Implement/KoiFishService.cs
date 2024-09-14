@@ -67,19 +67,19 @@ namespace Services.Implement
             {
                 throw new Exception($"Koi with ID{id} is not found");
             }
-            updateKoiFish.CategoryId = koi.CategoryId;
-            updateKoiFish.Origin = koi.Origin;
-            updateKoiFish.Gender = koi.Gender;
-            updateKoiFish.Age = koi.Age;
-            updateKoiFish.Size = koi.Size;
-            updateKoiFish.Species = koi.Species;
-            updateKoiFish.Character = koi.Character;
-            updateKoiFish.AmountFood = koi.AmountFood;
-            updateKoiFish.ScreeningRate = koi.ScreeningRate;
-            updateKoiFish.Amount = koi.Amount;
-            updateKoiFish.Type = koi.Type;
-            updateKoiFish.Date = koi.Date;
-            updateKoiFish.IsDelete = koi.IsDelete;
+            koi.CategoryId = updateKoiFish.CategoryId;
+            koi.Origin = updateKoiFish.Origin;
+            koi.Gender = updateKoiFish.Gender;
+            koi.Age = updateKoiFish.Age;
+            koi.Size = updateKoiFish.Size;
+            koi.Species = updateKoiFish.Species;
+            koi.Character = updateKoiFish.Character;
+            koi.AmountFood = updateKoiFish.AmountFood;
+            koi.ScreeningRate = updateKoiFish.ScreeningRate;
+            koi.Amount = updateKoiFish.Amount;
+            koi.Type = updateKoiFish.Type;
+            koi.Date = updateKoiFish.Date;
+            koi.IsDelete = updateKoiFish.IsDelete;
 
             await _koiFishRepository.UpdateAsync(koi);
             return koi;
