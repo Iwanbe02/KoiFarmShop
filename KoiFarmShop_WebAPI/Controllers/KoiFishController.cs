@@ -6,7 +6,7 @@ using Services.Interface;
 
 namespace KoiFarmShop_WebAPI.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class KoiFishController : ControllerBase
     {
@@ -31,14 +31,14 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<KoiFish>> CreateKoiFish([FromForm] CreateKoiFishDTO createKoiFishDTO)
+        public async Task<ActionResult<KoiFish>> CreateKoiFish(CreateKoiFishDTO createKoiFishDTO)
         {
             var koi = await _koiFishService.CreateKoiFish(createKoiFishDTO);
             return Ok(koi);
         }
 
         [HttpPut("{Id}")]
-        public async Task<IActionResult> UpdateKoiFish(int Id, [FromForm] UpdateKoiFishDTO updateKoiFishDTO)
+        public async Task<IActionResult> UpdateKoiFish(int Id, UpdateKoiFishDTO updateKoiFishDTO)
         {
             var koi = await _koiFishService.UpdateKoiFish(Id, updateKoiFishDTO);
             return Ok(koi);
