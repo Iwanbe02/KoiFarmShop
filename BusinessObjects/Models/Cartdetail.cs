@@ -9,25 +9,13 @@ public partial class Cartdetail
 
     public int KoiId { get; set; }
 
-    public int Quantity { get; set; }
-
-    public double TotalPrice { get; set; }
-
     public int CartId { get; set; }
 
     public int FeedbackId { get; set; }
 
-    public int CreateBy { get; set; }
+    public int Quantity { get; set; }
 
-    public DateTime CreateDate { get; set; }
-
-    public int ModifiedBy { get; set; }
-
-    public DateTime ModifiedDate { get; set; }
-
-    public int DeleteBy { get; set; }
-
-    public DateTime DeleteDate { get; set; }
+    public double TotalPrice { get; set; }
 
     public bool? IsDelete { get; set; }
 

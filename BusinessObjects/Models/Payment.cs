@@ -9,21 +9,9 @@ public partial class Payment
 
     public string PaymentMethod { get; set; } = null!;
 
-    public int CreateBy { get; set; }
-
-    public DateTime CreateDate { get; set; }
-
-    public int ModifiedBy { get; set; }
-
-    public DateTime ModifiedDate { get; set; }
-
-    public int DeleteBy { get; set; }
-
-    public DateTime DeleteDate { get; set; }
+    public DateTime? Date { get; set; }
 
     public bool? IsDelete { get; set; }
-
-    public virtual ICollection<Consignment> Consignments { get; set; } = new List<Consignment>();
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

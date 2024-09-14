@@ -7,6 +7,8 @@ public partial class KoiFish
 {
     public int KoiId { get; set; }
 
+    public int CategoryId { get; set; }
+
     public string Origin { get; set; } = null!;
 
     public string Gender { get; set; } = null!;
@@ -27,25 +29,13 @@ public partial class KoiFish
 
     public string Type { get; set; } = null!;
 
-    public DateTime Date { get; set; }
-
-    public int CreateBy { get; set; }
-
-    public DateTime CreateDate { get; set; }
-
-    public int ModifiedBy { get; set; }
-
-    public DateTime ModifiedDate { get; set; }
-
-    public int DeleteBy { get; set; }
-
-    public DateTime DeleteDate { get; set; }
+    public DateTime? Date { get; set; }
 
     public bool? IsDelete { get; set; }
 
-    public int CategoryId { get; set; }
-
     public virtual Category Category { get; set; } = null!;
+
+    public virtual ICollection<Consignment> Consignments { get; set; } = new List<Consignment>();
 
     public virtual ICollection<HealthCertificate> HealthCertificates { get; set; } = new List<HealthCertificate>();
 

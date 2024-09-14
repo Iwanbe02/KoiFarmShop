@@ -47,7 +47,7 @@ public partial class KoiFarmShopContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=(local);uid=sa;pwd=12345;database=KoiFarmShop;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Server=(local);uid=sa;pwd=12345;database=KoiFarmShop;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -61,17 +61,9 @@ public partial class KoiFarmShopContext : DbContext
             entity.Property(e => e.Address)
                 .HasMaxLength(255)
                 .HasColumnName("address");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
             entity.Property(e => e.Date)
                 .HasColumnType("datetime")
                 .HasColumnName("date");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
             entity.Property(e => e.Email)
                 .HasMaxLength(255)
                 .HasColumnName("email");
@@ -82,10 +74,6 @@ public partial class KoiFarmShopContext : DbContext
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
@@ -107,26 +95,12 @@ public partial class KoiFarmShopContext : DbContext
 
             entity.ToTable("Cart");
 
-            entity.Property(e => e.CartId)
-                .ValueGeneratedNever()
-                .HasColumnName("cart_id");
+            entity.Property(e => e.CartId).HasColumnName("cart_id");
             entity.Property(e => e.AccountId).HasColumnName("account_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
             entity.Property(e => e.IsDelete)
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.OrderId).HasColumnName("order_Id");
             entity.Property(e => e.Price).HasColumnName("price");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
@@ -145,24 +119,12 @@ public partial class KoiFarmShopContext : DbContext
 
             entity.Property(e => e.CartDetailId).HasColumnName("cartDetail_Id");
             entity.Property(e => e.CartId).HasColumnName("cart_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
             entity.Property(e => e.FeedbackId).HasColumnName("feedback_Id");
             entity.Property(e => e.IsDelete)
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
             entity.Property(e => e.KoiId).HasColumnName("koi_Id");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
             entity.Property(e => e.TotalPrice).HasColumnName("totalPrice");
 
@@ -187,22 +149,10 @@ public partial class KoiFarmShopContext : DbContext
             entity.Property(e => e.CategoryName)
                 .HasMaxLength(255)
                 .HasColumnName("category_name");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
             entity.Property(e => e.IsDelete)
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
         });
 
         modelBuilder.Entity<Consignment>(entity =>
@@ -213,14 +163,6 @@ public partial class KoiFarmShopContext : DbContext
 
             entity.Property(e => e.ConsignmentId).HasColumnName("consignment_Id");
             entity.Property(e => e.AccountId).HasColumnName("account_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
             entity.Property(e => e.EndTime)
                 .HasColumnType("datetime")
                 .HasColumnName("endTime");
@@ -229,10 +171,6 @@ public partial class KoiFarmShopContext : DbContext
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
             entity.Property(e => e.KoiId).HasColumnName("koi_Id");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.PaymentId).HasColumnName("payment_Id");
             entity.Property(e => e.StartTime)
                 .HasColumnType("datetime")
@@ -249,10 +187,10 @@ public partial class KoiFarmShopContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("consignment_account_id_foreign");
 
-            entity.HasOne(d => d.Payment).WithMany(p => p.Consignments)
-                .HasForeignKey(d => d.PaymentId)
+            entity.HasOne(d => d.Koi).WithMany(p => p.Consignments)
+                .HasForeignKey(d => d.KoiId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("consignment_payment_id_foreign");
+                .HasConstraintName("consignment_koi_id_foreign");
         });
 
         modelBuilder.Entity<Feedback>(entity =>
@@ -262,14 +200,7 @@ public partial class KoiFarmShopContext : DbContext
             entity.ToTable("Feedback");
 
             entity.Property(e => e.FeedbackId).HasColumnName("feedback_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
+            entity.Property(e => e.Date).HasColumnType("datetime");
             entity.Property(e => e.Description)
                 .HasMaxLength(255)
                 .HasColumnName("description");
@@ -277,10 +208,6 @@ public partial class KoiFarmShopContext : DbContext
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.Status)
                 .HasMaxLength(255)
                 .HasColumnName("status");
@@ -293,14 +220,6 @@ public partial class KoiFarmShopContext : DbContext
             entity.ToTable("HealthCertificate");
 
             entity.Property(e => e.HealthCertificateId).HasColumnName("healthCertificate_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
             entity.Property(e => e.EndTime)
                 .HasColumnType("datetime")
                 .HasColumnName("endTime");
@@ -309,10 +228,6 @@ public partial class KoiFarmShopContext : DbContext
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
             entity.Property(e => e.KoiId).HasColumnName("koi_Id");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.StartTime)
                 .HasColumnType("datetime")
@@ -341,17 +256,9 @@ public partial class KoiFarmShopContext : DbContext
             entity.Property(e => e.Character)
                 .HasMaxLength(255)
                 .HasColumnName("character");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
             entity.Property(e => e.Date)
                 .HasColumnType("datetime")
                 .HasColumnName("date");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
             entity.Property(e => e.Gender)
                 .HasMaxLength(255)
                 .HasColumnName("gender");
@@ -359,10 +266,6 @@ public partial class KoiFarmShopContext : DbContext
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.Origin)
                 .HasMaxLength(255)
                 .HasColumnName("origin");
@@ -389,22 +292,10 @@ public partial class KoiFarmShopContext : DbContext
 
             entity.Property(e => e.KoiFishesId).HasColumnName("koiFishes_Id");
             entity.Property(e => e.CategoryId).HasColumnName("category_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
             entity.Property(e => e.IsDelete)
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
 
             entity.HasOne(d => d.Category).WithMany(p => p.KoiFish1s)
@@ -419,27 +310,17 @@ public partial class KoiFarmShopContext : DbContext
 
             entity.ToTable("Order");
 
-            entity.Property(e => e.OrderId).HasColumnName("order_ID");
+            entity.Property(e => e.OrderId).HasColumnName("order_Id");
             entity.Property(e => e.AccountId).HasColumnName("account_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
+            entity.Property(e => e.Date).HasColumnType("datetime");
             entity.Property(e => e.IsDelete)
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
-            entity.Property(e => e.KoiFishes).HasColumnName("koiFishes");
+            entity.Property(e => e.KoiFishesId).HasColumnName("koiFishes_Id");
             entity.Property(e => e.KoiId).HasColumnName("koi_Id");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.PaymentId).HasColumnName("payment_Id");
+            entity.Property(e => e.Price).HasColumnName("price");
             entity.Property(e => e.Status)
                 .HasMaxLength(255)
                 .HasColumnName("status");
@@ -452,8 +333,8 @@ public partial class KoiFarmShopContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("order_account_id_foreign");
 
-            entity.HasOne(d => d.KoiFishesNavigation).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.KoiFishes)
+            entity.HasOne(d => d.KoiFishes).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.KoiFishesId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("order_koifishes_foreign");
 
@@ -475,23 +356,12 @@ public partial class KoiFarmShopContext : DbContext
             entity.ToTable("OriginCertificate");
 
             entity.Property(e => e.OriginCertificateId).HasColumnName("originCertificate_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
+            entity.Property(e => e.Date).HasColumnType("datetime");
             entity.Property(e => e.IsDelete)
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
             entity.Property(e => e.KoiId).HasColumnName("koi_Id");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.OrderId).HasColumnName("order_Id");
             entity.Property(e => e.Origin)
                 .HasMaxLength(255)
@@ -510,22 +380,11 @@ public partial class KoiFarmShopContext : DbContext
             entity.ToTable("Payment");
 
             entity.Property(e => e.PaymentId).HasColumnName("payment_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
+            entity.Property(e => e.Date).HasColumnType("datetime");
             entity.Property(e => e.IsDelete)
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.PaymentMethod)
                 .HasMaxLength(255)
                 .HasColumnName("paymentMethod");
@@ -538,23 +397,12 @@ public partial class KoiFarmShopContext : DbContext
             entity.ToTable("Promotion");
 
             entity.Property(e => e.PromotionId).HasColumnName("promotion_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
+            entity.Property(e => e.Date).HasColumnType("datetime");
             entity.Property(e => e.DiscountPercentage).HasColumnName("discountPercentage");
             entity.Property(e => e.IsDelete)
                 .IsRequired()
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.Point).HasColumnName("point");
         });
 
@@ -565,14 +413,7 @@ public partial class KoiFarmShopContext : DbContext
             entity.ToTable("RewardCertificate");
 
             entity.Property(e => e.RewardcertificateId).HasColumnName("rewardcertificate_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
+            entity.Property(e => e.Date).HasColumnType("datetime");
             entity.Property(e => e.Desciptions)
                 .HasMaxLength(255)
                 .HasColumnName("desciptions");
@@ -581,10 +422,6 @@ public partial class KoiFarmShopContext : DbContext
                 .HasDefaultValueSql("('0')")
                 .HasColumnName("isDelete");
             entity.Property(e => e.KoiId).HasColumnName("koi_Id");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.OrderId).HasColumnName("order_Id");
 
             entity.HasOne(d => d.Order).WithMany(p => p.RewardCertificates)
@@ -601,22 +438,6 @@ public partial class KoiFarmShopContext : DbContext
 
             entity.Property(e => e.RoleId).HasColumnName("role_id");
             entity.Property(e => e.AccountId).HasColumnName("account_Id");
-            entity.Property(e => e.CreateBy).HasColumnName("createBy");
-            entity.Property(e => e.CreateDate)
-                .HasColumnType("datetime")
-                .HasColumnName("createDate");
-            entity.Property(e => e.DeleteBy).HasColumnName("deleteBy");
-            entity.Property(e => e.DeleteDate)
-                .HasColumnType("datetime")
-                .HasColumnName("deleteDate");
-            entity.Property(e => e.IsDelete)
-                .IsRequired()
-                .HasDefaultValueSql("('0')")
-                .HasColumnName("isDelete");
-            entity.Property(e => e.ModifiedBy).HasColumnName("modifiedBy");
-            entity.Property(e => e.ModifiedDate)
-                .HasColumnType("datetime")
-                .HasColumnName("modifiedDate");
             entity.Property(e => e.Role1)
                 .HasMaxLength(255)
                 .HasColumnName("role");

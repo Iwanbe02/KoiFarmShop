@@ -3603,19 +3603,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\toanc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj",
+      "projectUniqueName": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj",
       "projectName": "KoiFarmShop_WebAPI",
-      "projectPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\obj\\",
+      "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj",
+      "packagesPath": "C:\\Users\\toanc\\.nuget\\packages\\",
+      "outputPath": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\toanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3629,8 +3629,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\Services\\Services.csproj": {
-              "projectPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\Services\\Services.csproj"
+            "E:\\code\\SWP391\\KoiFarmShop\\Services\\Services.csproj": {
+              "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Services.csproj"
             }
           }
         }
@@ -3639,6 +3639,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3669,7 +3674,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,4 +1,16 @@
+using BusinessObjects.Models;
+using KoiFarmShop_WebAPI.Configuration;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<KoiFarmShopContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionStringDB");
+    options.UseSqlServer(connectionString).EnableSensitiveDataLogging();
+});
+builder.Services.AddRepository();
+builder.Services.AddService();
 
 // Add services to the container.
 

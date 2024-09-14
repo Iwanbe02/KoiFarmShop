@@ -9,21 +9,11 @@ public partial class OriginCertificate
 
     public int KoiId { get; set; }
 
-    public string Origin { get; set; } = null!;
-
     public int OrderId { get; set; }
 
-    public int CreateBy { get; set; }
+    public string Origin { get; set; } = null!;
 
-    public DateTime CreateDate { get; set; }
-
-    public int ModifiedBy { get; set; }
-
-    public DateTime ModifiedDate { get; set; }
-
-    public int DeleteBy { get; set; }
-
-    public DateTime DeleteDate { get; set; }
+    public DateTime? Date { get; set; }
 
     public bool? IsDelete { get; set; }
 
