@@ -32,7 +32,7 @@ namespace Services.Implement
                 ScreeningRate = createKoiFish.ScreeningRate,
                 Amount = createKoiFish.Amount,
                 Type = createKoiFish.Type,
-                Date = createKoiFish.Date,
+                Date = (DateTime)createKoiFish.Date,
                 IsDelete = createKoiFish.IsDelete,
             };
             await _koiFishRepository.AddAsync(koi);
@@ -78,7 +78,7 @@ namespace Services.Implement
             koi.ScreeningRate = updateKoiFish.ScreeningRate;
             koi.Amount = updateKoiFish.Amount;
             koi.Type = updateKoiFish.Type;
-            koi.Date = updateKoiFish.Date;
+            koi.Date = (DateTime)updateKoiFish.Date;
             koi.IsDelete = updateKoiFish.IsDelete;
 
             await _koiFishRepository.UpdateAsync(koi);
