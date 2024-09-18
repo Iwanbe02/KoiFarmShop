@@ -17,11 +17,21 @@ public partial class Order
 
     public string Type { get; set; } = null!;
 
-    public int KoiFishesId { get; set; }
+    public int KoiFishes { get; set; }
 
     public double Price { get; set; }
 
-    public DateTime? Date { get; set; }
+    public int CreateBy { get; set; }
+
+    public DateTime CreateDate { get; set; }
+
+    public int ModifiedBy { get; set; }
+
+    public DateTime ModifiedDate { get; set; }
+
+    public int DeleteBy { get; set; }
+
+    public DateTime DeleteDate { get; set; }
 
     public bool? IsDelete { get; set; }
 
@@ -31,7 +41,7 @@ public partial class Order
 
     public virtual KoiFish Koi { get; set; } = null!;
 
-    public virtual KoiFish1 KoiFishes { get; set; } = null!;
+    public virtual KoiFish1 KoiFishesNavigation { get; set; } = null!;
 
     public virtual Payment Payment { get; set; } = null!;
 }

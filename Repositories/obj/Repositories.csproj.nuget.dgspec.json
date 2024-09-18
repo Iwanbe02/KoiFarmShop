@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\code\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj": {}
+    "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj": {}
   },
   "projects": {
-    "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj": {
+    "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj",
+        "projectUniqueName": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj",
         "projectName": "BusinessObjects",
-        "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj",
-        "packagesPath": "C:\\Users\\toanc\\.nuget\\packages\\",
-        "outputPath": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\obj\\",
+        "projectPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\toanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -86,21 +81,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj": {
+    "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj",
+        "projectUniqueName": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj",
         "projectName": "DataAccessObjects",
-        "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj",
-        "packagesPath": "C:\\Users\\toanc\\.nuget\\packages\\",
-        "outputPath": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\obj\\",
+        "projectPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\DataAccessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\toanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,8 +109,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj"
+              "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj"
               }
             }
           }
@@ -124,11 +119,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -150,21 +140,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\code\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj": {
+    "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\code\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\toanc\\.nuget\\packages\\",
-        "outputPath": "E:\\code\\SWP391\\KoiFarmShop\\Repositories\\obj\\",
+        "projectPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\toanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -178,8 +168,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj": {
-                "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj"
+              "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj": {
+                "projectPath": "D:\\1\\PRN231_SWP391\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj"
               }
             }
           }
@@ -188,11 +178,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -214,7 +199,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
