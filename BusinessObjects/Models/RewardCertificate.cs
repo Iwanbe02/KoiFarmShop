@@ -3,29 +3,23 @@ using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class RewardCertificate
+public partial class RewardCertificate 
 {
-    public int RewardcertificateId { get; set; }
+    public int Id { get; set; }
 
-    public int OrderId { get; set; }
+    public int? KoiId { get; set; }
 
-    public int KoiId { get; set; }
+    public int? OrderId { get; set; }
 
-    public string Desciptions { get; set; } = null!;
+    public string? Description { get; set; }
 
-    public int CreateBy { get; set; }
+    public DateTime? CreatedDate { get; set; }
 
-    public DateTime CreateDate { get; set; }
+    public DateTime? ModifiedDate { get; set; }
 
-    public int ModifiedBy { get; set; }
+    public DateTime? DeletedDate { get; set; }
 
-    public DateTime ModifiedDate { get; set; }
+    public bool? IsDeleted { get; set; }
 
-    public int DeleteBy { get; set; }
-
-    public DateTime DeleteDate { get; set; }
-
-    public bool? IsDelete { get; set; }
-
-    public virtual KoiFish Order { get; set; } = null!;
+    public virtual KoiFish? Koi { get; set; }
 }

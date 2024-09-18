@@ -3,27 +3,21 @@ using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class Category
+public partial class Category : BaseEntity
 {
-    public int CategoryId { get; set; }
+    public int Id { get; set; }
 
-    public string CategoryName { get; set; } = null!;
+    public string? Category1 { get; set; }
 
-    public int CreateBy { get; set; }
+    public DateTime? CreatedDate { get; set; }
 
-    public DateTime CreateDate { get; set; }
+    public DateTime? ModifiedDate { get; set; }
 
-    public int ModifiedBy { get; set; }
+    public DateTime? DeletedDate { get; set; }
 
-    public DateTime ModifiedDate { get; set; }
-
-    public int DeleteBy { get; set; }
-
-    public DateTime DeleteDate { get; set; }
-
-    public bool? IsDelete { get; set; }
-
-    public virtual ICollection<KoiFish1> KoiFish1s { get; set; } = new List<KoiFish1>();
+    public bool? IsDeleted { get; set; }
 
     public virtual ICollection<KoiFish> KoiFishes { get; set; } = new List<KoiFish>();
+
+    public virtual ICollection<KoiFishy> KoiFishies { get; set; } = new List<KoiFishy>();
 }

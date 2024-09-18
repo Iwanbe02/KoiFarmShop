@@ -3,33 +3,29 @@ using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class Cart
+public partial class Cart 
 {
-    public int CartId { get; set; }
+    public int Id { get; set; }
 
-    public int AccountId { get; set; }
+    public int? OrderId { get; set; }
 
-    public int OrderId { get; set; }
+    public decimal? Price { get; set; }
 
-    public double Price { get; set; }
+    public decimal? TotalPrice { get; set; }
 
-    public int Quantity { get; set; }
+    public int? Quantity { get; set; }
 
-    public int CreateBy { get; set; }
+    public string? Status { get; set; }
 
-    public DateTime CreateDate { get; set; }
+    public DateTime? CreatedDate { get; set; }
 
-    public int ModifiedBy { get; set; }
+    public DateTime? ModifiedDate { get; set; }
 
-    public DateTime ModifiedDate { get; set; }
+    public DateTime? DeletedDate { get; set; }
 
-    public int DeleteBy { get; set; }
+    public bool? IsDeleted { get; set; }
 
-    public DateTime DeleteDate { get; set; }
+    public virtual ICollection<CartDetail> CartDetails { get; set; } = new List<CartDetail>();
 
-    public bool? Isdelete { get; set; }
-
-    public virtual ICollection<Cartdetail> Cartdetails { get; set; } = new List<Cartdetail>();
-
-    public virtual Order Order { get; set; } = null!;
+    public virtual Order? Order { get; set; }
 }

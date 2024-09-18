@@ -15,5 +15,6 @@ namespace Services.Interface
         Task<KoiFish> CreateKoiFish(CreateKoiFishDTO createKoiFish);
         Task<KoiFish> UpdateKoiFish(int id, UpdateKoiFishDTO updateKoiFish);
         Task<KoiFish> DeleteKoiFish(int id);
+        Task DeleteOrEnable(int koiId, bool isDeleted);
     }
 }

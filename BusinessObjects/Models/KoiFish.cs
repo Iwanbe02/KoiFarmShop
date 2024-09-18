@@ -3,53 +3,51 @@ using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class KoiFish
+public partial class KoiFish : BaseEntity
 {
-    public int KoiId { get; set; }
+    public int Id { get; set; }
 
-    public int CategoryId { get; set; }
+    public int? CategoryId { get; set; }
 
-    public string Origin { get; set; } = null!;
+    public string? Origin { get; set; }
 
-    public string Gender { get; set; } = null!;
+    public string? Gender { get; set; }
 
-    public int Age { get; set; }
+    public int? Age { get; set; }
 
-    public double Size { get; set; }
+    public double? Size { get; set; }
 
-    public string Species { get; set; } = null!;
+    public string? Species { get; set; }
 
-    public string Character { get; set; } = null!;
+    public string? Character { get; set; }
 
-    public double AmountFood { get; set; }
+    public double? AmountFood { get; set; }
 
-    public double ScreeningRate { get; set; }
+    public double? ScreeningRate { get; set; }
 
-    public int Amount { get; set; }
+    public string? Type { get; set; }
 
-    public string Type { get; set; } = null!;
+    public DateTime? Date { get; set; }
 
-    public DateTime Date { get; set; }
+    public string? Status { get; set; }
 
-    public int CreateBy { get; set; }
+    public DateTime? CreatedDate { get; set; }
 
-    public DateTime CreateDate { get; set; }
+    public DateTime? ModifiedDate { get; set; }
 
-    public int ModifiedBy { get; set; }
+    public DateTime? DeletedDate { get; set; }
 
-    public DateTime ModifiedDate { get; set; }
+    public bool? IsDeleted { get; set; }
 
-    public int DeleteBy { get; set; }
+    public virtual ICollection<CartDetail> CartDetails { get; set; } = new List<CartDetail>();
 
-    public DateTime DeleteDate { get; set; }
-
-    public bool? IsDelete { get; set; }
-
-    public virtual Category Category { get; set; } = null!;
+    public virtual Category? Category { get; set; }
 
     public virtual ICollection<Consignment> Consignments { get; set; } = new List<Consignment>();
 
     public virtual ICollection<HealthCertificate> HealthCertificates { get; set; } = new List<HealthCertificate>();
+
+    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
