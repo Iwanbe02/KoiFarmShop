@@ -3,29 +3,27 @@ using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class Feedback
+public partial class Feedback 
 {
-    public int FeedbackId { get; set; }
+    public int Id { get; set; }
 
-    public string Status { get; set; } = null!;
+    public int? AccountId { get; set; }
 
-    public string Description { get; set; } = null!;
+    public string? Status { get; set; }
 
-    public double Rating { get; set; }
+    public string? Description { get; set; }
 
-    public int CreateBy { get; set; }
+    public double? Rating { get; set; }
 
-    public DateTime CreateDate { get; set; }
+    public DateTime? CreatedDate { get; set; }
 
-    public int ModifiedBy { get; set; }
+    public DateTime? ModifiedDate { get; set; }
 
-    public DateTime ModifiedDate { get; set; }
+    public DateTime? DeletedDate { get; set; }
 
-    public int DeleteBy { get; set; }
+    public bool? IsDeleted { get; set; }
 
-    public DateTime DeleteDate { get; set; }
+    public virtual Account? Account { get; set; }
 
-    public bool? IsDelete { get; set; }
-
-    public virtual ICollection<Cartdetail> Cartdetails { get; set; } = new List<Cartdetail>();
+    public virtual ICollection<CartDetail> CartDetails { get; set; } = new List<CartDetail>();
 }

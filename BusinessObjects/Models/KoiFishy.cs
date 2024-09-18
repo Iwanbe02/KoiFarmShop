@@ -3,19 +3,15 @@ using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class HealthCertificate 
+public partial class KoiFishy : BaseEntity
 {
     public int Id { get; set; }
 
-    public int? KoiId { get; set; }
+    public int? CategoryId { get; set; }
 
-    public int? OrderId { get; set; }
+    public int? Quantity { get; set; }
 
     public string? Status { get; set; }
-
-    public DateTime? StartTime { get; set; }
-
-    public DateTime? EndTime { get; set; }
 
     public DateTime? CreatedDate { get; set; }
 
@@ -25,5 +21,9 @@ public partial class HealthCertificate
 
     public bool? IsDeleted { get; set; }
 
-    public virtual KoiFish? Koi { get; set; }
+    public virtual Category? Category { get; set; }
+
+    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
+
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

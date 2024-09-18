@@ -10,8 +10,10 @@ namespace Repositories.Implement
 {
     public class KoiFishRepository : GenericRepository<KoiFish>, IKoiFishRepository
     {
-        public KoiFishRepository(KoiFarmShopContext context) : base(context)
+        private readonly KoiFarmShopContext _dbContext;
+        public KoiFishRepository(KoiFarmShopContext context, ICurrentTime currentTime) : base(context, currentTime)
         {
+            this._dbContext = context;
         }
     }
 }

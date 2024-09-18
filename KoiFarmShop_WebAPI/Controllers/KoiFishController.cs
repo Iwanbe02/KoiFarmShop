@@ -41,7 +41,14 @@ namespace KoiFarmShop_WebAPI.Controllers
         public async Task<IActionResult> UpdateKoiFish(int Id, UpdateKoiFishDTO updateKoiFishDTO)
         {
             var koi = await _koiFishService.UpdateKoiFish(Id, updateKoiFishDTO);
-            return Ok(koi);
+            return Ok();
+        }
+
+        [HttpPut("{Id}/{isDeleted}")]
+        public async Task<IActionResult> DeleteOrEnable(int koiId, int isDeleted)
+        {
+            await _koiFishService.DeleteOrEnable(koiId, isDeleted > 0);
+            return Ok();
         }
 
         [HttpDelete("{Id}")]

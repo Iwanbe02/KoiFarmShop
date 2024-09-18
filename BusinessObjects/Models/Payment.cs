@@ -3,25 +3,23 @@ using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class Payment
+public partial class Payment : BaseEntity
 {
-    public int PaymentId { get; set; }
+    public int Id { get; set; }
 
-    public string PaymentMethod { get; set; } = null!;
+    public string? PaymentMethod { get; set; }
 
-    public int CreateBy { get; set; }
+    public string? Status { get; set; }
 
-    public DateTime CreateDate { get; set; }
+    public DateTime? CreatedDate { get; set; }
 
-    public int ModifiedBy { get; set; }
+    public DateTime? ModifiedDate { get; set; }
 
-    public DateTime ModifiedDate { get; set; }
+    public DateTime? DeletedDate { get; set; }
 
-    public int DeleteBy { get; set; }
+    public bool? IsDeleted { get; set; }
 
-    public DateTime DeleteDate { get; set; }
-
-    public bool? IsDelete { get; set; }
+    public virtual ICollection<Consignment> Consignments { get; set; } = new List<Consignment>();
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

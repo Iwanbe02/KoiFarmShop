@@ -30,8 +30,8 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
 
         public string Type { get; set; } = null!;
 
-        public DateTime? Date { get; set; }
+        public DateTime Date { get; set; }
+        public string? Status { get; set; }
 
-        public bool? IsDelete { get; set; }
     }
 }

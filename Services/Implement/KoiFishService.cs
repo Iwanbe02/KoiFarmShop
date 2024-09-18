@@ -30,10 +30,9 @@ namespace Services.Implement
                 Character = createKoiFish.Character,
                 AmountFood = createKoiFish.AmountFood,
                 ScreeningRate = createKoiFish.ScreeningRate,
-                Amount = createKoiFish.Amount,
                 Type = createKoiFish.Type,
-                Date = (DateTime)createKoiFish.Date,
-                IsDelete = createKoiFish.IsDelete,
+                Date = createKoiFish.Date,
+                Status = createKoiFish.Status,
             };
             await _koiFishRepository.AddAsync(koi);
             return koi;
@@ -48,6 +47,17 @@ namespace Services.Implement
             }
             await _koiFishRepository.RemoveAsync(koi);
             return koi;
+        }
+
+        public async Task DeleteOrEnable(int koiId, bool isDeleted)
+        {
+            var koi = await _koiFishRepository.GetAsync(x => x.Id == koiId);
+            if (koi == null)
+            {
+                throw new Exception($"Koi with ID{koiId} is not found");
+            }
+            koi.IsDeleted = isDeleted;
+            await _koiFishRepository.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<KoiFish>> GetAllKoiFishes()
@@ -76,10 +86,9 @@ namespace Services.Implement
             koi.Character = updateKoiFish.Character;
             koi.AmountFood = updateKoiFish.AmountFood;
             koi.ScreeningRate = updateKoiFish.ScreeningRate;
-            koi.Amount = updateKoiFish.Amount;
             koi.Type = updateKoiFish.Type;
-            koi.Date = (DateTime)updateKoiFish.Date;
-            koi.IsDelete = updateKoiFish.IsDelete;
+            koi.Date = updateKoiFish.Date;
+            koi.Status = updateKoiFish.Status;
 
             await _koiFishRepository.UpdateAsync(koi);
             return koi;

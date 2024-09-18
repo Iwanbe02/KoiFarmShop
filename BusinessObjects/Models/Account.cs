@@ -3,45 +3,43 @@ using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class Account
+public partial class Account : BaseEntity
 {
-    public int AccountId { get; set; }
+    public int Id { get; set; }
 
-    public int RoleId { get; set; }
+    public string? Name { get; set; }
 
-    public string Name { get; set; } = null!;
+    public int? RoleId { get; set; }
 
-    public string Gender { get; set; } = null!;
+    public string? Gender { get; set; }
 
-    public string Email { get; set; } = null!;
+    public string? Email { get; set; }
 
-    public string Password { get; set; } = null!;
+    public string? Password { get; set; }
 
-    public string Phone { get; set; } = null!;
+    public string? Phone { get; set; }
 
-    public string Address { get; set; } = null!;
+    public string? Address { get; set; }
 
-    public DateTime Date { get; set; }
+    public DateTime? DateOfBirth { get; set; }
 
-    public int Point { get; set; }
+    public int? Point { get; set; }
 
-    public int CreateBy { get; set; }
+    public string? Status { get; set; }
 
-    public DateTime CreateDate { get; set; }
+    public DateTime? CreatedDate { get; set; }
 
-    public int ModifiedBy { get; set; }
+    public DateTime? ModifiedDate { get; set; }
 
-    public DateTime ModifiedDate { get; set; }
+    public DateTime? DeletedDate { get; set; }
 
-    public int DeleteBy { get; set; }
-
-    public DateTime DeleteDate { get; set; }
-
-    public bool? IsDelete { get; set; }
+    public bool? IsDeleted { get; set; }
 
     public virtual ICollection<Consignment> Consignments { get; set; } = new List<Consignment>();
 
+    public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
+
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
-    public virtual Role Role { get; set; } = null!;
+    public virtual Role? Role { get; set; }
 }
