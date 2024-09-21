@@ -45,7 +45,7 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPut("{Id}/{isDeleted}")]
-        public async Task<IActionResult> DeleteOrEnable(int Id)
+        public async Task<IActionResult> RestoreKoiFish(int Id)
         {
             await _koiFishService.RestoreKoiFish(Id);
             return Ok();
