@@ -1,10 +1,9 @@
-﻿using BusinessObjects.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class RewardCertificate : ISoftDelete
+public partial class RewardCertificate
 {
     public int Id { get; set; }
 

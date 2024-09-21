@@ -1,10 +1,9 @@
-﻿using BusinessObjects.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class Promotion : ISoftDelete
+public partial class Promotion
 {
     public int Id { get; set; }
 
