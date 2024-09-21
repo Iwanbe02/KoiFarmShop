@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "E:\\code\\SWP391\\KoiFarmShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|e:\\code\\swp391\\koifarmshop\\koifarmshop_webapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|solutionrelative:koifarmshop_webapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|e:\\code\\swp391\\koifarmshop\\koifarmshop_webapi\\controllers\\koifishcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|solutionrelative:koifarmshop_webapi\\controllers\\koifishcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|e:\\code\\swp391\\koifarmshop\\koifarmshop_webapi\\configuration\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|solutionrelative:koifarmshop_webapi\\configuration\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|e:\\code\\swp391\\koifarmshop\\koifarmshop_webapi\\controllers\\cartdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|solutionrelative:koifarmshop_webapi\\controllers\\cartdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -383,40 +375,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "KoiFarmShop_WebAPI\\Controllers\\CartController.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\CartController.cs",
-              "RelativeToolTip": "KoiFarmShop_WebAPI\\Controllers\\CartController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAD4vzgAAAAJAAAA",
+              "Title": "CartDetailController.cs",
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\CartDetailController.cs",
+              "RelativeDocumentMoniker": "KoiFarmShop_WebAPI\\Controllers\\CartDetailController.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\CartDetailController.cs",
+              "RelativeToolTip": "KoiFarmShop_WebAPI\\Controllers\\CartDetailController.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAkwDgAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T08:45:51.322Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "KoiFishController.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\KoiFishController.cs",
-              "RelativeDocumentMoniker": "KoiFarmShop_WebAPI\\Controllers\\KoiFishController.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\KoiFishController.cs",
-              "RelativeToolTip": "KoiFarmShop_WebAPI\\Controllers\\KoiFishController.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAAADoAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T07:56:15.578Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Configuration\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "KoiFarmShop_WebAPI\\Configuration\\DependencyInjection.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Configuration\\DependencyInjection.cs",
-              "RelativeToolTip": "KoiFarmShop_WebAPI\\Configuration\\DependencyInjection.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwB4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T07:02:42.659Z",
+              "WhenOpened": "2024-09-21T09:07:58.168Z",
               "EditorCaption": ""
             }
           ]
