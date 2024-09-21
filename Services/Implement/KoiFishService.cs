@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 
 namespace Services.Implement
 {
@@ -45,19 +46,9 @@ namespace Services.Implement
             {
                 throw new Exception($"Koi with ID{id} is not found");
             }
-            await _koiFishRepository.RemoveAsync(koi);
+            koi.IsDeleted = true;
+            await _koiFishRepository.UpdateAsync(koi);
             return koi;
-        }
-
-        public async Task DeleteOrEnable(int koiId, bool isDeleted)
-        {
-            var koi = await _koiFishRepository.GetAsync(x => x.Id == koiId);
-            if (koi == null)
-            {
-                throw new Exception($"Koi with ID{koiId} is not found");
-            }
-            koi.IsDeleted = isDeleted;
-            await _koiFishRepository.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<KoiFish>> GetAllKoiFishes()
@@ -68,6 +59,21 @@ namespace Services.Implement
         public async Task<KoiFish> GetKoiFishById(int id)
         {
             return await _koiFishRepository.GetByIdAsync(id);
+        }
+
+        public async Task<KoiFish> RestoreKoiFish(int id)
+        {
+            var koi = await _koiFishRepository.GetByIdAsync(id);
+            if (koi == null)
+            {
+                throw new Exception($"Koi with ID{id} is not found");
+            }
+            if (koi.IsDeleted == true)
+            {
+                koi.IsDeleted = false;
+                await _koiFishRepository.UpdateAsync(koi);
+            }
+            return koi;
         }
 
         public async Task<KoiFish> UpdateKoiFish(int id, UpdateKoiFishDTO updateKoiFish)

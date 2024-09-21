@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Helpers;
+using BusinessObjects.Models;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Interface;
 using System;
@@ -10,23 +11,18 @@ using System.Threading.Tasks;
 
 namespace Repositories.Implement
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly KoiFarmShopContext _context;
-        public DbSet<T> _dbSet;
-        private readonly ICurrentTime _currentTime;
-        
+        public DbSet<T> _dbSet;        
 
-        public GenericRepository(KoiFarmShopContext context, ICurrentTime currentTime)
+        public GenericRepository(KoiFarmShopContext context)
         {
             _context = context;
-            _dbSet = _context.Set<T>();
-            _currentTime = currentTime;
-            
+            _dbSet = _context.Set<T>();            
         }
         public async Task<int> AddAsync(T entity)
         {
-            entity.CreatedDate = _currentTime.GetCurrentTime();
             _context.Add(entity);
             return await _context.SaveChangesAsync();
         }
@@ -34,6 +30,32 @@ namespace Repositories.Implement
         public void Delete(T entity)
         {
             _dbSet.Remove(entity);
+        }
+
+        public async Task<bool> DeleteAsync(T entity)
+        {
+            if (entity is ISoftDelete softDeletableEntity) // cái này để check xem entity nào có IsDeleted không
+            {
+                if (softDeletableEntity.IsDeleted == true)
+                {
+                    // Thực hiện hard delete
+                    _dbSet.Remove(entity);
+                }
+                else
+                {
+                    // Thực hiện soft delete
+                    softDeletableEntity.IsDeleted = true;
+                    _dbSet.Update(entity);
+                }
+            }
+            else
+            {
+                // Thực hiện hard delete cho các bảng không có IsDeleted
+                _dbSet.Remove(entity);
+            }
+
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public DbSet<T> Entities()
@@ -63,16 +85,8 @@ namespace Repositories.Implement
             await _context.SaveChangesAsync();
         }
 
-        public void SoftRemove(T entity)
-        {
-            entity.IsDeleted = true;
-            entity.DeletedDate = _currentTime.GetCurrentTime();
-            _dbSet.Update(entity);
-        }
-
         public void Update(T entity)
         {
-            entity.ModifiedDate = _currentTime.GetCurrentTime();
             _dbSet.Update(entity);
         }
 
@@ -80,27 +94,35 @@ namespace Repositories.Implement
         {
             var tracker = _context.Attach(entity);
             tracker.State = EntityState.Modified;
-            entity.ModifiedDate = _currentTime.GetCurrentTime();
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<T?> GetAsync(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
+        public async Task<IEnumerable<T>> GetAllNotDeletedAsync()
         {
-            IQueryable<T> query = _dbSet;
-            if (filter != null)
+            if (typeof(ISoftDelete).IsAssignableFrom(typeof(T)))
             {
-                query = query.Where(filter);
+                return await _dbSet.Cast<ISoftDelete>().Where(e => e.IsDeleted == false).Cast<T>().ToListAsync();
             }
 
-            if (includeProperties != null)
+            return await _dbSet.ToListAsync(); // Nếu không hỗ trợ soft delete, trả về tất cả các bản ghi
+        }
+
+        public async Task<bool> RestoreAsync(T entity)
+        {
+            // cái này để check xem entity nào có IsDeleted không
+            if (entity is ISoftDelete softDeletableEntity)
             {
-                foreach (var includeProp in includeProperties.Split(new char[] { ',' },
-                             StringSplitOptions.RemoveEmptyEntries))
+                // Nếu đã bị soft delete, đặt lại IsDeleted thành false
+                if (softDeletableEntity.IsDeleted == true)
                 {
-                    query = query.Include(includeProp);
+                    softDeletableEntity.IsDeleted = false; // Khôi phục lại entity
+                    _dbSet.Update(entity);
+                    await _context.SaveChangesAsync();
+                    return true;
                 }
             }
-            return await query.FirstOrDefaultAsync();
+
+            throw new InvalidOperationException("This entity does not support soft delete or is not deleted.");
         }
     }
 }

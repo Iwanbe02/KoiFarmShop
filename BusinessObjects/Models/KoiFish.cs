@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BusinessObjects.Helpers;
+using System;
 using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class KoiFish : BaseEntity
+public partial class KoiFish : ISoftDelete
 {
     public int Id { get; set; }
 

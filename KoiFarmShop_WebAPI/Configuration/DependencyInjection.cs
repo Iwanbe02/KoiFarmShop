@@ -11,7 +11,6 @@ namespace KoiFarmShop_WebAPI.Configuration
         public static IServiceCollection AddRepository(this IServiceCollection services)
         {
             services.AddScoped<IKoiFishRepository, KoiFishRepository>();
-            services.AddSingleton<ICurrentTime, CurrentTime>();
             
             return services;
         }

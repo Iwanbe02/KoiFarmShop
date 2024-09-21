@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace Repositories.Interface
 {
-    public interface IGenericRepository<T> where T : BaseEntity
+    public interface IGenericRepository<T> where T : class
     {
         DbSet<T> Entities();
         Task<T> GetByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
-        Task<T?> GetAsync(Expression<Func<T, bool>>? filter = null, string? includeProperties = null);
+        Task<IEnumerable<T>> GetAllNotDeletedAsync();
         Task<int> AddAsync(T entity);
         void Update(T entity);
         void Delete(T entity);
-        void SoftRemove(T entity);
         Task<bool> RemoveAsync(T entity);
         Task SaveChangesAsync();
         Task<int> UpdateAsync(T entity);
+        Task<bool> RestoreAsync(T entity);
     }
 }

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BusinessObjects.Helpers;
+using System;
 using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class CartDetail 
+public partial class CartDetail : ISoftDelete
 {
     public int Id { get; set; }
 

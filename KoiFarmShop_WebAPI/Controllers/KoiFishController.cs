@@ -41,13 +41,13 @@ namespace KoiFarmShop_WebAPI.Controllers
         public async Task<IActionResult> UpdateKoiFish(int Id, UpdateKoiFishDTO updateKoiFishDTO)
         {
             var koi = await _koiFishService.UpdateKoiFish(Id, updateKoiFishDTO);
-            return Ok();
+            return Ok(koi);
         }
 
         [HttpPut("{Id}/{isDeleted}")]
-        public async Task<IActionResult> DeleteOrEnable(int koiId, int isDeleted)
+        public async Task<IActionResult> DeleteOrEnable(int Id)
         {
-            await _koiFishService.DeleteOrEnable(koiId, isDeleted > 0);
+            await _koiFishService.RestoreKoiFish(Id);
             return Ok();
         }
 
@@ -55,7 +55,7 @@ namespace KoiFarmShop_WebAPI.Controllers
         public async Task<IActionResult> DeleteKoiFish(int Id)
         {
             var koi = await _koiFishService.DeleteKoiFish(Id);
-            return Ok(koi);
+            return Ok();
         }
     }
 }

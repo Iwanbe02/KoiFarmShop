@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repositories.Interface
+namespace BusinessObjects.Helpers
 {
-    public interface ICurrentTime
+    public interface ISoftDelete
     {
-        public DateTime GetCurrentTime();
+        bool? IsDeleted { get; set; }
     }
 }

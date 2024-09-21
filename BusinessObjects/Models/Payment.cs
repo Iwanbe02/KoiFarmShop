@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BusinessObjects.Helpers;
+using System;
 using System.Collections.Generic;
 
 namespace BusinessObjects.Models;
 
-public partial class Payment : BaseEntity
+public partial class Payment : ISoftDelete
 {
     public int Id { get; set; }
 
