@@ -11,14 +11,14 @@ namespace KoiFarmShop_WebAPI.Configuration
         public static IServiceCollection AddRepository(this IServiceCollection services)
         {
             services.AddScoped<IKoiFishRepository, KoiFishRepository>();
-            
+            services.AddScoped<IKoiFishyRepository, KoiFishyRepository>();
             return services;
         }
 
         public static IServiceCollection AddService(this IServiceCollection services)
         {
             services.AddScoped<IKoiFishService, KoiFishService>();
-            
+            services.AddScoped<IKoiFishyService, KoiFishyService>();
             return services;
         }
     }
