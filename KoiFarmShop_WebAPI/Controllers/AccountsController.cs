@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BusinessObjects.Models;
+using DataAccessObjects.DTOs.AccountDTO;
+using DataAccessObjects.DTOs.CartDTO;
+using DataAccessObjects.DTOs.KoiFishDTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using BusinessObjects.Models;
 using Services.Interface;
-using DataAccessObjects.DTOs.AccountDTO;
-using Services.Implement;
 
 namespace KoiFarmShop_WebAPI.Controllers
 {
@@ -18,9 +14,9 @@ namespace KoiFarmShop_WebAPI.Controllers
     {
         private readonly IAccountService _accountService;
 
-        public AccountsController(IAccountService _accountService)
+        public AccountsController(IAccountService accountService)
         {
-            _accountService = _accountService;
+            _accountService = accountService;
         }
 
         // GET: api/Accounts
@@ -41,16 +37,16 @@ namespace KoiFarmShop_WebAPI.Controllers
 
 
         // POST: api/Accounts
-        
+
         [HttpPost]
-        public async Task<ActionResult<Account>> CreateAccount(CreateAccountDTO createAccountDTO) 
+        public async Task<ActionResult<Account>> CreateAccount(CreateAccountDTO createAccountDTO)
         {
             var account = await _accountService.CreateAccount(createAccountDTO);
             return Ok(account);
         }
 
         // PUT: api/Accounts/5
-        [HttpPut("{Id")]
+        [HttpPut("{Id}")]
 
         public async Task<IActionResult> UpdateAccount(int Id, UpdateAccountDTO updateAccountDTO)
         {
