@@ -19,6 +19,7 @@ namespace KoiFarmShop_WebAPI.Configuration
             services.AddScoped<ICartDetailRepository, CartDetailRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IConsignmentRepository, ConsignmentRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             return services;
         }
 
@@ -33,7 +34,7 @@ namespace KoiFarmShop_WebAPI.Configuration
             services.AddScoped<ICartDetailService, CartDetailService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IConsignmentService, ConsignmentService>();
-
+            services.AddScoped<IUserServices, UserService>();
             return services;
         }
     }

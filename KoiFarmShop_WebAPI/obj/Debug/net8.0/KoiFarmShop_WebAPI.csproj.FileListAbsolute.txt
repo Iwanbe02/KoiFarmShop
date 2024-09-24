@@ -312,3 +312,4 @@ D:\1\PRN231_SWP391\SWP391\KoiFarmShop\KoiFarmShop_WebAPI\bin\Debug\net8.0\Micros
 D:\1\PRN231_SWP391\SWP391\KoiFarmShop\KoiFarmShop_WebAPI\bin\Debug\net8.0\Microsoft.OData.Edm.dll
 D:\1\PRN231_SWP391\SWP391\KoiFarmShop\KoiFarmShop_WebAPI\bin\Debug\net8.0\Microsoft.OData.ModelBuilder.dll
 D:\1\PRN231_SWP391\SWP391\KoiFarmShop\KoiFarmShop_WebAPI\bin\Debug\net8.0\Microsoft.Spatial.dll
+D:\1\PRN231_SWP391\SWP391\KoiFarmShop\KoiFarmShop_WebAPI\bin\Debug\net8.0\BCrypt.Net-Next.dll
