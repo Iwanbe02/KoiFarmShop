@@ -9,5 +9,7 @@ namespace Repositories.Interface
 {
     public interface IAccountRepository : IGenericRepository<Account>
     {
+      
+        
     }
 }
