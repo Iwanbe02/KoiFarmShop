@@ -11,5 +11,6 @@ namespace BusinessObjects.ResDto
         public required string Token { get; set; }
         public required string Fullname { get; set; }
         public required string Email { get; set; }
+        public required string Role { get; set; }
     }
 }

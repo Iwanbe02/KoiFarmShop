@@ -43,7 +43,8 @@ namespace Services.Implement
                 {
                     Token = GenerateJwtToken(user),
                     Fullname = user.Name,
-                    Email = user.Email
+                    Email = user.Email,
+                    Role = user.Role.Role1
                 },
                 Message = "Login Successfully"
             };

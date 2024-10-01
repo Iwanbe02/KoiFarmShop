@@ -23,7 +23,7 @@ namespace Repositories.Implement
             _koi.SaveChanges();
         }
 
-        public Account GetByEmail(string email)
+        public Account? GetByEmail(string email)
         {
             return _koi.Accounts.SingleOrDefault(u => u.Email == email);
         }

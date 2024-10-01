@@ -8,7 +8,7 @@ namespace DataAccessObjects.DTOs.ConsignmentDTO
 {
     public class UpdateConsignmentDTO
     {
-        public int Id { get; set; }
+
 
         public int? AccountId { get; set; }
 

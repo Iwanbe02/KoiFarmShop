@@ -24,6 +24,37 @@ namespace Services.Implement
             _accountRepository = accountRepository;
         }
 
+        public async Task<IEnumerable<GetAccountsResDTO>> GetAllAccountsAsync()
+        {
+            try
+            {
+                var accounts = await _accountRepository.GetAccountsAsync();
+                var accountDTOs = accounts.Select(account => new GetAccountsResDTO
+                {
+                    Id = account.Id,
+                    Name = account.Name,
+                    Role = account.Role.Role1,
+                    Gender = account.Gender,
+                    Email = account.Email,
+                    Phone = account.Phone,
+                    Address = account.Address,
+                    DateOfBirth = account.DateOfBirth,
+                    Point = account.Point,
+                    Status = account.Status,
+                    CreatedDate = account.CreatedDate,
+                    ModifiedDate = account.ModifiedDate,
+                    DeletedDate = account.DeletedDate,
+                    IsDeleted = account.IsDeleted
+                }).ToList();
+
+                return accountDTOs;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task<Account> CreateAccount(CreateAccountDTO createAccount)
         {
             var account = new Account
@@ -46,7 +77,7 @@ namespace Services.Implement
         public async Task<Account> DeleteAccount(int id)
         {
             var account = await _accountRepository.GetByIdAsync(id);
-            if(account == null)
+            if (account == null)
             {
                 throw new Exception($"Cart with ID{id} is not found");
             }
@@ -83,7 +114,7 @@ namespace Services.Implement
         public async Task<Account> UpdateAccount(int id, UpdateAccountDTO updateAccount)
         {
             var account = await _accountRepository.GetByIdAsync(id);
-            if (account == null )
+            if (account == null)
             {
                 throw new Exception($"Cart with ID{id} is not found");
             }
@@ -101,5 +132,7 @@ namespace Services.Implement
             await _accountRepository.UpdateAsync(account);
             return account;
         }
+
+
     }
 }

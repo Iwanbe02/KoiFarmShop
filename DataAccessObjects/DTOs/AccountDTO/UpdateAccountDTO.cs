@@ -8,7 +8,7 @@ namespace DataAccessObjects.DTOs.AccountDTO
 {
     public class UpdateAccountDTO
     {
-        public int Id { get; set; }
+       
 
         public string? Name { get; set; }
 

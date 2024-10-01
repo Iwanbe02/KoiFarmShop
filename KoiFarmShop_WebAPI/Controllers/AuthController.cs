@@ -11,10 +11,12 @@ namespace KoiFarmShop_WebAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IUserServices _userService;
+        private readonly IAccountService _accountService;
 
-        public AuthController(IUserServices userService)
+        public AuthController(IUserServices userService, IAccountService accountService)
         {
             _userService = userService;
+            _accountService = accountService;
         }
 
         [HttpPost("register")]

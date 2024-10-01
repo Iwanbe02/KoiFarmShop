@@ -9,7 +9,7 @@ namespace Repositories.Interface
 {
     public interface IUserRepository
     {
-        Account GetByEmail(string email);
+        Account? GetByEmail(string email);
         void AddUser(Account account);
     }
 }

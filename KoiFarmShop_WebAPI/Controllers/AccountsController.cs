@@ -2,14 +2,16 @@
 using DataAccessObjects.DTOs.AccountDTO;
 using DataAccessObjects.DTOs.CartDTO;
 using DataAccessObjects.DTOs.KoiFishDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using Services.Implement;
 using Services.Interface;
 
 namespace KoiFarmShop_WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/accounts")]
     [ApiController]
     public class AccountsController : ControllerBase
     {
@@ -21,12 +23,19 @@ namespace KoiFarmShop_WebAPI.Controllers
             _accountService = accountService;
         }
 
-        // GET: api/Accounts
+        // GET: api/accounts
         [HttpGet]
-        public async Task<IActionResult> GetAllAccounts()
+        public async Task<IActionResult> GetAllAccountsAsync()
         {
-            var account = await _accountService.GetAllAccounts();
-            return Ok(account);
+            try
+            {
+                var account = await _accountService.GetAllAccountsAsync();
+                return Ok(account);
+            }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         // GET: api/Accounts/5
@@ -39,7 +48,6 @@ namespace KoiFarmShop_WebAPI.Controllers
 
 
         // POST: api/Accounts
-
         [HttpPost]
         public async Task<ActionResult<Account>> CreateAccount(CreateAccountDTO createAccountDTO)
         {
