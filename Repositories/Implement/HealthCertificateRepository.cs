@@ -10,9 +10,8 @@ namespace Repositories.Implement
 {
     public class HealthCertificateRepository : GenericRepository<HealthCertificate>, IHealthCertificateRepository
     {
-        public HealthCertificateRepository(KoiFarmShopContext context): base(context) 
+        public HealthCertificateRepository(KoiFarmShopContext context) : base(context)
         {
-
         }
     }
 }

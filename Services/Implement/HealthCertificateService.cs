@@ -12,41 +12,79 @@ namespace Services.Implement
 {
     public class HealthCertificateService : IHealthCertificateService
     {
-        private readonly IHealthCertificateRepository _healthCertificateRepository;
+       private readonly IHealthCertificateRepository _healthCertificaterepository;
 
        public HealthCertificateService(IHealthCertificateRepository healthCertificateRepository)
         {
-            _healthCertificateRepository = healthCertificateRepository;
+            _healthCertificaterepository = healthCertificateRepository;
         }
 
-        public Task<HealthCertificate> CreateHealthCertificate(CreateHealthCertificateDTO healthCertificate)
+        public async Task<HealthCertificate> CreateHealthCertificate(CreateHealthCertificateDTO createHealthCertificate)
         {
-            throw new NotImplementedException();
+            var healthCertificate = new HealthCertificate
+            {
+                KoiId = createHealthCertificate.KoiId,
+                OrderId = createHealthCertificate.OrderId,
+                Status = createHealthCertificate.Status,
+                StartTime = createHealthCertificate.StartTime,
+                EndTime = createHealthCertificate.EndTime,
+            };
+            await _healthCertificaterepository.AddAsync(healthCertificate);
+            return healthCertificate;
         }
 
-        public Task<HealthCertificate> DeleteHealthCertificate(int id)
+        public async Task<HealthCertificate> DeleteHealthCertificate(int id)
         {
-            throw new NotImplementedException();
+            var healthCertificate = await _healthCertificaterepository.GetByIdAsync(id);
+            if(healthCertificate == null)
+            {
+                throw new Exception($"HealthCertificate with ID{id} is not found");
+            }
+            healthCertificate.IsDeleted = true;
+            await _healthCertificaterepository.UpdateAsync(healthCertificate);
+            return healthCertificate;
         }
 
-        public Task<IEnumerable<HealthCertificate>> GetAllHealthCertificates()
+        public async Task<IEnumerable<HealthCertificate>> GetAllHealthCertificates()
         {
-            throw new NotImplementedException();
+            return await _healthCertificaterepository.GetAllAsync();
         }
 
-        public Task<HealthCertificate> GetHealthCertificateById(int id)
+        public async Task<HealthCertificate> GetHealthCertificateById(int id)
         {
-            throw new NotImplementedException();
+            return await _healthCertificaterepository.GetByIdAsync(id);
         }
 
-        public Task<HealthCertificate> RestoreHealthCertificate(int id)
+        public async Task<HealthCertificate> RestoreHealthCertificate(int id)
         {
-            throw new NotImplementedException();
+            var healthCertificate = await GetHealthCertificateById(id);
+            if (healthCertificate == null)
+            {
+                throw new Exception($"HealthCertificate with ID{id} is not found");
+            }
+            if (healthCertificate.IsDeleted == true)
+            {
+                healthCertificate.IsDeleted = true;
+                await _healthCertificaterepository.UpdateAsync(healthCertificate);
+            }
+            return healthCertificate;
         }
 
-        public Task<HealthCertificate> UpdateHealthCertificate(int id, UpdateHealthCertificateDTO healthCertificate)
+        public async Task<HealthCertificate> UpdateHealthCertificate(int id, UpdateHealthCertificateDTO updatehealthCertificate)
         {
-            throw new NotImplementedException();
+            var healthCertificate = await _healthCertificaterepository.GetByIdAsync(id);
+            if (updatehealthCertificate == null )
+            {
+                throw new Exception($"HealthCertificate with ID{id} is not found");
+            }
+            healthCertificate.KoiId = updatehealthCertificate.KoiId;
+            healthCertificate.OrderId = updatehealthCertificate.OrderId;
+            healthCertificate.Status = updatehealthCertificate.Status;
+            healthCertificate.StartTime = updatehealthCertificate.StartTime;
+            healthCertificate.EndTime = updatehealthCertificate.EndTime;
+
+            await _healthCertificaterepository.UpdateAsync(healthCertificate);
+            return healthCertificate;
         }
     }
 }
