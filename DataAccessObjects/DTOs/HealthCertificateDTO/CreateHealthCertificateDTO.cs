@@ -8,7 +8,7 @@ namespace DataAccessObjects.DTOs.HealthCertificateDTO
 {
     public class CreateHealthCertificateDTO
     {
-        public int Id { get; set; }
+        
 
         public int? KoiId { get; set; }
 

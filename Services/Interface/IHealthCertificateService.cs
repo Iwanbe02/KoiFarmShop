@@ -12,8 +12,8 @@ namespace Services.Interface
     {
         Task<IEnumerable<HealthCertificate>> GetAllHealthCertificates();
         Task<HealthCertificate> GetHealthCertificateById(int id);
-        Task<HealthCertificate> CreateHealthCertificate(CreateHealthCertificateDTO healthCertificate);
-        Task<HealthCertificate> UpdateHealthCertificate(int id, UpdateHealthCertificateDTO healthCertificate);
+        Task<HealthCertificate> CreateHealthCertificate(CreateHealthCertificateDTO createHealthCertificate);
+        Task<HealthCertificate> UpdateHealthCertificate(int id, UpdateHealthCertificateDTO updateHealthCertificate);
         Task<HealthCertificate> DeleteHealthCertificate(int id);
         Task<HealthCertificate> RestoreHealthCertificate(int id);
     }
