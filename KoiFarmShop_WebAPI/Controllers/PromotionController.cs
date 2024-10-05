@@ -46,7 +46,7 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPut("{Id}/{isDeleted}")]
-        public async Task<IActionResult> RestorePtomotion(int Id)
+        public async Task<IActionResult> RestorePromotion(int Id)
         {
             await _promotionService.RestorePromotion(Id); 
             return Ok();
