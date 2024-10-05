@@ -8,6 +8,18 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    /*options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://example.com",
+                                              "http://www.contoso.com");
+                      });*/
+});
+
 builder.Services.AddDbContext<KoiFarmShopContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionStringDB");
@@ -75,6 +87,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 
+app.UseCors(MyAllowSpecificOrigins);
+app.UseCors(x => x.AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .SetIsOriginAllowed(origin => true)
+                  .AllowCredentials());
 app.UseAuthorization();
 
 app.MapControllers();
