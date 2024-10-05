@@ -8,11 +8,11 @@ namespace KoiFarmShop_WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HealthCertificateControllers : ControllerBase
+    public class HealthCertificateController : ControllerBase
     {
         private readonly IHealthCertificateService _healthCertificateService;
 
-        public HealthCertificateControllers(IHealthCertificateService healthCertificateService)
+        public HealthCertificateController(IHealthCertificateService healthCertificateService)
         {
             _healthCertificateService = healthCertificateService;
         }

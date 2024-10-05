@@ -40,7 +40,7 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPut("{Id}")]
-       public async Task<IActionResult> UodateOriginCertificate(int Id, UpdateOriginCertificateDTO updateOriginCertificateDTO)
+       public async Task<IActionResult> UpdateOriginCertificate(int Id, UpdateOriginCertificateDTO updateOriginCertificateDTO)
         {
             var originCertificate = await _origincertificateService.UpdateOriginCertificate(Id, updateOriginCertificateDTO);
             return Ok(originCertificate);
