@@ -8,5 +8,12 @@ namespace DataAccessObjects.DTOs.FeedbackDTO
 {
     public class CreateFeedbackDTO
     {
+        public int? AccountId { get; set; }
+
+        public string? Status { get; set; }
+
+        public string? Description { get; set; }
+
+        public double? Rating { get; set; }
     }
 }
