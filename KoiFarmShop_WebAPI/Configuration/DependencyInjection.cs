@@ -20,6 +20,11 @@ namespace KoiFarmShop_WebAPI.Configuration
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IConsignmentRepository, ConsignmentRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IHealthCertificateRepository, HealthCertificateRepository>();
+            services.AddScoped<IOriginCertificateRepository, OriginCertificateRepository>();
+            services.AddScoped<IPromotionRepository, PromotionRepository>();
+            services.AddScoped<IRewardCertificateRepository, RewardCertificateRepository>();
+            services.AddScoped<IFeedbackRepository, FeedbackRepository>();
             return services;
         }
 
@@ -35,6 +40,11 @@ namespace KoiFarmShop_WebAPI.Configuration
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IConsignmentService, ConsignmentService>();
             services.AddScoped<IUserServices, UserService>();
+            services.AddScoped<IHealthCertificateService, HealthCertificateService>();
+            services.AddScoped<IOriginCertificateService, OriginCertificateService>();
+            services.AddScoped<IPromotionService, PromotionService>();
+            services.AddScoped<IRewardCertificateService, RewardCertificateService>();
+            services.AddScoped<IFeedbackService, FeedbackService>();
             return services;
         }
     }

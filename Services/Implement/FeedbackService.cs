@@ -1,6 +1,7 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects.DTOs.FeedbackDTO;
 using Repositories.Interface;
+using Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Services.Implement
 {
-    public class FeedbackService
+    public class FeedbackService : IFeedbackService
     {
         private readonly IFeedbackRepository _feedbackRepository;
 
@@ -43,7 +44,9 @@ namespace Services.Implement
             return feedback;
         }
 
-        public async Task<IEnumerable<Feedback>> GetAllFeedback()
+      
+
+        public async Task<IEnumerable<Feedback>> GetAllFeedbacks()
         {
             return await _feedbackRepository.GetAllAsync();
         }
