@@ -10,6 +10,8 @@ namespace DataAccessObjects.DTOs.KoiFishyDTO
     {
         public int? CategoryId { get; set; }
 
+        public decimal? Price { get; set; }
+
         public int? Quantity { get; set; }
 
         public string? Status { get; set; }

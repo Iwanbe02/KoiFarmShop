@@ -26,6 +26,7 @@ namespace Services.Implement
                 AccountId = createConsignment.AccountId,
                 KoiId = createConsignment.KoiId,
                 PaymentId = createConsignment.PaymentId,
+                Price = createConsignment.Price,
                 StartTime = createConsignment.StartTime,
                 EndTime = createConsignment.EndTime,
                 Status = createConsignment.Status,
@@ -82,6 +83,7 @@ namespace Services.Implement
             consignment.AccountId = updateConsignment.AccountId;
             consignment.KoiId = updateConsignment.KoiId;
             consignment.PaymentId = updateConsignment.PaymentId;
+            consignment.Price = updateConsignment.Price;
             consignment.StartTime = updateConsignment.StartTime;
             consignment.EndTime = updateConsignment.EndTime;
             consignment.Status = updateConsignment.Status;
