@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\",
   "Documents": [
     {
@@ -22,6 +23,21 @@
       "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|c:\\users\\hwy\\onedrive\\documents\\github\\koifarmshop\\services\\implement\\koifishservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\implement\\koifishservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
 >>>>>>> Stashed changes
+=======
+  "WorkspaceRootPath": "E:\\code\\SWP391\\KoiFarmShop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|e:\\code\\swp391\\koifarmshop\\services\\implement\\consignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\implement\\consignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|e:\\code\\swp391\\koifarmshop\\services\\implement\\koifishyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\implement\\koifishyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|e:\\code\\swp391\\koifarmshop\\services\\implement\\koifishservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\implement\\koifishservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
     }
   ],
   "DocumentGroupContainers": [
@@ -31,6 +47,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
 <<<<<<< Updated upstream
           "SelectedChildIndex": 0,
           "Children": [
@@ -45,6 +62,9 @@
               "ViewState": "AgIAABMAAAAAAAAAAAApwCkAAAAyAAAAAAAAAA==",
 =======
           "SelectedChildIndex": 89,
+=======
+          "SelectedChildIndex": 90,
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
           "Children": [
             {
               "$type": "Bookmark",
@@ -406,6 +426,7 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ConsignmentService.cs",
+<<<<<<< HEAD
               "DocumentMoniker": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\Services\\Implement\\ConsignmentService.cs",
               "RelativeDocumentMoniker": "Services\\Implement\\ConsignmentService.cs",
               "ToolTip": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\Services\\Implement\\ConsignmentService.cs",
@@ -414,11 +435,21 @@
 >>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T04:01:00.775Z",
+=======
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\ConsignmentService.cs",
+              "RelativeDocumentMoniker": "Services\\Implement\\ConsignmentService.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\ConsignmentService.cs",
+              "RelativeToolTip": "Services\\Implement\\ConsignmentService.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAswFUAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T11:30:51.994Z",
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< HEAD
 <<<<<<< Updated upstream
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\KoiFarmShop_WebAPI\\Program.cs",
@@ -437,11 +468,23 @@
               "ViewState": "AQIAAEEAAAAAAAAAAAAswE4AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T11:30:13.567Z"
+=======
+              "Title": "KoiFishyService.cs",
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\KoiFishyService.cs",
+              "RelativeDocumentMoniker": "Services\\Implement\\KoiFishyService.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\KoiFishyService.cs",
+              "RelativeToolTip": "Services\\Implement\\KoiFishyService.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAswE4AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T11:30:13.567Z",
+              "EditorCaption": ""
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "KoiFishService.cs",
+<<<<<<< HEAD
               "DocumentMoniker": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\Services\\Implement\\KoiFishService.cs",
               "RelativeDocumentMoniker": "Services\\Implement\\KoiFishService.cs",
               "ToolTip": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\Services\\Implement\\KoiFishService.cs",
@@ -449,6 +492,16 @@
               "ViewState": "AQIAAFUAAAAAAAAAAAAwwFcAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T11:29:42.483Z"
+=======
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\KoiFishService.cs",
+              "RelativeDocumentMoniker": "Services\\Implement\\KoiFishService.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\KoiFishService.cs",
+              "RelativeToolTip": "Services\\Implement\\KoiFishService.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAwwFcAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T11:29:42.483Z",
+              "EditorCaption": ""
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
             }
           ]
         },

@@ -3177,11 +3177,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Hwy\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\toanc\\.nuget\\packages\\": {}
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj",
       "projectName": "DataAccessObjects",
       "projectPath": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj",
@@ -3190,6 +3195,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hwy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj",
+      "projectName": "DataAccessObjects",
+      "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj",
+      "packagesPath": "C:\\Users\\toanc\\.nuget\\packages\\",
+      "outputPath": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\toanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3204,8 +3219,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj": {
               "projectPath": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj"
+=======
+            "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj": {
+              "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\BusinessObjects.csproj"
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
             }
           }
         }
@@ -3240,7 +3260,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
       }
     }
   }
