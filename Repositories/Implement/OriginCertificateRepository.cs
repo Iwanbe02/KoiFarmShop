@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Repositories.Implement
 {
-    public class HealthCertificateRepository : GenericRepository<HealthCertificate>, IHealthCertificateRepository
+    public class OriginCertificateRepository : GenericRepository<OriginCertificate>, IOriginCertificateRepository
     {
-        public HealthCertificateRepository(KoiFarmShopContext context) : base(context)
+        public OriginCertificateRepository(KoiFarmShopContext context) : base(context)
         {
         }
     }

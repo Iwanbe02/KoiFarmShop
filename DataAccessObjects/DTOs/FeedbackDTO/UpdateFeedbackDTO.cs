@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessObjects.DTOs.FeedbackDTO
 {
-    public class CreateFeedbackDTO
+    public class UpdateFeedbackDTO
     {
         public int? AccountId { get; set; }
 

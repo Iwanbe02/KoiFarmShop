@@ -4,20 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessObjects.DTOs.HealthCertificateDTO
+namespace DataAccessObjects.DTOs.OrriginCetificateDTO
 {
-    public class CreateHealthCertificateDTO
+    public class CreateOriginCertificateDTO
     {
-        
-
         public int? KoiId { get; set; }
 
         public int? OrderId { get; set; }
 
-        public string? Status { get; set; }
-
         public DateTime? StartTime { get; set; }
 
         public DateTime? EndTime { get; set; }
+
     }
 }
