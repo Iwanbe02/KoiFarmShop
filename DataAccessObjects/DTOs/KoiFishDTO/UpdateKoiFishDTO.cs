@@ -10,6 +10,8 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
     {
         public int CategoryId { get; set; }
 
+        public decimal? Price { get; set; }
+
         public string Origin { get; set; } = null!;
 
         public string Gender { get; set; } = null!;

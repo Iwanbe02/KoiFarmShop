@@ -23,6 +23,7 @@ namespace Services.Implement
             var koi = new KoiFishy
             {
                 CategoryId = createKoiFishy.CategoryId,
+                Price = createKoiFishy.Price,
                 Quantity = createKoiFishy.Quantity,
                 Status = createKoiFishy.Status,
             };
@@ -75,6 +76,7 @@ namespace Services.Implement
                 throw new Exception($"Koi with ID{id} is not found");
             }
             koi.CategoryId = updateKoiFishy.CategoryId;
+            koi.Price = updateKoiFishy.Price;
             koi.Quantity = updateKoiFishy.Quantity;
             koi.Status = updateKoiFishy.Status;
 
