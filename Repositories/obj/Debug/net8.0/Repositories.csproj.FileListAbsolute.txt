@@ -12,6 +12,7 @@ E:\code\SWP391\KoiFarmShop_WebAPI\Repositories\obj\Debug\net8.0\ref\Repositories
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\obj\Debug\net8.0\Repositories.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\obj\Debug\net8.0\refint\Repositories.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\obj\Debug\net8.0\Repositories.pdb
+<<<<<<< Updated upstream
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\bin\Debug\net8.0\Repositories.deps.json
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\bin\Debug\net8.0\Repositories.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\bin\Debug\net8.0\Repositories.pdb
@@ -27,3 +28,5 @@ C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\obj\Debug\net8.0
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\obj\Debug\net8.0\Repositories.sourcelink.json
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\obj\Debug\net8.0\Reposito.787EC4B2.Up2Date
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Repositories\obj\Debug\net8.0\ref\Repositories.dll
+=======
+>>>>>>> Stashed changes

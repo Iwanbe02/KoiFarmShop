@@ -12,6 +12,7 @@ E:\code\SWP391\KoiFarmShop_WebAPI\Services\obj\Debug\net8.0\ref\Services.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\obj\Debug\net8.0\Services.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\obj\Debug\net8.0\refint\Services.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\obj\Debug\net8.0\Services.pdb
+<<<<<<< Updated upstream
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\bin\Debug\net8.0\Services.deps.json
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\bin\Debug\net8.0\Services.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\bin\Debug\net8.0\Services.pdb
@@ -29,3 +30,5 @@ C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\obj\Debug\net8.0\Ser
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\obj\Debug\net8.0\Services.sourcelink.json
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\obj\Debug\net8.0\Services.csproj.Up2Date
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\Services\obj\Debug\net8.0\ref\Services.dll
+=======
+>>>>>>> Stashed changes

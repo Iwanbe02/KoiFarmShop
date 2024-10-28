@@ -12,6 +12,7 @@ E:\code\SWP391\KoiFarmShop_WebAPI\DataAccessObjects\obj\Debug\net8.0\ref\DataAcc
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\obj\Debug\net8.0\refint\DataAccessObjects.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.pdb
+<<<<<<< Updated upstream
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.deps.json
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\bin\Debug\net8.0\DataAccessObjects.pdb
@@ -25,3 +26,5 @@ C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\obj\Debug\n
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\obj\Debug\net8.0\DataAccessObjects.sourcelink.json
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\obj\Debug\net8.0\DataAcce.79975846.Up2Date
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\DataAccessObjects\obj\Debug\net8.0\ref\DataAccessObjects.dll
+=======
+>>>>>>> Stashed changes

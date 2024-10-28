@@ -33,6 +33,7 @@ E:\code\SWP391\KoiFarmShop_WebAPI\KoiFarmShop_WebAPI\obj\Debug\net8.0\ref\KoiFar
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\obj\Debug\net8.0\KoiFarmShop_WebAPI.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\obj\Debug\net8.0\refint\KoiFarmShop_WebAPI.dll
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\obj\Debug\net8.0\KoiFarmShop_WebAPI.pdb
+<<<<<<< Updated upstream
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\bin\Debug\net8.0\appsettings.json
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\bin\Debug\net8.0\KoiFarmShop_WebAPI.staticwebassets.runtime.json
@@ -314,3 +315,5 @@ C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\obj\Debug\
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\obj\Debug\net8.0\KoiFarmS.9E3C4711.Up2Date
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\obj\Debug\net8.0\KoiFarmShop_WebAPI.genruntimeconfig.cache
 C:\Users\Hwy\OneDrive\Documents\GitHub\KoiFarmShop\KoiFarmShop_WebAPI\obj\Debug\net8.0\ref\KoiFarmShop_WebAPI.dll
+=======
+>>>>>>> Stashed changes
