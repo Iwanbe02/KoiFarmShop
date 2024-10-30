@@ -16,6 +16,8 @@ namespace DataAccessObjects.DTOs.ConsignmentDTO
 
         public int? PaymentId { get; set; }
 
+        public decimal? Price { get; set; }
+
         public DateTime? StartTime { get; set; }
 
         public DateTime? EndTime { get; set; }

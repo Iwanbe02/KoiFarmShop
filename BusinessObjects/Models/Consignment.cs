@@ -18,6 +18,8 @@ public partial class Consignment
    
     public int? PaymentId { get; set; }
 
+    public decimal? Price { get; set; }
+
     public DateTime? StartTime { get; set; }
 
     public DateTime? EndTime { get; set; }
