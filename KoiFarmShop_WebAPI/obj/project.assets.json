@@ -11881,11 +11881,25 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
+    "C:\\Users\\Hwy\\.nuget\\packages\\": {}
+=======
     "C:\\Users\\toanc\\.nuget\\packages\\": {}
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj",
+      "projectName": "KoiFarmShop_WebAPI",
+      "projectPath": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj",
+      "packagesPath": "C:\\Users\\Hwy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\KoiFarmShop_WebAPI\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Hwy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
       "projectUniqueName": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj",
       "projectName": "KoiFarmShop_WebAPI",
       "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj",
@@ -11894,6 +11908,7 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\toanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11901,14 +11916,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
+            "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\Services\\Services.csproj": {
+              "projectPath": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\Services\\Services.csproj"
+=======
             "E:\\code\\SWP391\\KoiFarmShop\\Services\\Services.csproj": {
               "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Services.csproj"
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
             }
           }
         }
@@ -11990,7 +12011,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
       }
     }
   }

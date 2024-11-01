@@ -5984,11 +5984,25 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
+    "C:\\Users\\Hwy\\.nuget\\packages\\": {}
+=======
     "C:\\Users\\toanc\\.nuget\\packages\\": {}
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\Repositories\\Repositories.csproj",
+      "projectName": "Repositories",
+      "projectPath": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\Repositories\\Repositories.csproj",
+      "packagesPath": "C:\\Users\\Hwy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\Repositories\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Hwy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
       "projectUniqueName": "E:\\code\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj",
       "projectName": "Repositories",
       "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\Repositories\\Repositories.csproj",
@@ -5997,6 +6011,7 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\toanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6004,14 +6019,20 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
+            "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj": {
+              "projectPath": "C:\\Users\\Hwy\\OneDrive\\Documents\\GitHub\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj"
+=======
             "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj": {
               "projectPath": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DataAccessObjects.csproj"
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
             }
           }
         }
@@ -6046,7 +6067,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 53229f461c8db25a84a34834cf77a3f0889cb5c4
       }
     }
   }

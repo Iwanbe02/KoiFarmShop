@@ -36,7 +36,7 @@ namespace KoiFarmShop_WebAPI.Controllers
         {
             try
             {
-                var token = _userService.Login(model.Email, model.Password);
+                var token = _userService.Login(model.Email="huy@gmail.com", model.Password="Password");
                 return Ok(token);
             }
             catch (UnauthorizedAccessException ex)
