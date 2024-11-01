@@ -9,6 +9,8 @@ public partial class Payment
 
     public string? PaymentMethod { get; set; }
 
+    public decimal? Amount { get; set; }
+
     public string? Status { get; set; }
 
     public DateTime? CreatedDate { get; set; }

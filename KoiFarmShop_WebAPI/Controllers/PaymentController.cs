@@ -32,10 +32,10 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Payment>> CreatePayment(CreatePaymentDTO createPaymentDTO)
+        public async Task<ActionResult<Payment>> CreatePayment(int orderId)
         {
-            var payment = await _paymentService.CreatePayment(createPaymentDTO);
-            return Ok(payment);
+            var paymentUrl = await _paymentService.CreatePaymentAsync(orderId);
+            return Ok(new { PaymentUrl = paymentUrl });
         }
 
         [HttpPut("{Id}")]
@@ -58,5 +58,6 @@ namespace KoiFarmShop_WebAPI.Controllers
             var payment = await _paymentService.DeletePayment(Id);
             return Ok();
         }
+
     }
 }
