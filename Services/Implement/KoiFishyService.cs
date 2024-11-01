@@ -14,9 +14,13 @@ namespace Services.Implement
     public class KoiFishyService : IKoiFishyService
     {
         private readonly IKoiFishyRepository _koiFishyRepository;
-        public KoiFishyService(IKoiFishyRepository koiFishyRepository)
+        private readonly IImageService _imageService;
+        private readonly IImageRepository _imageRepository;
+        public KoiFishyService(IKoiFishyRepository koiFishyRepository, IImageService imageService, IImageRepository imageRepository)
         {
             _koiFishyRepository = koiFishyRepository;
+            _imageService = imageService;
+            _imageRepository = imageRepository;
         }
         public async Task<KoiFishy> CreateKoiFishy(CreateKoiFishyDTO createKoiFishy)
         {
@@ -28,6 +32,15 @@ namespace Services.Implement
                 Status = createKoiFishy.Status,
             };
             await _koiFishyRepository.AddAsync(koi);
+            string url = await _imageService.UploadKoiFishyImage(createKoiFishy.Img, koi.Id);
+            var image = new Image
+            {
+                UrlPath = url,
+                KoiFishyId = koi.Id,
+                CreatedDate = DateTime.UtcNow,
+                IsDeleted = false,
+            };
+            await _imageRepository.AddAsync(image);
             return koi;
         }
 

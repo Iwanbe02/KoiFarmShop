@@ -31,7 +31,7 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<KoiFish>> CreateKoiFish(CreateKoiFishDTO createKoiFishDTO)
+        public async Task<ActionResult<KoiFish>> CreateKoiFish([FromForm] CreateKoiFishDTO createKoiFishDTO)
         {
             var koi = await _koiFishService.CreateKoiFish(createKoiFishDTO);
             return Ok(koi);
