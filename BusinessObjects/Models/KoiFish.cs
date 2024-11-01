@@ -29,8 +29,6 @@ public partial class KoiFish
 
     public string? Type { get; set; }
 
-    public DateTime? Date { get; set; }
-
     public string? Status { get; set; }
 
     public DateTime? CreatedDate { get; set; }

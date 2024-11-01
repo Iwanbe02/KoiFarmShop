@@ -1,5 +1,6 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects.DTOs.KoiFishDTO;
+using Repositories.Implement;
 using Repositories.Interface;
 using Services.Interface;
 using System;
@@ -14,9 +15,13 @@ namespace Services.Implement
     public class KoiFishService : IKoiFishService
     {
         private readonly IKoiFishRepository _koiFishRepository;
-        public KoiFishService(IKoiFishRepository koiFishRepository)
+        private readonly IImageService _imageService;
+        private readonly IImageRepository _imageRepository;
+        public KoiFishService(IKoiFishRepository koiFishRepository, IImageService imageService, IImageRepository imageRepository)
         {
             _koiFishRepository = koiFishRepository;
+            _imageService = imageService;
+            _imageRepository = imageRepository;
         }
         public async Task<KoiFish> CreateKoiFish(CreateKoiFishDTO createKoiFish)
         {
@@ -33,10 +38,19 @@ namespace Services.Implement
                 AmountFood = createKoiFish.AmountFood,
                 ScreeningRate = createKoiFish.ScreeningRate,
                 Type = createKoiFish.Type,
-                Date = createKoiFish.Date,
                 Status = createKoiFish.Status,
             };
             await _koiFishRepository.AddAsync(koi);
+            string url = await _imageService.UploadKoiImage(createKoiFish.Img, koi.Id);
+
+            var image = new Image
+            {
+                UrlPath = url,
+                KoiId = koi.Id,
+                CreatedDate = DateTime.UtcNow,
+                IsDeleted = false,
+            };
+            await _imageRepository.AddAsync(image);
             return koi;
         }
 
@@ -95,10 +109,10 @@ namespace Services.Implement
             koi.AmountFood = updateKoiFish.AmountFood;
             koi.ScreeningRate = updateKoiFish.ScreeningRate;
             koi.Type = updateKoiFish.Type;
-            koi.Date = updateKoiFish.Date;
             koi.Status = updateKoiFish.Status;
 
             await _koiFishRepository.UpdateAsync(koi);
+
             return koi;
         }
     }
