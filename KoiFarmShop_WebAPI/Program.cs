@@ -1,12 +1,22 @@
-using BusinessObjects.Models;
+﻿using BusinessObjects.Models;
+using CloudinaryDotNet;
 using KoiFarmShop_WebAPI.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var cloudinarySettings = new CloudinaryDotNet.Account(
+    builder.Configuration["Cloudinary:CloudName"],
+    builder.Configuration["Cloudinary:ApiKey"],
+    builder.Configuration["Cloudinary:ApiSecret"]
+);
+
+builder.Services.AddSingleton(new Cloudinary(cloudinarySettings));
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -73,6 +83,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey =
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? string.Empty))
         };
+    });
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.MaxDepth = 64;
     });
 
 var app = builder.Build();
