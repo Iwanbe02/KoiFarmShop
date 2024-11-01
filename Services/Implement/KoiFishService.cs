@@ -33,7 +33,6 @@ namespace Services.Implement
                 AmountFood = createKoiFish.AmountFood,
                 ScreeningRate = createKoiFish.ScreeningRate,
                 Type = createKoiFish.Type,
-                Date = createKoiFish.Date,
                 Status = createKoiFish.Status,
             };
             await _koiFishRepository.AddAsync(koi);
@@ -95,7 +94,6 @@ namespace Services.Implement
             koi.AmountFood = updateKoiFish.AmountFood;
             koi.ScreeningRate = updateKoiFish.ScreeningRate;
             koi.Type = updateKoiFish.Type;
-            koi.Date = updateKoiFish.Date;
             koi.Status = updateKoiFish.Status;
 
             await _koiFishRepository.UpdateAsync(koi);

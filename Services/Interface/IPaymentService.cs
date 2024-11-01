@@ -13,7 +13,7 @@ namespace Services.Interface
     {
         Task<IEnumerable<Payment>> GetAllPayments();
         Task<Payment> GetPaymentById(int id);
-        Task<Payment> CreatePayment(CreatePaymentDTO createPayment);
+        Task<string> CreatePaymentAsync(int orderId);
         Task<Payment> UpdatePayment(int id, UpdatePaymentDTO updatePayment);
         Task<Payment> DeletePayment(int id);
         Task<Payment> RestorePayment(int id);
