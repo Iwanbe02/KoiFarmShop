@@ -81,5 +81,10 @@ namespace Services.Implement
             }
             return result.SecureUrl.ToString();
         }
+
+        public async Task<IEnumerable<Image>> GetAllImages()
+        {
+            return await _imageRepository.GetAllAsync();
+        }
     }
 }
