@@ -13,6 +13,8 @@ public partial class Image
 
     public int? KoiFishyId { get; set; }
 
+    public int? ConsignmentId { get; set; }
+
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? ModifiedDate { get; set; }
@@ -20,6 +22,8 @@ public partial class Image
     public DateTime? DeletedDate { get; set; }
 
     public bool? IsDeleted { get; set; }
+
+    public virtual Consignment? Consignment { get; set; }
 
     public virtual KoiFish? Koi { get; set; }
 

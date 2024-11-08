@@ -1,6 +1,7 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects.DTOs.ConsignmentDTO;
 using Microsoft.Identity.Client;
+using Repositories.Implement;
 using Repositories.Interface;
 using Services.Interface;
 using System;
@@ -14,10 +15,14 @@ namespace Services.Implement
     public class ConsignmentService : IConsignmentService
     {
         private readonly IConsignmentRepository _consignmentRepository;
+        private readonly IImageService _imageService;
+        private readonly IImageRepository _imageRepository;
 
-        public ConsignmentService(IConsignmentRepository consignmentRepository)
+        public ConsignmentService(IConsignmentRepository consignmentRepository, IImageService imageService, IImageRepository imageRepository)
         {
             _consignmentRepository = consignmentRepository;
+            _imageService = imageService;
+            _imageRepository = imageRepository;
         }
         public async Task<Consignment> CreateConsignment(CreateConsignmentDTO createConsignment)
         {
@@ -27,12 +32,19 @@ namespace Services.Implement
                 KoiId = createConsignment.KoiId,
                 PaymentId = createConsignment.PaymentId,
                 Price = createConsignment.Price,
-                StartTime = createConsignment.StartTime,
-                EndTime = createConsignment.EndTime,
                 Status = createConsignment.Status,
-
             };
             await _consignmentRepository.AddAsync(consignment);
+
+            string url = await _imageService.UploadConsignmentImage(createConsignment.Img, consignment.Id);
+            var image = new Image
+            {
+                UrlPath = url,
+                ConsignmentId = consignment.Id,
+                CreatedDate = DateTime.UtcNow,
+                IsDeleted = false,
+            };
+            await _imageRepository.AddAsync(image);
             return consignment;
         }
 
@@ -84,9 +96,49 @@ namespace Services.Implement
             consignment.KoiId = updateConsignment.KoiId;
             consignment.PaymentId = updateConsignment.PaymentId;
             consignment.Price = updateConsignment.Price;
-            consignment.StartTime = updateConsignment.StartTime;
-            consignment.EndTime = updateConsignment.EndTime;
             consignment.Status = updateConsignment.Status;
+
+            if (updateConsignment.Img != null)
+            {
+                // Lấy ảnh hiện tại liên kết với KoiFishy
+                var existingImage = await _imageRepository.GetByConsignmentIdAsync(updateConsignment.Id);
+
+                if (existingImage != null)
+                {
+                    // Xóa ảnh cũ trên Cloudinary
+                    bool isDeleted = await _imageService.DeleteImageAsync(existingImage.UrlPath, "KoiImages");
+
+                    if (!isDeleted)
+                    {
+                        throw new Exception("Không thể xóa ảnh cũ trên Cloudinary");
+                    }
+
+                    // Tải ảnh mới lên Cloudinary và lấy URL
+                    string newImageUrl = await _imageService.UploadConsignmentImage(updateConsignment.Img, consignment.Id);
+
+                    // Cập nhật URL của ảnh cũ
+                    existingImage.UrlPath = newImageUrl;
+                    existingImage.ModifiedDate = DateTime.UtcNow;
+
+                    // Lưu thay đổi vào database
+                    await _imageRepository.UpdateAsync(existingImage);
+                }
+                else
+                {
+                    // Nếu không có ảnh cũ, tạo ảnh mới
+                    string newImageUrl = await _imageService.UploadConsignmentImage(updateConsignment.Img, consignment.Id);
+
+                    var newImage = new Image
+                    {
+                        UrlPath = newImageUrl,
+                        ConsignmentId = consignment.Id,
+                        CreatedDate = DateTime.UtcNow,
+                        IsDeleted = false,
+                    };
+
+                    await _imageRepository.AddAsync(newImage);
+                }
+            }
 
             await _consignmentRepository.UpdateAsync(consignment);
             return consignment;

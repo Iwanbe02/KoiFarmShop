@@ -15,10 +15,6 @@ public partial class Consignment
 
     public decimal? Price { get; set; }
 
-    public DateTime? StartTime { get; set; }
-
-    public DateTime? EndTime { get; set; }
-
     public string? Status { get; set; }
 
     public DateTime? CreatedDate { get; set; }
@@ -30,6 +26,8 @@ public partial class Consignment
     public bool? IsDeleted { get; set; }
 
     public virtual Account? Account { get; set; }
+
+    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
     public virtual KoiFish? Koi { get; set; }
 

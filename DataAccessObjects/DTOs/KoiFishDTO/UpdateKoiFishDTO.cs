@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,8 +33,8 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
 
         public string Type { get; set; } = null!;
 
-        public DateTime Date { get; set; }
-        public string? Status { get; set; }
+        public IFormFile Img { get; set; }
+         public string? Status { get; set; }
 
     }
 }

@@ -40,14 +40,14 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Consignment>> CreateConsignment(CreateConsignmentDTO createconsignmentDTO)
+        public async Task<ActionResult<Consignment>> CreateConsignment([FromForm] CreateConsignmentDTO createconsignmentDTO)
         {
             var consignment = await _consignmentService.CreateConsignment(createconsignmentDTO);
             return Ok(consignment);
         }
 
         [HttpPut("{Id}")]
-        public async Task<IActionResult> UpdateConsignment(int Id, UpdateConsignmentDTO updateconsignmentDTO)
+        public async Task<IActionResult> UpdateConsignment(int Id, [FromForm] UpdateConsignmentDTO updateconsignmentDTO)
         {
             var consignment = await _consignmentService.UpdateConsignment(Id, updateconsignmentDTO);
             return Ok(consignment);

@@ -110,6 +110,48 @@ namespace Services.Implement
             koi.Type = updateKoiFish.Type;
             koi.Status = updateKoiFish.Status;
 
+            if (updateKoiFish.Img != null)
+            {
+                // Lấy ảnh hiện tại liên kết với KoiFishy
+                var existingImage = await _imageRepository.GetByKoiIdAsync(koi.Id);
+
+                if (existingImage != null)
+                {
+                    // Xóa ảnh cũ trên Cloudinary
+                    bool isDeleted = await _imageService.DeleteImageAsync(existingImage.UrlPath, "KoiImages");
+
+                    if (!isDeleted)
+                    {
+                        throw new Exception("Không thể xóa ảnh cũ trên Cloudinary");
+                    }
+
+                    // Tải ảnh mới lên Cloudinary và lấy URL
+                    string newImageUrl = await _imageService.UploadKoiImage(updateKoiFish.Img, koi.Id);
+
+                    // Cập nhật URL của ảnh cũ
+                    existingImage.UrlPath = newImageUrl;
+                    existingImage.ModifiedDate = DateTime.UtcNow;
+
+                    // Lưu thay đổi vào database
+                    await _imageRepository.UpdateAsync(existingImage);
+                }
+                else
+                {
+                    // Nếu không có ảnh cũ, tạo ảnh mới
+                    string newImageUrl = await _imageService.UploadKoiImage(updateKoiFish.Img, koi.Id);
+
+                    var newImage = new Image
+                    {
+                        UrlPath = newImageUrl,
+                        KoiId = koi.Id,
+                        CreatedDate = DateTime.UtcNow,
+                        IsDeleted = false,
+                    };
+
+                    await _imageRepository.AddAsync(newImage);
+                }
+            }
+
             await _koiFishRepository.UpdateAsync(koi);
             return koi;
         }
