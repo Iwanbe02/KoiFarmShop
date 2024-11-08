@@ -29,15 +29,13 @@ namespace Services.Implement
             var account = new Account
             {
                 Name = createAccount.Name,
-                RoleId = createAccount.RoleId,
                 Gender = createAccount.Gender,
                 Email = createAccount.Email,
                 Password = createAccount.Password,
                 Phone = createAccount.Phone,
                 Address = createAccount.Address,
-                Point = createAccount.Point,
-                Status = createAccount.Status,
                 DateOfBirth = createAccount.DateOfBirth,
+                CreatedDate = DateTime.Now
             };
             await _accountRepository.AddAsync(account);
             return account;
@@ -51,6 +49,7 @@ namespace Services.Implement
                 throw new Exception($"Cart with ID{id} is not found");
             }
             account.IsDeleted = true;
+            account.DeletedDate = DateTime.Now;
             await _accountRepository.UpdateAsync(account);
             return account;
         }
@@ -88,15 +87,13 @@ namespace Services.Implement
                 throw new Exception($"Cart with ID{id} is not found");
             }
             account.Name = updateAccount.Name;
-            account.RoleId = updateAccount.RoleId;
             account.Gender = updateAccount.Gender;
             account.Email = updateAccount.Email;
             account.Password = updateAccount.Password;
             account.Phone = updateAccount.Phone;
             account.Address = updateAccount.Address;
-            account.Point = updateAccount.Point;
-            account.Status = updateAccount.Status;
             account.DateOfBirth = updateAccount.DateOfBirth;
+            account.ModifiedDate = DateTime.Now;
 
             await _accountRepository.UpdateAsync(account);
             return account;

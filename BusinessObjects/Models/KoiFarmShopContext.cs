@@ -55,7 +55,7 @@ public partial class KoiFarmShopContext : DbContext
     {
         modelBuilder.Entity<Account>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Account__3214EC07D650EFE7");
+            entity.HasKey(e => e.Id).HasName("PK__Account__3214EC0793783D6A");
 
             entity.ToTable("Account");
 
@@ -78,7 +78,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<Cart>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Cart__3214EC074F396FEC");
+            entity.HasKey(e => e.Id).HasName("PK__Cart__3214EC07AF6A019D");
 
             entity.ToTable("Cart");
 
@@ -94,12 +94,12 @@ public partial class KoiFarmShopContext : DbContext
 
             entity.HasOne(d => d.Order).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__Cart__Order_Id__6EF57B66");
+                .HasConstraintName("FK__Cart__Order_Id__6FE99F9F");
         });
 
         modelBuilder.Entity<CartDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__CartDeta__3214EC0729AF924B");
+            entity.HasKey(e => e.Id).HasName("PK__CartDeta__3214EC07EDF3D3BF");
 
             entity.ToTable("CartDetail");
 
@@ -116,20 +116,20 @@ public partial class KoiFarmShopContext : DbContext
 
             entity.HasOne(d => d.Cart).WithMany(p => p.CartDetails)
                 .HasForeignKey(d => d.CartId)
-                .HasConstraintName("FK__CartDetai__Cart___73BA3083");
+                .HasConstraintName("FK__CartDetai__Cart___74AE54BC");
 
             entity.HasOne(d => d.Feedback).WithMany(p => p.CartDetails)
                 .HasForeignKey(d => d.FeedbackId)
-                .HasConstraintName("FK__CartDetai__Feedb__74AE54BC");
+                .HasConstraintName("FK__CartDetai__Feedb__75A278F5");
 
             entity.HasOne(d => d.Koi).WithMany(p => p.CartDetails)
                 .HasForeignKey(d => d.KoiId)
-                .HasConstraintName("FK__CartDetai__Koi_I__72C60C4A");
+                .HasConstraintName("FK__CartDetai__Koi_I__73BA3083");
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC0764EF86ED");
+            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC07E933C097");
 
             entity.ToTable("Category");
 
@@ -144,14 +144,13 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<Consignment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Consignm__3214EC07520440C5");
+            entity.HasKey(e => e.Id).HasName("PK__Consignm__3214EC078B0F6D30");
 
             entity.ToTable("Consignment");
 
             entity.Property(e => e.AccountId).HasColumnName("Account_Id");
             entity.Property(e => e.CreatedDate).HasColumnType("datetime");
             entity.Property(e => e.DeletedDate).HasColumnType("datetime");
-            entity.Property(e => e.EndTime).HasColumnType("datetime");
             entity.Property(e => e.IsDeleted)
                 .IsRequired()
                 .HasDefaultValueSql("('0')");
@@ -159,7 +158,6 @@ public partial class KoiFarmShopContext : DbContext
             entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
             entity.Property(e => e.PaymentId).HasColumnName("Payment_Id");
             entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
-            entity.Property(e => e.StartTime).HasColumnType("datetime");
 
             entity.HasOne(d => d.Account).WithMany(p => p.Consignments)
                 .HasForeignKey(d => d.AccountId)
@@ -176,7 +174,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<Feedback>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Feedback__3214EC07D04D0299");
+            entity.HasKey(e => e.Id).HasName("PK__Feedback__3214EC07116E9665");
 
             entity.ToTable("Feedback");
 
@@ -195,7 +193,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<HealthCertificate>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__HealthCe__3214EC07AAF209C7");
+            entity.HasKey(e => e.Id).HasName("PK__HealthCe__3214EC0753900CA1");
 
             entity.ToTable("HealthCertificate");
 
@@ -217,10 +215,11 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<Image>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Image__3214EC077468D7BF");
+            entity.HasKey(e => e.Id).HasName("PK__Image__3214EC073EA69CB7");
 
             entity.ToTable("Image");
 
+            entity.Property(e => e.ConsignmentId).HasColumnName("Consignment_Id");
             entity.Property(e => e.CreatedDate).HasColumnType("datetime");
             entity.Property(e => e.DeletedDate).HasColumnType("datetime");
             entity.Property(e => e.IsDeleted)
@@ -229,6 +228,10 @@ public partial class KoiFarmShopContext : DbContext
             entity.Property(e => e.KoiFishyId).HasColumnName("KoiFishy_Id");
             entity.Property(e => e.KoiId).HasColumnName("Koi_Id");
             entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Consignment).WithMany(p => p.Images)
+                .HasForeignKey(d => d.ConsignmentId)
+                .HasConstraintName("FK__Image__Consignme__6C190EBB");
 
             entity.HasOne(d => d.KoiFishy).WithMany(p => p.Images)
                 .HasForeignKey(d => d.KoiFishyId)
@@ -241,7 +244,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<KoiFish>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__KoiFish__3214EC0794F271DA");
+            entity.HasKey(e => e.Id).HasName("PK__KoiFish__3214EC07FB1BC888");
 
             entity.ToTable("KoiFish");
 
@@ -261,7 +264,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<KoiFishy>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__KoiFishy__3214EC078829FF0D");
+            entity.HasKey(e => e.Id).HasName("PK__KoiFishy__3214EC077454EDB2");
 
             entity.ToTable("KoiFishy");
 
@@ -281,7 +284,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC07F9E9962F");
+            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC0743217026");
 
             entity.ToTable("Order");
 
@@ -316,7 +319,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<OriginCertificate>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__OriginCe__3214EC0733A34E19");
+            entity.HasKey(e => e.Id).HasName("PK__OriginCe__3214EC07520873FA");
 
             entity.ToTable("OriginCertificate");
 
@@ -338,7 +341,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<Payment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Payment__3214EC0788F17306");
+            entity.HasKey(e => e.Id).HasName("PK__Payment__3214EC075F4290B1");
 
             entity.ToTable("Payment");
 
@@ -353,7 +356,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<Promotion>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Promotio__3214EC0774FF4C8B");
+            entity.HasKey(e => e.Id).HasName("PK__Promotio__3214EC0738AE1E92");
 
             entity.ToTable("Promotion");
 
@@ -367,7 +370,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<RewardCertificate>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__RewardCe__3214EC07DCBFB860");
+            entity.HasKey(e => e.Id).HasName("PK__RewardCe__3214EC07934E8839");
 
             entity.ToTable("RewardCertificate");
 
@@ -387,7 +390,7 @@ public partial class KoiFarmShopContext : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC07F4B91111");
+            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC071B04C086");
 
             entity.ToTable("Role");
 

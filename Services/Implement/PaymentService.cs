@@ -37,7 +37,6 @@ namespace Services.Implement
             {
                 Amount = order.Price,
                 PaymentMethod = "VNPAY", // You can customize this field
-                Status = "Pending",
                 CreatedDate = DateTime.Now
             };
 
@@ -74,6 +73,7 @@ namespace Services.Implement
                 throw new Exception($"Payment with ID{id} is not found");
             }
             payment.IsDeleted = true;
+            payment.DeletedDate = DateTime.Now;
             await _paymentRepository.UpdateAsync(payment);
             return payment;
         }
@@ -111,7 +111,7 @@ namespace Services.Implement
                 throw new Exception($"Payment with ID{id} is not found");
             }
             payment.PaymentMethod = updatePayment.PaymentMethod;
-            payment.Status = updatePayment.Status;
+            payment.ModifiedDate = DateTime.Now;
             await _paymentRepository.UpdateAsync(payment);
             return payment;
         }

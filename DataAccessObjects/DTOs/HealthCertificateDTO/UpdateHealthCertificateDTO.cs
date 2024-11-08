@@ -8,12 +8,6 @@ namespace DataAccessObjects.DTOs.HealthCertificateDTO
 {
     public class UpdateHealthCertificateDTO
     {
-       
-
-        public int? KoiId { get; set; }
-
-        public int? OrderId { get; set; }
-
         public string? Status { get; set; }
 
         public DateTime? StartTime { get; set; }

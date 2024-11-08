@@ -8,8 +8,6 @@ namespace DataAccessObjects.DTOs.OrriginCetificateDTO
 {
     public class UpdateOriginCertificateDTO
     {
-        public int? KoiId { get; set; }
-
         public int? OrderId { get; set; }
 
         public DateTime? StartTime { get; set; }

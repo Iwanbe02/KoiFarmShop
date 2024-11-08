@@ -28,6 +28,7 @@ namespace Services.Implement
                 Status = createOrder.Status,
                 Type = createOrder.Type,
                 Price = createOrder.Price,
+                CreatedDate = DateTime.Now
             };
             await _orderRepository.AddAsync(order);
             return order;
@@ -41,6 +42,7 @@ namespace Services.Implement
                 throw new Exception($"Order with ID{id} is not found");
             }
             order.IsDeleted = true;
+            order.DeletedDate = DateTime.Now;
             await _orderRepository.UpdateAsync(order);
             return order;
         }
@@ -77,13 +79,10 @@ namespace Services.Implement
             {
                 throw new Exception($"Order with ID{id} is not found");
             }
-            order.KoiId = updateOrder.KoiId;
-            order.KoiFishyId = updateOrder.KoiFishyId;
-            order.AccountId = updateOrder.AccountId;
-            order.PaymentId = updateOrder.PaymentId;
             order.Status = updateOrder.Status;
             order.Type = updateOrder.Type;
             order.Price = updateOrder.Price;
+            order.ModifiedDate = DateTime.Now;
 
             await _orderRepository.UpdateAsync(order);
             return order;

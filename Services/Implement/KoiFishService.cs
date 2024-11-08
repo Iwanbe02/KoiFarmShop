@@ -39,6 +39,7 @@ namespace Services.Implement
                 ScreeningRate = createKoiFish.ScreeningRate,
                 Type = createKoiFish.Type,
                 Status = createKoiFish.Status,
+                CreatedDate = DateTime.Now
             };
             await _koiFishRepository.AddAsync(koi);
             string url = await _imageService.UploadKoiImage(createKoiFish.Img, koi.Id);
@@ -46,7 +47,7 @@ namespace Services.Implement
             {
                 UrlPath = url,
                 KoiId = koi.Id,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = DateTime.Now,
                 IsDeleted = false,
             };
             await _imageRepository.AddAsync(image);
@@ -61,6 +62,7 @@ namespace Services.Implement
                 throw new Exception($"Koi with ID{id} is not found");
             }
             koi.IsDeleted = true;
+            koi.DeletedDate = DateTime.Now;
             await _koiFishRepository.UpdateAsync(koi);
             return koi;
         }
@@ -97,7 +99,6 @@ namespace Services.Implement
             {
                 throw new Exception($"Koi with ID{id} is not found");
             }
-            koi.CategoryId = updateKoiFish.CategoryId;
             koi.Price = updateKoiFish.Price;
             koi.Origin = updateKoiFish.Origin;
             koi.Gender = updateKoiFish.Gender;
@@ -109,6 +110,49 @@ namespace Services.Implement
             koi.ScreeningRate = updateKoiFish.ScreeningRate;
             koi.Type = updateKoiFish.Type;
             koi.Status = updateKoiFish.Status;
+            koi.ModifiedDate = DateTime.Now;
+
+            if (updateKoiFish.Img != null)
+            {
+                // Lấy ảnh hiện tại liên kết với KoiFishy
+                var existingImage = await _imageRepository.GetByKoiIdAsync(koi.Id);
+
+                if (existingImage != null)
+                {
+                    // Xóa ảnh cũ trên Cloudinary
+                    bool isDeleted = await _imageService.DeleteImageAsync(existingImage.UrlPath, "KoiImages");
+
+                    if (!isDeleted)
+                    {
+                        throw new Exception("Không thể xóa ảnh cũ trên Cloudinary");
+                    }
+
+                    // Tải ảnh mới lên Cloudinary và lấy URL
+                    string newImageUrl = await _imageService.UploadKoiImage(updateKoiFish.Img, koi.Id);
+
+                    // Cập nhật URL của ảnh cũ
+                    existingImage.UrlPath = newImageUrl;
+                    existingImage.ModifiedDate = DateTime.Now;
+
+                    // Lưu thay đổi vào database
+                    await _imageRepository.UpdateAsync(existingImage);
+                }
+                else
+                {
+                    // Nếu không có ảnh cũ, tạo ảnh mới
+                    string newImageUrl = await _imageService.UploadKoiImage(updateKoiFish.Img, koi.Id);
+
+                    var newImage = new Image
+                    {
+                        UrlPath = newImageUrl,
+                        KoiId = koi.Id,
+                        CreatedDate = DateTime.Now,
+                        IsDeleted = false,
+                    };
+
+                    await _imageRepository.AddAsync(newImage);
+                }
+            }
 
             await _koiFishRepository.UpdateAsync(koi);
             return koi;

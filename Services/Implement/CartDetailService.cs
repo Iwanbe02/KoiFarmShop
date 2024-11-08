@@ -27,6 +27,7 @@ namespace Services.Implement
                 FeedbackId = createCartDetail.FeedbackId,
                 Price = createCartDetail.Price,
                 Status = createCartDetail.Status,
+                CreatedDate = DateTime.Now
             };
             await _cartDetailRepository.AddAsync(cartDetail);
             return cartDetail;
@@ -40,6 +41,7 @@ namespace Services.Implement
                 throw new Exception($"Cart detail with ID{id} is not found");
             }
             cartDetail.IsDeleted = true;
+            cartDetail.DeletedDate = DateTime.Now;
             await _cartDetailRepository.UpdateAsync(cartDetail);
             return cartDetail;
         }
@@ -76,11 +78,9 @@ namespace Services.Implement
             {
                 throw new Exception($"Cart detail with ID{id} is not found");
             }
-            cartDetail.KoiId = updateCartDetail.KoiId;
-            cartDetail.CartId = updateCartDetail.CartId;
-            cartDetail.FeedbackId = updateCartDetail.FeedbackId;
             cartDetail.Price = updateCartDetail.Price;
             cartDetail.Status = updateCartDetail.Status;
+            cartDetail.ModifiedDate = DateTime.Now;
 
             await _cartDetailRepository.UpdateAsync(cartDetail);
             return cartDetail;

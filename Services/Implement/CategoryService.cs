@@ -24,6 +24,7 @@ namespace Services.Implement
             var category = new Category
             {
                 Category1 = createCategory.Category1,
+                CreatedDate = DateTime.Now,
             };
             await _categoryRepository.AddAsync(category);
             return category;
@@ -37,6 +38,7 @@ namespace Services.Implement
                 throw new Exception($"Category with ID{id} is not found");
             }
             category.IsDeleted = true;
+            category.DeletedDate = DateTime.Now;
             await _categoryRepository.UpdateAsync(category);
             return category;
         }
@@ -74,6 +76,7 @@ namespace Services.Implement
                 throw new Exception($"Category with ID{id} is not found");
             }
             category.Category1 = updateCategory.Category1;
+            category.ModifiedDate = DateTime.Now;
             await _categoryRepository.UpdateAsync(category);
             return category;
         }

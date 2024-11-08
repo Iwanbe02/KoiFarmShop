@@ -9,11 +9,7 @@ namespace DataAccessObjects.DTOs.AccountDTO
    
     public class CreateAccountDTO
     {
-        public int Id { get; set; }
-
         public string? Name { get; set; }
-
-        public int? RoleId { get; set; }
 
         public string? Gender { get; set; }
 
@@ -26,9 +22,5 @@ namespace DataAccessObjects.DTOs.AccountDTO
         public string? Address { get; set; }
 
         public DateTime? DateOfBirth { get; set; }
-
-        public int? Point { get; set; }
-
-        public string? Status { get; set; }
     }
 }

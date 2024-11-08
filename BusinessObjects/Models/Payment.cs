@@ -11,8 +11,6 @@ public partial class Payment
 
     public decimal? Amount { get; set; }
 
-    public string? Status { get; set; }
-
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? ModifiedDate { get; set; }

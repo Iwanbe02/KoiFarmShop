@@ -38,7 +38,7 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPut("{Id}")]
-        public async Task<IActionResult> UpdateKoiFish(int Id, UpdateKoiFishDTO updateKoiFishDTO)
+        public async Task<IActionResult> UpdateKoiFish(int Id, [FromForm] UpdateKoiFishDTO updateKoiFishDTO)
         {
             var koi = await _koiFishService.UpdateKoiFish(Id, updateKoiFishDTO);
             return Ok(koi);

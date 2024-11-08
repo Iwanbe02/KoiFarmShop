@@ -26,6 +26,7 @@ namespace Services.Implement
                 KoiId = createRewardCertificate.KoiId,
                 OrderId = createRewardCertificate.OrderId,
                 Description = createRewardCertificate.Description,
+                CreatedDate = DateTime.Now
             };
             await _rewardCertificateRepository.AddAsync(rewardCertificate);
             return rewardCertificate;
@@ -39,6 +40,7 @@ namespace Services.Implement
                 throw new Exception($"RewardCertificate with ID{id} is not found");
             }
             rewardCertificate.IsDeleted = true;
+            rewardCertificate.DeletedDate = DateTime.Now;
             await _rewardCertificateRepository.UpdateAsync(rewardCertificate);
             return rewardCertificate;
         }
@@ -76,9 +78,8 @@ namespace Services.Implement
             {
                 throw new Exception($"RewardCertificate with ID{id} is not found");
             }
-            rewardCertificate.KoiId = updateRewardCertificate.KoiId;
-            rewardCertificate.OrderId = updateRewardCertificate.OrderId;
             rewardCertificate.Description = updateRewardCertificate.Description;
+            rewardCertificate.ModifiedDate = DateTime.Now;
 
             await _rewardCertificateRepository.UpdateAsync(rewardCertificate);
             return rewardCertificate;

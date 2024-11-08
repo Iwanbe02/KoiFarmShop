@@ -28,6 +28,7 @@ namespace Services.Implement
                 Status = createHealthCertificate.Status,
                 StartTime = createHealthCertificate.StartTime,
                 EndTime = createHealthCertificate.EndTime,
+                CreatedDate = DateTime.Now
             };
             await _healthCertificaterepository.AddAsync(healthCertificate);
             return healthCertificate;
@@ -41,6 +42,7 @@ namespace Services.Implement
                 throw new Exception($"HealthCertificate with ID{id} is not found");
             }
             healthCertificate.IsDeleted = true;
+            healthCertificate.DeletedDate = DateTime.Now;
             await _healthCertificaterepository.UpdateAsync(healthCertificate);
             return healthCertificate;
         }
@@ -77,8 +79,6 @@ namespace Services.Implement
             {
                 throw new Exception($"HealthCertificate with ID{id} is not found");
             }
-            healthCertificate.KoiId = updatehealthCertificate.KoiId;
-            healthCertificate.OrderId = updatehealthCertificate.OrderId;
             healthCertificate.Status = updatehealthCertificate.Status;
             healthCertificate.StartTime = updatehealthCertificate.StartTime;
             healthCertificate.EndTime = updatehealthCertificate.EndTime;

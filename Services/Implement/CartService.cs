@@ -27,6 +27,7 @@ namespace Services.Implement
                 TotalPrice = createCart.TotalPrice,
                 Quantity = createCart.Quantity,
                 Status = createCart.Status,
+                CreatedDate = DateTime.Now,
             };
             await _cartRepository.AddAsync(cart);
             return cart;
@@ -40,6 +41,7 @@ namespace Services.Implement
                 throw new Exception($"Cart with ID{id} is not found");
             }
             cart.IsDeleted = true;
+            cart.DeletedDate = DateTime.Now;
             await _cartRepository.UpdateAsync(cart);
             return cart;
         }
@@ -76,11 +78,11 @@ namespace Services.Implement
             {
                 throw new Exception($"Cart with ID{id} is not found");
             }
-            cart.OrderId = updateCart.OrderId;
             cart.Price = updateCart.Price;
             cart.TotalPrice = updateCart.TotalPrice;
             cart.Quantity = updateCart.Quantity;
             cart.Status = updateCart.Status;
+            cart.ModifiedDate = DateTime.Now;
 
             await _cartRepository.UpdateAsync(cart);
             return cart;

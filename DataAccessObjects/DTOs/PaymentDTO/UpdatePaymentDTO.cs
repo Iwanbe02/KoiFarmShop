@@ -9,7 +9,5 @@ namespace DataAccessObjects.DTOs.PaymentDTO
     public class UpdatePaymentDTO
     {
         public string? PaymentMethod { get; set; }
-
-        public string? Status { get; set; }
     }
 }

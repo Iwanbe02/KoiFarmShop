@@ -27,6 +27,7 @@ namespace Services.Implement
                 Status = createFeedback.Status,
                 Description = createFeedback.Description,
                 Rating = createFeedback.Rating,
+                CreatedDate = DateTime.Now
             };
             await _feedbackRepository.AddAsync(feedback);
             return feedback;
@@ -40,6 +41,7 @@ namespace Services.Implement
                 throw new Exception($"Feedback with ID{id} is not found");
             }
             feedback.IsDeleted = true;
+            feedback.DeletedDate = DateTime.Now;
             await _feedbackRepository.UpdateAsync(feedback);
             return feedback;
         }
@@ -78,10 +80,10 @@ namespace Services.Implement
             {
                 throw new Exception($"Feedback with ID{id} is not found");
             }
-            feedback.AccountId = updateFeedback.AccountId;
             feedback.Status = updateFeedback.Status;
             feedback.Description = updateFeedback.Description;
             feedback.Rating = updateFeedback.Rating;
+            feedback.ModifiedDate = DateTime.Now;
 
             await _feedbackRepository.UpdateAsync(feedback);
             return feedback;

@@ -13,5 +13,7 @@ namespace Services.Interface
         Task<IEnumerable<Image>> GetAllImages();
         Task<string> UploadKoiImage(IFormFile file, int KoiId);
         Task<string> UploadKoiFishyImage(IFormFile file, int KoiFishyId);
+        Task<string> UploadConsignmentImage(IFormFile file, int ConsignmentId);
+        Task<bool> DeleteImageAsync(string urlImage, string path);
     }
 }
