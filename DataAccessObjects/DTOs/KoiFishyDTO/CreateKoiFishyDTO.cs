@@ -17,6 +17,5 @@ namespace DataAccessObjects.DTOs.KoiFishyDTO
 
         public string? Status { get; set; }
         public IFormFile Img { get; set; }
-
     }
 }

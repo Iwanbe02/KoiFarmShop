@@ -8,10 +8,6 @@ namespace DataAccessObjects.DTOs.RewardCertificateDTO
 {
     public class UpdateRewardCertificateDTO
     {
-        public int? KoiId { get; set; }
-
-        public int? OrderId { get; set; }
-
         public string? Description { get; set; }
     }
 }

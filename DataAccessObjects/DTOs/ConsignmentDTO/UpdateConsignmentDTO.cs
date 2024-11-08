@@ -9,17 +9,9 @@ namespace DataAccessObjects.DTOs.ConsignmentDTO
 {
     public class UpdateConsignmentDTO
     {
-        public int Id { get; set; }
-
-        public int? AccountId { get; set; }
-
-        public int? KoiId { get; set; }
-
-        public int? PaymentId { get; set; }
-
         public decimal? Price { get; set; }
-
         public IFormFile Img { get; set; }
         public string? Status { get; set; } = string.Empty;
+        public DateTime? ModifiedDate { get; set; }
     }
 }

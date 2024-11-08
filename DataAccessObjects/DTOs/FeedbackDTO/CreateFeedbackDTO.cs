@@ -15,5 +15,6 @@ namespace DataAccessObjects.DTOs.FeedbackDTO
         public string? Description { get; set; }
 
         public double? Rating { get; set; }
+        
     }
 }

@@ -9,8 +9,6 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
 {
     public class UpdateKoiFishDTO
     {
-        public int CategoryId { get; set; }
-
         public decimal? Price { get; set; }
 
         public string Origin { get; set; } = null!;

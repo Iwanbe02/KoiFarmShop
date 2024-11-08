@@ -8,14 +8,6 @@ namespace DataAccessObjects.DTOs.OrderDTO
 {
     public class UpdateOrderDTO
     {
-        public int? KoiId { get; set; }
-
-        public int? KoiFishyId { get; set; }
-
-        public int? AccountId { get; set; }
-
-        public int? PaymentId { get; set; }
-
         public string? Status { get; set; }
 
         public bool? Type { get; set; }

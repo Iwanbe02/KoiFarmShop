@@ -26,6 +26,7 @@ namespace Services.Implement
                 Point = createPromotion.Point,
                 DiscountPercentage = createPromotion.DiscountPercentage,
                 Status = createPromotion.Status,
+                CreatedDate = DateTime.Now
             };
             await _promotionRepository.AddAsync(promotion);
             return promotion;
@@ -39,6 +40,7 @@ namespace Services.Implement
                 throw new Exception($"Promotion with ID{id} is not found");
             }
             promotion.IsDeleted = true;
+            promotion.DeletedDate = DateTime.Now;
             await _promotionRepository.UpdateAsync(promotion);
             return promotion;
         }
@@ -78,6 +80,7 @@ namespace Services.Implement
             promotion.Point = updatePromotion.Point;
             promotion.DiscountPercentage = updatePromotion.DiscountPercentage;
             promotion.Status = updatePromotion.Status;
+            promotion.ModifiedDate = DateTime.Now;
 
             await _promotionRepository.UpdateAsync(promotion);
             return promotion;

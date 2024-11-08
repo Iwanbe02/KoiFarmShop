@@ -73,6 +73,7 @@ namespace Services.Implement
                 throw new Exception($"Payment with ID{id} is not found");
             }
             payment.IsDeleted = true;
+            payment.DeletedDate = DateTime.Now;
             await _paymentRepository.UpdateAsync(payment);
             return payment;
         }
@@ -110,6 +111,7 @@ namespace Services.Implement
                 throw new Exception($"Payment with ID{id} is not found");
             }
             payment.PaymentMethod = updatePayment.PaymentMethod;
+            payment.ModifiedDate = DateTime.Now;
             await _paymentRepository.UpdateAsync(payment);
             return payment;
         }

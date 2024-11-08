@@ -9,8 +9,6 @@ namespace DataAccessObjects.DTOs.KoiFishyDTO
 {
     public class UpdateKoiFishyDTO
     {
-        public int? CategoryId { get; set; }
-
         public decimal? Price { get; set; }
 
         public int? Quantity { get; set; }

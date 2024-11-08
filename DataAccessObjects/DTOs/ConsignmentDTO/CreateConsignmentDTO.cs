@@ -9,8 +9,6 @@ namespace DataAccessObjects.DTOs.ConsignmentDTO
 {
     public class CreateConsignmentDTO
     {
-        public int Id { get; set; }
-
         public int? AccountId { get; set; }
 
         public int? KoiId { get; set; }

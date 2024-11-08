@@ -8,8 +8,6 @@ namespace DataAccessObjects.DTOs.FeedbackDTO
 {
     public class UpdateFeedbackDTO
     {
-        public int? AccountId { get; set; }
-
         public string? Status { get; set; }
 
         public string? Description { get; set; }

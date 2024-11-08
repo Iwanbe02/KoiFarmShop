@@ -25,6 +25,7 @@ namespace Services.Implement
                 OrderId = createOriginCertificate.OrderId,
                 StartTime = createOriginCertificate.StartTime,
                 EndTime = createOriginCertificate.EndTime,
+                CreatedDate = DateTime.Now
             };
             await _originCertificateRepository.AddAsync(originCertificate);
             return originCertificate;
@@ -38,6 +39,7 @@ namespace Services.Implement
                 throw new Exception($"Origin with ID{id} is not found");
             }
             originCertificate.IsDeleted = true;
+            originCertificate.DeletedDate = DateTime.Now;
             await _originCertificateRepository.UpdateAsync(originCertificate);
             return originCertificate;
         }
@@ -75,10 +77,10 @@ namespace Services.Implement
             {
                 throw new Exception($"Origin with ID{id} is not found");
             }
-            originCertificate.KoiId = updateOriginCertificate.KoiId;
             originCertificate.OrderId = updateOriginCertificate.OrderId;
             originCertificate.StartTime = updateOriginCertificate.StartTime;
             originCertificate.EndTime = updateOriginCertificate.EndTime;
+            originCertificate.ModifiedDate = DateTime.Now;
 
             await _originCertificateRepository.UpdateAsync(originCertificate);
             return originCertificate;

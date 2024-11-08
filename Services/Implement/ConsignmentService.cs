@@ -33,6 +33,7 @@ namespace Services.Implement
                 PaymentId = createConsignment.PaymentId,
                 Price = createConsignment.Price,
                 Status = createConsignment.Status,
+                CreatedDate = DateTime.Now
             };
             await _consignmentRepository.AddAsync(consignment);
 
@@ -41,7 +42,7 @@ namespace Services.Implement
             {
                 UrlPath = url,
                 ConsignmentId = consignment.Id,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = DateTime.Now,
                 IsDeleted = false,
             };
             await _imageRepository.AddAsync(image);
@@ -56,6 +57,7 @@ namespace Services.Implement
                 throw new Exception($"Cart with ID{id} is not found");
             }
             consignment.IsDeleted = true;
+            consignment.DeletedDate = DateTime.Now;
             await _consignmentRepository.UpdateAsync(consignment); 
             return consignment;
         }
@@ -92,16 +94,14 @@ namespace Services.Implement
             {
                 throw new Exception($"Cart with ID{id} is not found");
             }
-            consignment.AccountId = updateConsignment.AccountId;
-            consignment.KoiId = updateConsignment.KoiId;
-            consignment.PaymentId = updateConsignment.PaymentId;
             consignment.Price = updateConsignment.Price;
             consignment.Status = updateConsignment.Status;
+            consignment.ModifiedDate = DateTime.Now;
 
             if (updateConsignment.Img != null)
             {
-                // Lấy ảnh hiện tại liên kết với KoiFishy
-                var existingImage = await _imageRepository.GetByConsignmentIdAsync(updateConsignment.Id);
+                // Lấy ảnh hiện tại 
+                var existingImage = await _imageRepository.GetByConsignmentIdAsync(consignment.Id);
 
                 if (existingImage != null)
                 {
@@ -118,7 +118,7 @@ namespace Services.Implement
 
                     // Cập nhật URL của ảnh cũ
                     existingImage.UrlPath = newImageUrl;
-                    existingImage.ModifiedDate = DateTime.UtcNow;
+                    existingImage.ModifiedDate = DateTime.Now;
 
                     // Lưu thay đổi vào database
                     await _imageRepository.UpdateAsync(existingImage);
@@ -132,7 +132,7 @@ namespace Services.Implement
                     {
                         UrlPath = newImageUrl,
                         ConsignmentId = consignment.Id,
-                        CreatedDate = DateTime.UtcNow,
+                        CreatedDate = DateTime.Now,
                         IsDeleted = false,
                     };
 
