@@ -29,84 +29,163 @@ namespace Services.Implement
             _apiKey = _configuration["Cloudinary:ApiKey"]!;
             _apiSecret = _configuration["Cloudinary:ApiSecret"]!;
         }
-        public async Task<string> UploadKoiImage(IFormFile file, int KoiId)
+        public async Task<List<string>> UploadKoiImage(List<IFormFile> files, int KoiId)
         {
-            if (!file.ContentType.ToLower().StartsWith("image/"))
+            // Kiểm tra danh sách file có rỗng hay không
+            if (files == null || files.Count == 0)
             {
-                throw new Exception("File is not a image!");
+                throw new Exception("No files to upload!");
             }
+
             var account = new CloudinaryDotNet.Account(_cloudName, _apiKey, _apiSecret);
             _cloudinary = new Cloudinary(account);
-            var uploadParameters = new ImageUploadParams
+
+            // Danh sách URL ảnh sau khi upload
+            var imageUrls = new List<string>();
+
+            foreach (var file in files)
             {
-                // Tạo một folder riêng dựa trên KoiId
-                Folder = $"KoiImages/{KoiId}", // Ví dụ: Folder theo KoiId
-                PublicId = $"{KoiId}_{Path.GetFileNameWithoutExtension(file.FileName)}" // Tạo PublicId
-            };
-            using (var memoryStream = new MemoryStream())
-            {
-                await file.CopyToAsync(memoryStream);
-                uploadParameters.File = new FileDescription(file.FileName, new MemoryStream(memoryStream.ToArray()));
+                // Kiểm tra định dạng file
+                if (!file.ContentType.ToLower().StartsWith("image/"))
+                {
+                    throw new Exception($"File {file.FileName} is not an image!");
+                }
+
+                // Thiết lập các tham số upload
+                var uploadParameters = new ImageUploadParams
+                {
+                    Folder = $"Koi/{KoiId}",
+                    PublicId = $"{KoiId}_{Path.GetFileNameWithoutExtension(file.FileName)}",
+                    File = new FileDescription(file.FileName)
+                };
+
+                // Đọc file vào memory stream
+                using (var memoryStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(memoryStream);
+                    uploadParameters.File = new FileDescription(file.FileName, new MemoryStream(memoryStream.ToArray()));
+                }
+
+                // Thực hiện upload ảnh lên Cloudinary
+                var result = await _cloudinary.UploadAsync(uploadParameters);
+
+                // Kiểm tra lỗi khi upload
+                if (result.Error != null)
+                {
+                    throw new Exception($"Error uploading image {file.FileName}: {result.Error.Message}");
+                }
+
+                // Thêm URL ảnh vào danh sách
+                imageUrls.Add(result.SecureUrl.ToString());
             }
-            var result = await _cloudinary.UploadAsync(uploadParameters);
-            if (result.Error != null)
-            {
-                throw new Exception($"Error upload image: {result.Error.Message}");
-            }
-            return result.SecureUrl.ToString();
+
+            return imageUrls;
         }
-        public async Task<string> UploadKoiFishyImage(IFormFile file, int KoiFishyId)
+        public async Task<List<string>> UploadKoiFishyImage(List<IFormFile> files, int KoiFishyId)
         {
-            if (!file.ContentType.ToLower().StartsWith("image/"))
+            // Kiểm tra danh sách file có rỗng hay không
+            if (files == null || files.Count == 0)
             {
-                throw new Exception("File is not a image!");
+                throw new Exception("No files to upload!");
             }
+
             var account = new CloudinaryDotNet.Account(_cloudName, _apiKey, _apiSecret);
             _cloudinary = new Cloudinary(account);
-            var uploadParameters = new ImageUploadParams
+
+            // Danh sách URL ảnh sau khi upload
+            var imageUrls = new List<string>();
+
+            foreach (var file in files)
             {
-                // Tạo một folder riêng dựa trên KoiId
-                Folder = $"KoiImages/{KoiFishyId}",
-                PublicId = $"{KoiFishyId}_{Path.GetFileNameWithoutExtension(file.FileName)}"
-            };
-            using (var memoryStream = new MemoryStream())
-            {
-                await file.CopyToAsync(memoryStream);
-                uploadParameters.File = new FileDescription(file.FileName, new MemoryStream(memoryStream.ToArray()));
+                // Kiểm tra định dạng file
+                if (!file.ContentType.ToLower().StartsWith("image/"))
+                {
+                    throw new Exception($"File {file.FileName} is not an image!");
+                }
+
+                // Thiết lập các tham số upload
+                var uploadParameters = new ImageUploadParams
+                {
+                    Folder = $"KoiFishy/{KoiFishyId}",
+                    PublicId = $"{KoiFishyId}_{Path.GetFileNameWithoutExtension(file.FileName)}",
+                    File = new FileDescription(file.FileName)
+                };
+
+                // Đọc file vào memory stream
+                using (var memoryStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(memoryStream);
+                    uploadParameters.File = new FileDescription(file.FileName, new MemoryStream(memoryStream.ToArray()));
+                }
+
+                // Thực hiện upload ảnh lên Cloudinary
+                var result = await _cloudinary.UploadAsync(uploadParameters);
+
+                // Kiểm tra lỗi khi upload
+                if (result.Error != null)
+                {
+                    throw new Exception($"Error uploading image {file.FileName}: {result.Error.Message}");
+                }
+
+                // Thêm URL ảnh vào danh sách
+                imageUrls.Add(result.SecureUrl.ToString());
             }
-            var result = await _cloudinary.UploadAsync(uploadParameters);
-            if (result.Error != null)
-            {
-                throw new Exception($"Error upload image: {result.Error.Message}");
-            }
-            return result.SecureUrl.ToString();
+
+            return imageUrls;
         }
 
-        public async Task<string> UploadConsignmentImage(IFormFile file, int ConsignmentId)
+
+        public async Task<List<string>> UploadConsignmentImage(List<IFormFile> files, int ConsignmentId)
         {
-            if (!file.ContentType.ToLower().StartsWith("image/"))
+            // Kiểm tra danh sách file có rỗng hay không
+            if (files == null || files.Count == 0)
             {
-                throw new Exception("File is not a image!");
+                throw new Exception("No files to upload!");
             }
+
             var account = new CloudinaryDotNet.Account(_cloudName, _apiKey, _apiSecret);
             _cloudinary = new Cloudinary(account);
-            var uploadParameters = new ImageUploadParams
+
+            // Danh sách URL ảnh sau khi upload
+            var imageUrls = new List<string>();
+
+            foreach (var file in files)
             {
-                // Tạo một folder riêng dựa trên KoiId
-                Folder = $"KoiImages/{ConsignmentId}",
-                PublicId = $"{ConsignmentId}_{Path.GetFileNameWithoutExtension(file.FileName)}"
-            };
-            using (var memoryStream = new MemoryStream())
-            {
-                await file.CopyToAsync(memoryStream);
-                uploadParameters.File = new FileDescription(file.FileName, new MemoryStream(memoryStream.ToArray()));
+                // Kiểm tra định dạng file
+                if (!file.ContentType.ToLower().StartsWith("image/"))
+                {
+                    throw new Exception($"File {file.FileName} is not an image!");
+                }
+
+                // Thiết lập các tham số upload
+                var uploadParameters = new ImageUploadParams
+                {
+                    Folder = $"Consignment/{ConsignmentId}",
+                    PublicId = $"{ConsignmentId}_{Path.GetFileNameWithoutExtension(file.FileName)}",
+                    File = new FileDescription(file.FileName)
+                };
+
+                // Đọc file vào memory stream
+                using (var memoryStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(memoryStream);
+                    uploadParameters.File = new FileDescription(file.FileName, new MemoryStream(memoryStream.ToArray()));
+                }
+
+                // Thực hiện upload ảnh lên Cloudinary
+                var result = await _cloudinary.UploadAsync(uploadParameters);
+
+                // Kiểm tra lỗi khi upload
+                if (result.Error != null)
+                {
+                    throw new Exception($"Error uploading image {file.FileName}: {result.Error.Message}");
+                }
+
+                // Thêm URL ảnh vào danh sách
+                imageUrls.Add(result.SecureUrl.ToString());
             }
-            var result = await _cloudinary.UploadAsync(uploadParameters);
-            if (result.Error != null)
-            {
-                throw new Exception($"Error upload image: {result.Error.Message}");
-            }
-            return result.SecureUrl.ToString();
+
+            return imageUrls;
         }
 
         public async Task<IEnumerable<Image>> GetAllImages()

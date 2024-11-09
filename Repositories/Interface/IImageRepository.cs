@@ -9,8 +9,8 @@ namespace Repositories.Interface
 {
     public interface IImageRepository : IGenericRepository<Image>
     {
-        public Task<Image?> GetByKoiFishyIdAsync(int koiFishyId);
-        public  Task<Image?> GetByKoiIdAsync(int koiId);
-        public Task<Image?> GetByConsignmentIdAsync(int consignmentId);
+        Task<List<Image>> GetByKoiFishyIdAsync(int koiFishyId);
+        Task<List<Image>> GetByKoiIdAsync(int koiId);
+        Task<List<Image>> GetByConsignmentIdAsync(int consignmentId);
     }
 }

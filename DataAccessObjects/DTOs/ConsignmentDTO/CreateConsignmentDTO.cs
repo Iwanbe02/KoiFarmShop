@@ -16,8 +16,8 @@ namespace DataAccessObjects.DTOs.ConsignmentDTO
         public int? PaymentId { get; set; }
 
         public decimal? Price { get; set; }
-        public IFormFile Img { get; set; }
+        public string? Status { get; set; }
+        public List<IFormFile> Img { get; set; }
 
-        public string? Status { get; set; } = string.Empty;
     }
 }

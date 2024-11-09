@@ -269,7 +269,3 @@ __pycache__/
 # tools/
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore 
-.vs/KoiFarmShop_WebAPI/DesignTimeBuild/.dtbcache.v2
-.vs/KoiFarmShop_WebAPI/v17/.futdcache.v2
-.vs/ProjectEvaluation/koifarmshop_webapi.metadata.v7.bin
-.vs/ProjectEvaluation/koifarmshop_webapi.projects.v7.bin

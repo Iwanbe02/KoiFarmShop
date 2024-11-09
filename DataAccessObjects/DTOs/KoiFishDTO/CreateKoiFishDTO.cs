@@ -32,9 +32,8 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
         public int Amount { get; set; }
 
         public string Type { get; set; } = null!;
-
-        public IFormFile Img { get; set; }
         public string? Status { get; set; }
+        public List<IFormFile> Img { get; set; }
 
     }
 }

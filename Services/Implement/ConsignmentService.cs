@@ -37,15 +37,19 @@ namespace Services.Implement
             };
             await _consignmentRepository.AddAsync(consignment);
 
-            string url = await _imageService.UploadConsignmentImage(createConsignment.Img, consignment.Id);
-            var image = new Image
+            List<string> imageUrls = await _imageService.UploadConsignmentImage(createConsignment.Img, consignment.Id);
+
+            foreach (var url in imageUrls)
             {
-                UrlPath = url,
-                ConsignmentId = consignment.Id,
-                CreatedDate = DateTime.Now,
-                IsDeleted = false,
-            };
-            await _imageRepository.AddAsync(image);
+                var image = new Image
+                {
+                    UrlPath = url,
+                    ConsignmentId = consignment.Id,
+                    CreatedDate = DateTime.Now,
+                    IsDeleted = false,
+                };
+                await _imageRepository.AddAsync(image);
+            }
             return consignment;
         }
 
@@ -98,44 +102,30 @@ namespace Services.Implement
             consignment.Status = updateConsignment.Status;
             consignment.ModifiedDate = DateTime.Now;
 
-            if (updateConsignment.Img != null)
+            if (updateConsignment.Img != null && updateConsignment.Img.Any())
             {
-                // Lấy ảnh hiện tại 
-                var existingImage = await _imageRepository.GetByConsignmentIdAsync(consignment.Id);
+                var existingImages = await _imageRepository.GetByConsignmentIdAsync(consignment.Id);
 
-                if (existingImage != null)
+                foreach (var existingImage in existingImages)
                 {
-                    // Xóa ảnh cũ trên Cloudinary
-                    bool isDeleted = await _imageService.DeleteImageAsync(existingImage.UrlPath, "KoiImages");
-
+                    bool isDeleted = await _imageService.DeleteImageAsync(existingImage.UrlPath, "Consignment");
                     if (!isDeleted)
                     {
                         throw new Exception("Không thể xóa ảnh cũ trên Cloudinary");
                     }
-
-                    // Tải ảnh mới lên Cloudinary và lấy URL
-                    string newImageUrl = await _imageService.UploadConsignmentImage(updateConsignment.Img, consignment.Id);
-
-                    // Cập nhật URL của ảnh cũ
-                    existingImage.UrlPath = newImageUrl;
-                    existingImage.ModifiedDate = DateTime.Now;
-
-                    // Lưu thay đổi vào database
-                    await _imageRepository.UpdateAsync(existingImage);
+                    await _imageRepository.RemoveAsync(existingImage);
                 }
-                else
-                {
-                    // Nếu không có ảnh cũ, tạo ảnh mới
-                    string newImageUrl = await _imageService.UploadConsignmentImage(updateConsignment.Img, consignment.Id);
 
+                List<string> newImageUrls = await _imageService.UploadConsignmentImage(updateConsignment.Img, consignment.Id);
+                foreach (var newImageUrl in newImageUrls)
+                {
                     var newImage = new Image
                     {
                         UrlPath = newImageUrl,
                         ConsignmentId = consignment.Id,
-                        CreatedDate = DateTime.Now,
+                        ModifiedDate = DateTime.Now,
                         IsDeleted = false,
                     };
-
                     await _imageRepository.AddAsync(newImage);
                 }
             }
