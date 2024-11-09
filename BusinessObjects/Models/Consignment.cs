@@ -13,11 +13,11 @@ public partial class Consignment
 
     public int? PaymentId { get; set; }
 
-    public decimal? Price { get; set; }
+    public decimal Price { get; set; }
 
     public string? Status { get; set; }
 
-    public DateTime? CreatedDate { get; set; }
+    public DateTime CreatedDate { get; set; }
 
     public DateTime? ModifiedDate { get; set; }
 
