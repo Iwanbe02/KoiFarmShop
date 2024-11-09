@@ -60,6 +60,7 @@ namespace Services.Implement
             {
                 Name = createAccountDTO.FullName,
                 Email = createAccountDTO.Email,
+                Gender = createAccountDTO.Gender,
                 Password = BCrypt.Net.BCrypt.HashPassword(createAccountDTO.Password),
                 RoleId = 3,  // Default role
                 DateOfBirth = createAccountDTO.DateOfBirth,

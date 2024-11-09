@@ -7,8 +7,6 @@ public partial class Cart
 {
     public int Id { get; set; }
 
-    public int? OrderId { get; set; }
-
     public decimal? Price { get; set; }
 
     public decimal? TotalPrice { get; set; }

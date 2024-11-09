@@ -8,8 +8,6 @@ namespace DataAccessObjects.DTOs.CartDTO
 {
     public class CreateCartDTO
     {
-        public int? OrderId { get; set; }
-
         public decimal? Price { get; set; }
 
         public decimal? TotalPrice { get; set; }
