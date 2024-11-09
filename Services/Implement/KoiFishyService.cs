@@ -126,7 +126,7 @@ namespace Services.Implement
                         throw new Exception("Không thể xóa ảnh cũ trên Cloudinary");
                     }
                     // Xóa ảnh khỏi database
-                    await _imageRepository.DeleteRangeAsync(existingImage);
+                    await _imageRepository.RemoveAsync(existingImage);
                 }
 
                 // Upload danh sách ảnh mới và lưu thông tin vào database

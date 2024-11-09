@@ -113,7 +113,7 @@ namespace Services.Implement
                     {
                         throw new Exception("Không thể xóa ảnh cũ trên Cloudinary");
                     }
-                    await _imageRepository.DeleteRangeAsync(existingImage);
+                    await _imageRepository.RemoveAsync(existingImage);
                 }
 
                 List<string> newImageUrls = await _imageService.UploadConsignmentImage(updateConsignment.Img, consignment.Id);
@@ -123,7 +123,7 @@ namespace Services.Implement
                     {
                         UrlPath = newImageUrl,
                         ConsignmentId = consignment.Id,
-                        CreatedDate = DateTime.Now,
+                        ModifiedDate = DateTime.Now,
                         IsDeleted = false,
                     };
                     await _imageRepository.AddAsync(newImage);
