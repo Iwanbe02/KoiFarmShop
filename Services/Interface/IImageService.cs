@@ -11,9 +11,9 @@ namespace Services.Interface
     public interface IImageService
     {
         Task<IEnumerable<Image>> GetAllImages();
-        Task<string> UploadKoiImage(IFormFile file, int KoiId);
-        Task<string> UploadKoiFishyImage(IFormFile file, int KoiFishyId);
-        Task<string> UploadConsignmentImage(IFormFile file, int ConsignmentId);
+        Task<List<string>> UploadKoiImage(List<IFormFile> files, int KoiId);
+        Task<List<string>> UploadKoiFishyImage(List<IFormFile> files, int KoiFishyId);
+        Task<List<string>> UploadConsignmentImage(List<IFormFile> files, int ConsignmentId);
         Task<bool> DeleteImageAsync(string urlImage, string path);
     }
 }

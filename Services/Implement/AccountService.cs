@@ -29,11 +29,14 @@ namespace Services.Implement
             var account = new Account
             {
                 Name = createAccount.Name,
+                RoleId = createAccount.RoleId,
                 Gender = createAccount.Gender,
                 Email = createAccount.Email,
                 Password = createAccount.Password,
                 Phone = createAccount.Phone,
                 Address = createAccount.Address,
+                Point = createAccount.Point,
+                Status = createAccount.Status,
                 DateOfBirth = createAccount.DateOfBirth,
                 CreatedDate = DateTime.Now
             };

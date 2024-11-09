@@ -11,17 +11,17 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
     {
         public decimal? Price { get; set; }
 
-        public string Origin { get; set; } = null!;
+        public string? Origin { get; set; }
 
-        public string Gender { get; set; } = null!;
+        public string? Gender { get; set; }
 
         public int Age { get; set; }
 
         public double Size { get; set; }
 
-        public string Species { get; set; } = null!;
+        public string? Species { get; set; }
 
-        public string Character { get; set; } = null!;
+        public string? Character { get; set; }
 
         public double AmountFood { get; set; }
 
@@ -29,10 +29,9 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
 
         public int Amount { get; set; }
 
-        public string Type { get; set; } = null!;
-
-        public IFormFile Img { get; set; }
-         public string? Status { get; set; }
+        public string? Type { get; set; }
+        public string? Status { get; set; }
+        public List<IFormFile> Img { get; set; }
 
     }
 }

@@ -16,20 +16,24 @@ namespace Repositories.Implement
         {
             this._dbContext = context;
         }
-        public async Task<Image?> GetByKoiFishyIdAsync(int koiFishyId)
+        public async Task<List<Image>> GetByKoiFishyIdAsync(int koiFishyId)
         {
             return await _dbContext.Images
-                .FirstOrDefaultAsync(img => img.KoiFishyId == koiFishyId && img.IsDeleted == false);
+                .Where(img => img.KoiFishyId == koiFishyId && img.IsDeleted == false)
+                .ToListAsync();
         }
-        public async Task<Image?> GetByKoiIdAsync(int koiId)
+
+        public async Task<List<Image>> GetByKoiIdAsync(int koiId)
         {
             return await _dbContext.Images
-                .FirstOrDefaultAsync(img => img.KoiId == koiId && img.IsDeleted == false);
+                .Where(img => img.KoiId == koiId && img.IsDeleted == false)
+                .ToListAsync();
         }
-        public async Task<Image?> GetByConsignmentIdAsync(int consignmentId)
+        public async Task<List<Image>> GetByConsignmentIdAsync(int consignmentId)
         {
             return await _dbContext.Images
-                .FirstOrDefaultAsync(img => img.ConsignmentId == consignmentId && img.IsDeleted == false);
+                .Where(img => img.ConsignmentId == consignmentId && img.IsDeleted == false)
+                .ToListAsync();
         }
     }
 }

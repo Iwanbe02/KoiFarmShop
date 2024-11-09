@@ -10,8 +10,7 @@ namespace DataAccessObjects.DTOs.ConsignmentDTO
     public class UpdateConsignmentDTO
     {
         public decimal? Price { get; set; }
-        public IFormFile Img { get; set; }
         public string? Status { get; set; } = string.Empty;
-        public DateTime? ModifiedDate { get; set; }
+        public List<IFormFile> Img { get; set; }
     }
 }
