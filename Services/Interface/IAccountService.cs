@@ -16,5 +16,6 @@ namespace Services.Interface
         Task<Account> UpdateAccount(int id, UpdateAccountDTO updateAccount);
         Task<Account> DeleteAccount(int id);
         Task<Account> RestoreAccount(int id);
+        Task<Account> Login(string email, string password);
     }
 }

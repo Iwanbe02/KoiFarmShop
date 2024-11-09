@@ -68,6 +68,23 @@ namespace Services.Implement
             return _accountRepository.GetAllAsync();
         }
 
+        public async Task<Account> Login(string email, string password)
+        {
+            var account = await _accountRepository.GetByEmailAsync(email);  
+            if (account == null)
+            {
+                throw new Exception("User not found.");
+            }
+
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, account.Password);
+            if (!isPasswordValid)
+            {
+                throw new Exception("Invalid password.");
+            }
+
+            return account;
+        }
+
         public async Task<Account> RestoreAccount(int id)
         {
             var account = await _accountRepository.GetByIdAsync(id);

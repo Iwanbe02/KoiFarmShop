@@ -1,8 +1,14 @@
-﻿using BusinessObjects.ReqDto;
+﻿using BusinessObjects.Models;
+using BusinessObjects.ReqDto;
+using DataAccessObjects.DTOs;
 using DataAccessObjects.DTOs.AccountDTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Services.Interface;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace KoiFarmShop_WebAPI.Controllers
 {
@@ -11,10 +17,14 @@ namespace KoiFarmShop_WebAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IUserServices _userService;
+        private readonly IAccountService _accountService;
+        private readonly IConfiguration _config;
 
-        public AuthController(IUserServices userService)
+        public AuthController(IUserServices userService, IAccountService accountService, IConfiguration config)
         {
             _userService = userService;
+            _accountService = accountService;
+            _config = config;
         }
 
         [HttpPost("register")]
@@ -32,17 +42,61 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginDTO model)
+        public async Task<IActionResult> Login([FromBody] Model.LoginRequest request)
         {
-            try
+            if (request == null)
             {
-                var token = _userService.Login(model.Email, model.Password);
-                return Ok(token);
+                return BadRequest(new ApiResponse
+                {
+                    StatusCode = 400,
+                    Message = "Invalid client request",
+                    Data = null,
+                    RoleId = 0
+                });
             }
-            catch (UnauthorizedAccessException ex)
+            var account = await this._accountService.Login(request.Email, request.Password);
+            if (account == null)
             {
-                return Unauthorized(new { Message = ex.Message });
+                return Unauthorized(new ApiResponse
+                {
+                    StatusCode = 401,
+                    Message = "Unauthorized",
+                    Data = null,
+                    RoleId = 0
+                });
             }
+
+            var token = this.GenerateJSONWebToken(account);
+            var user = await _accountService.GetAccountById(account.Id);
+            var roleId = user.RoleId;
+            return Ok(new ApiResponse
+            {
+                StatusCode = 200,
+                Message = "Login successful",
+                Data = token,
+                RoleId = (int)roleId,
+                UserId = account.Id
+            });
+        }
+
+        private string GenerateJSONWebToken(Account userInfo)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
+              _config["Jwt:Audience"],
+              new Claim[]
+              {
+              new(ClaimTypes.Email, userInfo.Email),
+              new(ClaimTypes.Role, userInfo.RoleId.ToString()),
+              new("userId", userInfo.Id.ToString()),
+              },
+              expires: DateTime.Now.AddMinutes(120),
+              signingCredentials: credentials
+              );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
     }
