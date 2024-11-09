@@ -22,7 +22,6 @@ namespace Services.Implement
         {
             var cart = new Cart
             {
-                OrderId = createCart.OrderId,
                 Price = createCart.Price,
                 TotalPrice = createCart.TotalPrice,
                 Quantity = createCart.Quantity,

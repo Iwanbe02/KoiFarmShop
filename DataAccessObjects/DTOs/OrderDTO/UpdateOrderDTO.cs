@@ -12,6 +12,6 @@ namespace DataAccessObjects.DTOs.OrderDTO
 
         public bool? Type { get; set; }
 
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
     }
 }

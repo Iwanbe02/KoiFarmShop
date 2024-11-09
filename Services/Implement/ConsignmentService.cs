@@ -76,6 +76,65 @@ namespace Services.Implement
             return await _consignmentRepository.GetByIdAsync(id);
         }
 
+        public async Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyConsignments()
+        {
+            var consignment = await _consignmentRepository.GetAllAsync();
+
+            // Group donations by year and month
+            var monthlyConsignments = consignment
+                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month })
+                .Select(g => new
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    TotalPrice = g.Sum(d => d.Price)
+                });
+
+            // Create a nested dictionary to hold the total amounts for each month of each year
+            var result = new Dictionary<int, Dictionary<string, decimal>>();
+            foreach (var item in monthlyConsignments)
+            {
+                if (!result.ContainsKey(item.Year))
+                {
+                    result[item.Year] = new Dictionary<string, decimal>();
+                }
+
+                string monthName = new DateTime(item.Year, item.Month, 1).ToString("MMMM");
+                result[item.Year][monthName] = item.TotalPrice;
+            }
+
+            // Fill in months with zero for years that have no donations
+            foreach (var year in result.Keys)
+            {
+                for (int month = 1; month <= 12; month++)
+                {
+                    string monthName = new DateTime(year, month, 1).ToString("MMMM");
+                    if (!result[year].ContainsKey(monthName))
+                    {
+                        result[year][monthName] = 0.00m; // Set to zero if no donations for that month
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public async Task<int> GetTotalConsignmentsByMonth(int month)
+        {
+            var consignments = await _consignmentRepository.GetAllAsync();
+
+            // Filter donations for the specified month and count them
+            var totalConsignments = consignments.Count(d => d.CreatedDate.Month == month);
+
+            return totalConsignments;
+        }
+
+        public async Task<decimal> GetTotalPriceConsignments()
+        {
+            var consignmentPrice = await _consignmentRepository.GetAllAsync();
+            return consignmentPrice.Sum(c => c.Price);
+        }
+
         public async Task<Consignment> RestoreConsignment(int id)
         {
             var consignment = await _consignmentRepository.GetByIdAsync(id);
