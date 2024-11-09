@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessObjects.DTOs.CartDetailDTO
+namespace BusinessObjects.Enums
 {
-    public class UpdateCartDetailDTO
+    public enum CertificateStatus
     {
-        public decimal? Price { get; set; }
+        Valid,
+        Expired
     }
 }

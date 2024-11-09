@@ -22,9 +22,6 @@ namespace DataAccessObjects.DTOs.AccountDTO
 
         public string? Address { get; set; }
         public int? Point { get; set; }
-
-        public string? Status { get; set; }
-
         public DateTime? DateOfBirth { get; set; }
     }
 }

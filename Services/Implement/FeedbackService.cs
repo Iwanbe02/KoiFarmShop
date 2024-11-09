@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.FeedbackDTO;
 using Repositories.Interface;
 using Services.Interface;
@@ -24,7 +25,7 @@ namespace Services.Implement
             var feedback = new Feedback
             {
                 AccountId = createFeedback.AccountId,
-                Status = createFeedback.Status,
+                Status = FeedbackStatus.Pending.ToString(),
                 Description = createFeedback.Description,
                 Rating = createFeedback.Rating,
                 CreatedDate = DateTime.Now

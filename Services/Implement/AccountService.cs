@@ -12,6 +12,7 @@ using System.Numerics;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessObjects.Enums;
 
 namespace Services.Implement
 {
@@ -36,7 +37,7 @@ namespace Services.Implement
                 Phone = createAccount.Phone,
                 Address = createAccount.Address,
                 Point = createAccount.Point,
-                Status = createAccount.Status,
+                Status = KoiFishStatus.Active.ToString(),
                 DateOfBirth = createAccount.DateOfBirth,
                 CreatedDate = DateTime.Now
             };

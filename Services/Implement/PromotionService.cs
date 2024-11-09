@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.PromotionDTO;
 using Repositories.Interface;
 using Services.Interface;
@@ -25,7 +26,7 @@ namespace Services.Implement
             {
                 Point = createPromotion.Point,
                 DiscountPercentage = createPromotion.DiscountPercentage,
-                Status = createPromotion.Status,
+                Status = CertificateStatus.Valid.ToString(),
                 CreatedDate = DateTime.Now
             };
             await _promotionRepository.AddAsync(promotion);

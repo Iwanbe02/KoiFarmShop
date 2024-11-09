@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.KoiFishDTO;
 using Repositories.Implement;
 using Repositories.Interface;
@@ -38,7 +39,7 @@ namespace Services.Implement
                 AmountFood = createKoiFish.AmountFood,
                 ScreeningRate = createKoiFish.ScreeningRate,
                 Type = createKoiFish.Type,
-                Status = createKoiFish.Status,
+                Status = KoiFishStatus.Active.ToString(),
                 CreatedDate = DateTime.Now
             };
             await _koiFishRepository.AddAsync(koi);

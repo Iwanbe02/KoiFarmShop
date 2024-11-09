@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.OrderDTO;
 using Repositories.Implement;
 using Repositories.Interface;
@@ -27,7 +28,7 @@ namespace Services.Implement
                 KoiFishyId = createOrder.KoiFishyId,
                 AccountId = createOrder.AccountId,
                 PaymentId = createOrder.PaymentId,
-                Status = createOrder.Status,
+                Status = OrderStatus.Pending.ToString(),
                 Type = createOrder.Type,
                 Price = createOrder.Price,
                 CreatedDate = DateTime.Now

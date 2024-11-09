@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessObjects.DTOs.CartDetailDTO
+namespace BusinessObjects.Enums
 {
-    public class UpdateCartDetailDTO
+    public enum OrderStatus
     {
-        public decimal? Price { get; set; }
+        Pending,
+        Paid,
+        Cancelled
     }
 }

@@ -26,7 +26,6 @@ namespace Services.Implement
                 CartId = createCartDetail.CartId,
                 FeedbackId = createCartDetail.FeedbackId,
                 Price = createCartDetail.Price,
-                Status = createCartDetail.Status,
                 CreatedDate = DateTime.Now
             };
             await _cartDetailRepository.AddAsync(cartDetail);
@@ -79,7 +78,6 @@ namespace Services.Implement
                 throw new Exception($"Cart detail with ID{id} is not found");
             }
             cartDetail.Price = updateCartDetail.Price;
-            cartDetail.Status = updateCartDetail.Status;
             cartDetail.ModifiedDate = DateTime.Now;
 
             await _cartDetailRepository.UpdateAsync(cartDetail);

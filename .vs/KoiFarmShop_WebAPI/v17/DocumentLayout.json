@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\code\\SWP391\\KoiFarmShop\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|e:\\code\\swp391\\koifarmshop\\koifarmshop_webapi\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|solutionrelative:koifarmshop_webapi\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 90,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -375,19 +370,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DashBoardController.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\DashBoardController.cs",
-              "RelativeDocumentMoniker": "KoiFarmShop_WebAPI\\Controllers\\DashBoardController.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\DashBoardController.cs",
-              "RelativeToolTip": "KoiFarmShop_WebAPI\\Controllers\\DashBoardController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T14:11:17.443Z",
-              "EditorCaption": ""
             }
           ]
         },

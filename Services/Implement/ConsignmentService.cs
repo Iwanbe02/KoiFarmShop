@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.ConsignmentDTO;
 using Microsoft.Identity.Client;
 using Repositories.Implement;
@@ -32,7 +33,7 @@ namespace Services.Implement
                 KoiId = createConsignment.KoiId,
                 PaymentId = createConsignment.PaymentId,
                 Price = createConsignment.Price,
-                Status = createConsignment.Status,
+                Status = OrderStatus.Pending.ToString(),
                 CreatedDate = DateTime.Now
             };
             await _consignmentRepository.AddAsync(consignment);

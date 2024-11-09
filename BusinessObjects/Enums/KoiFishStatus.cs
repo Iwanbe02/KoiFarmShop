@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessObjects.DTOs.CartDetailDTO
-{
-    public class UpdateCartDetailDTO
+namespace BusinessObjects.Enums
+{  
+    public enum KoiFishStatus
     {
-        public decimal? Price { get; set; }
+        Active,
+        InActive,
     }
+    
 }
