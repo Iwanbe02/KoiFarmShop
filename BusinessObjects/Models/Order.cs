@@ -7,8 +7,6 @@ public partial class Order
 {
     public int Id { get; set; }
 
-    public int? CartId { get; set; }
-
     public int? KoiId { get; set; }
 
     public int? KoiFishyId { get; set; }
@@ -32,8 +30,6 @@ public partial class Order
     public bool? IsDeleted { get; set; }
 
     public virtual Account? Account { get; set; }
-
-    public virtual Cart? Cart { get; set; }
 
     public virtual KoiFish? Koi { get; set; }
 

@@ -8,7 +8,6 @@ namespace DataAccessObjects.DTOs.OrderDTO
 {
     public class CreateOrderDTO
     {
-        public int? CartId { get; set; }
         public int? KoiId { get; set; }
 
         public int? KoiFishyId { get; set; }

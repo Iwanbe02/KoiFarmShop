@@ -39,8 +39,6 @@ public partial class KoiFish
 
     public bool? IsDeleted { get; set; }
 
-    public virtual ICollection<CartDetail> CartDetails { get; set; } = new List<CartDetail>();
-
     public virtual Category? Category { get; set; }
 
     public virtual ICollection<Consignment> Consignments { get; set; } = new List<Consignment>();
