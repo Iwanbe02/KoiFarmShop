@@ -30,7 +30,6 @@ namespace Services.Implement
             var consignment = new Consignment
             {
                 AccountId = createConsignment.AccountId,
-                KoiId = createConsignment.KoiId,
                 PaymentId = createConsignment.PaymentId,
                 Price = createConsignment.Price,
                 Status = OrderStatus.Pending.ToString(),

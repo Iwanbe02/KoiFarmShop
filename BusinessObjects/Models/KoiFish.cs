@@ -41,8 +41,6 @@ public partial class KoiFish
 
     public virtual Category? Category { get; set; }
 
-    public virtual ICollection<Consignment> Consignments { get; set; } = new List<Consignment>();
-
     public virtual ICollection<HealthCertificate> HealthCertificates { get; set; } = new List<HealthCertificate>();
 
     public virtual ICollection<Image> Images { get; set; } = new List<Image>();
