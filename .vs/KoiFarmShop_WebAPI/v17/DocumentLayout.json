@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "E:\\code\\SWP391\\KoiFarmShop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|e:\\code\\swp391\\koifarmshop\\koifarmshop_webapi\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|solutionrelative:koifarmshop_webapi\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B5B18B94-F9D3-48AF-8F2E-AE9C6EC8D6F3}|DataAccessObjects\\DataAccessObjects.csproj|e:\\code\\swp391\\koifarmshop\\dataaccessobjects\\dtos\\koifishdto\\updatekoifishdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5B18B94-F9D3-48AF-8F2E-AE9C6EC8D6F3}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\dtos\\koifishdto\\updatekoifishdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|e:\\code\\swp391\\koifarmshop\\businessobjects\\models\\consignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\models\\consignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|e:\\code\\swp391\\koifarmshop\\businessobjects\\models\\koifish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\models\\koifish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|e:\\code\\swp391\\koifarmshop\\services\\implement\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\implement\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|e:\\code\\swp391\\koifarmshop\\services\\implement\\koifishyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\implement\\koifishyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|e:\\code\\swp391\\koifarmshop\\businessobjects\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|e:\\code\\swp391\\koifarmshop\\services\\implement\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\implement\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|e:\\code\\swp391\\koifarmshop\\services\\implement\\consignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\implement\\consignmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|e:\\code\\swp391\\koifarmshop\\businessobjects\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|e:\\code\\swp391\\koifarmshop\\businessobjects\\enums\\koifishstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{924B837C-B9F3-441B-87B1-D8C1F536FC70}|BusinessObjects\\BusinessObjects.csproj|solutionrelative:businessobjects\\enums\\koifishstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -399,79 +395,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AccountsController.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\AccountsController.cs",
-              "RelativeDocumentMoniker": "KoiFarmShop_WebAPI\\Controllers\\AccountsController.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\AccountsController.cs",
-              "RelativeToolTip": "KoiFarmShop_WebAPI\\Controllers\\AccountsController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Title": "UpdateKoiFishDTO.cs",
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DTOs\\KoiFishDTO\\UpdateKoiFishDTO.cs",
+              "RelativeDocumentMoniker": "DataAccessObjects\\DTOs\\KoiFishDTO\\UpdateKoiFishDTO.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DTOs\\KoiFishDTO\\UpdateKoiFishDTO.cs",
+              "RelativeToolTip": "DataAccessObjects\\DTOs\\KoiFishDTO\\UpdateKoiFishDTO.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwBwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T04:05:10.967Z",
+              "WhenOpened": "2024-11-10T10:13:10.069Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Consignment.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Models\\Consignment.cs",
-              "RelativeDocumentMoniker": "BusinessObjects\\Models\\Consignment.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Models\\Consignment.cs",
-              "RelativeToolTip": "BusinessObjects\\Models\\Consignment.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAzwA8AAAASAAAA",
+              "Title": "KoiFish.cs",
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Models\\KoiFish.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Models\\KoiFish.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Models\\KoiFish.cs",
+              "RelativeToolTip": "BusinessObjects\\Models\\KoiFish.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAiwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T04:04:53.73Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Order.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "BusinessObjects\\Models\\Order.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Models\\Order.cs",
-              "RelativeToolTip": "BusinessObjects\\Models\\Order.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAA5wBUAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T04:04:03.344Z",
+              "WhenOpened": "2024-11-10T10:11:42.897Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "OrderService.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\OrderService.cs",
-              "RelativeDocumentMoniker": "Services\\Implement\\OrderService.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\OrderService.cs",
-              "RelativeToolTip": "Services\\Implement\\OrderService.cs",
-              "ViewState": "AQIAAKsAAAAAAAAAAAAvwLkAAABAAAAA",
+              "Title": "KoiFishyService.cs",
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\KoiFishyService.cs",
+              "RelativeDocumentMoniker": "Services\\Implement\\KoiFishyService.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\KoiFishyService.cs",
+              "RelativeToolTip": "Services\\Implement\\KoiFishyService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T04:02:25.221Z",
+              "WhenOpened": "2024-11-10T08:49:35.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ImageService.cs",
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\ImageService.cs",
+              "RelativeDocumentMoniker": "Services\\Implement\\ImageService.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\ImageService.cs",
+              "RelativeToolTip": "Services\\Implement\\ImageService.cs",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T08:48:47.809Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ConsignmentService.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\ConsignmentService.cs",
-              "RelativeDocumentMoniker": "Services\\Implement\\ConsignmentService.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\ConsignmentService.cs",
-              "RelativeToolTip": "Services\\Implement\\ConsignmentService.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAnwFYAAABGAAAA",
+              "Title": "KoiFishStatus.cs",
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Enums\\KoiFishStatus.cs",
+              "RelativeDocumentMoniker": "BusinessObjects\\Enums\\KoiFishStatus.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Enums\\KoiFishStatus.cs",
+              "RelativeToolTip": "BusinessObjects\\Enums\\KoiFishStatus.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T04:02:10.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Account.cs",
-              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Models\\Account.cs",
-              "RelativeDocumentMoniker": "BusinessObjects\\Models\\Account.cs",
-              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\BusinessObjects\\Models\\Account.cs",
-              "RelativeToolTip": "BusinessObjects\\Models\\Account.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T04:00:22.34Z",
+              "WhenOpened": "2024-11-10T08:31:07.629Z",
               "EditorCaption": ""
             }
           ]
