@@ -1,6 +1,8 @@
 ﻿using BusinessObjects.Enums;
+using BusinessObjects.Helpers;
 using BusinessObjects.Models;
 using DataAccessObjects.DTOs.ConsignmentDTO;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using Repositories.Implement;
 using Repositories.Interface;
@@ -27,10 +29,15 @@ namespace Services.Implement
         }
         public async Task<Consignment> CreateConsignment(CreateConsignmentDTO createConsignment)
         {
+            var allKoiCodes = await _consignmentRepository.Entities()
+                                                    .Select(c => c.KoiCode)
+                                                    .ToListAsync();
+            string newKoiCode = IdGenerator.GenerateId(allKoiCodes, "K");
+
             var consignment = new Consignment
             {
                 AccountId = createConsignment.AccountId,
-                KoiId = createConsignment.KoiId,
+                KoiCode = newKoiCode,
                 PaymentId = createConsignment.PaymentId,
                 Price = createConsignment.Price,
                 Status = OrderStatus.Pending.ToString(),
