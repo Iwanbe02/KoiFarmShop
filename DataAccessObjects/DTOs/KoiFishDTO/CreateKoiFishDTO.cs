@@ -28,11 +28,7 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
         public double AmountFood { get; set; }
 
         public double ScreeningRate { get; set; }
-
-        public int Amount { get; set; }
-
         public string Type { get; set; } = null!;
-        public string? Status { get; set; }
         public List<IFormFile> Img { get; set; }
 
     }

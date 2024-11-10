@@ -17,8 +17,6 @@ namespace DataAccessObjects.DTOs.OrderDTO
 
         public int? PaymentId { get; set; }
 
-        public string? Status { get; set; }
-
         public bool? Type { get; set; }
 
         public decimal Price { get; set; }

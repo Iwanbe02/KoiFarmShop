@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Helpers;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Helpers;
 using BusinessObjects.Models;
 using DataAccessObjects.DTOs.PaymentDTO;
 using Microsoft.Extensions.Configuration;
@@ -27,40 +28,40 @@ namespace Services.Implement
 
         public async Task<string> CreatePaymentAsync(int orderId)
         {
-            // Step 1: Retrieve order details
             var order = await _orderRepository.GetByIdAsync(orderId);
             if (order == null || order.Price == null)
                 throw new ArgumentException("Order not found or has no price");
 
-            // Step 2: Create a new Payment object
             var payment = new Payment
             {
                 Amount = order.Price,
-                PaymentMethod = "VNPAY", // You can customize this field
+                PaymentMethod = "VNPAY", 
                 CreatedDate = DateTime.Now
             };
 
             await _paymentRepository.AddAsync(payment);
 
-            // Step 3: Initialize VnPayLibrary and set request parameters
             var vnPay = new VnPayLibrary();
             vnPay.AddRequestData("vnp_Version", "2.1.0");
             vnPay.AddRequestData("vnp_Command", "pay");
             vnPay.AddRequestData("vnp_TmnCode", _configuration["VNPay:TmnCode"]);
-            vnPay.AddRequestData("vnp_Amount", ((int)(payment.Amount * 100)).ToString()); // Convert to VND
+            vnPay.AddRequestData("vnp_Amount", ((int)(payment.Amount * 100)).ToString()); 
             vnPay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
             vnPay.AddRequestData("vnp_CurrCode", "VND");
-            vnPay.AddRequestData("vnp_IpAddr", "123.21.100.96"); // Replace with actual IP
+            vnPay.AddRequestData("vnp_IpAddr", "123.21.100.96"); 
             vnPay.AddRequestData("vnp_Locale", "vn");
             vnPay.AddRequestData("vnp_OrderInfo", $"Payment for order {orderId}");
             vnPay.AddRequestData("vnp_OrderType", "billpayment");
             vnPay.AddRequestData("vnp_ReturnUrl", _configuration["VNPay:ReturnUrl"]);
             vnPay.AddRequestData("vnp_TxnRef", orderId.ToString());
 
-            // Step 4: Generate payment URL
             string vnpBaseUrl = _configuration["VNPay:Url"];
             string vnpHashSecret = _configuration["VNPay:HashSecret"];
             string paymentUrl = vnPay.CreateRequestUrl(vnpBaseUrl, vnpHashSecret);
+
+            order.Status = OrderStatus.Pending.ToString();
+            order.PaymentId = payment.Id; 
+            await _orderRepository.UpdateAsync(order);
 
             return paymentUrl;
         }

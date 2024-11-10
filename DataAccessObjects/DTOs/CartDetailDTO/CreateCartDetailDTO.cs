@@ -15,7 +15,5 @@ namespace DataAccessObjects.DTOs.CartDetailDTO
         public int? FeedbackId { get; set; }
 
         public decimal? Price { get; set; }
-
-        public string? Status { get; set; }
     }
 }

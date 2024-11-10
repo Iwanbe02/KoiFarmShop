@@ -12,6 +12,7 @@ using System.Numerics;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessObjects.Enums;
 
 namespace Services.Implement
 {
@@ -36,7 +37,7 @@ namespace Services.Implement
                 Phone = createAccount.Phone,
                 Address = createAccount.Address,
                 Point = createAccount.Point,
-                Status = createAccount.Status,
+                Status = KoiFishStatus.Active.ToString(),
                 DateOfBirth = createAccount.DateOfBirth,
                 CreatedDate = DateTime.Now
             };
@@ -65,6 +66,23 @@ namespace Services.Implement
         public Task<IEnumerable<Account>> GetAllAccounts()
         {
             return _accountRepository.GetAllAsync();
+        }
+
+        public async Task<Account> Login(string email, string password)
+        {
+            var account = await _accountRepository.GetByEmailAsync(email);  
+            if (account == null)
+            {
+                throw new Exception("User not found.");
+            }
+
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, account.Password);
+            if (!isPasswordValid)
+            {
+                throw new Exception("Invalid password.");
+            }
+
+            return account;
         }
 
         public async Task<Account> RestoreAccount(int id)

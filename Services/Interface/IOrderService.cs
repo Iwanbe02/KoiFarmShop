@@ -17,7 +17,8 @@ namespace Services.Interface
         Task<Order> UpdateOrder(int id, UpdateOrderDTO updateOrder);
         Task<Order> DeleteOrder(int id);
         Task<Order> RestoreOrder(int id);
-        Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyOrders();
+        Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyKoiSales();
+        Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyKoiFishySales();
         Task<decimal> GetTotalPriceOrders();
         Task<int> GetTotalOrdersByMonth(int month);
     }

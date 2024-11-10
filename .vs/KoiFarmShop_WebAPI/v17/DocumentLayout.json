@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "E:\\code\\SWP391\\KoiFarmShop\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|e:\\code\\swp391\\koifarmshop\\services\\implement\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\implement\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|e:\\code\\swp391\\koifarmshop\\koifarmshop_webapi\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{468F320A-E423-4964-8097-BDDDB4D4967F}|KoiFarmShop_WebAPI\\KoiFarmShop_WebAPI.csproj|solutionrelative:koifarmshop_webapi\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|e:\\code\\swp391\\koifarmshop\\services\\interface\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEBFDD15-C239-4DF4-BFEC-A69ECB23EBB5}|Services\\Services.csproj|solutionrelative:services\\interface\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -379,14 +387,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\OrderService.cs",
+              "RelativeDocumentMoniker": "Services\\Implement\\OrderService.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Implement\\OrderService.cs",
+              "RelativeToolTip": "Services\\Implement\\OrderService.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAQwHcAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T02:17:26.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "DashBoardController.cs",
               "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\DashBoardController.cs",
               "RelativeDocumentMoniker": "KoiFarmShop_WebAPI\\Controllers\\DashBoardController.cs",
               "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\KoiFarmShop_WebAPI\\Controllers\\DashBoardController.cs",
               "RelativeToolTip": "KoiFarmShop_WebAPI\\Controllers\\DashBoardController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA1AAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAArwCEAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T14:11:17.443Z",
+              "WhenOpened": "2024-11-10T02:27:30.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Interface\\IOrderService.cs",
+              "RelativeDocumentMoniker": "Services\\Interface\\IOrderService.cs",
+              "ToolTip": "E:\\code\\SWP391\\KoiFarmShop\\Services\\Interface\\IOrderService.cs",
+              "RelativeToolTip": "Services\\Interface\\IOrderService.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAIA9wBQAAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T02:26:46.276Z",
               "EditorCaption": ""
             }
           ]

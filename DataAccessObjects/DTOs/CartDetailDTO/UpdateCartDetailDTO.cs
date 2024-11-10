@@ -9,6 +9,5 @@ namespace DataAccessObjects.DTOs.CartDetailDTO
     public class UpdateCartDetailDTO
     {
         public decimal? Price { get; set; }
-        public string? Status { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.KoiFishyDTO;
 using Repositories.Implement;
 using Repositories.Interface;
@@ -30,7 +31,7 @@ namespace Services.Implement
                 CategoryId = createKoiFishy.CategoryId,
                 Price = createKoiFishy.Price,
                 Quantity = createKoiFishy.Quantity,
-                Status = createKoiFishy.Status,
+                Status = KoiFishStatus.Active.ToString(),
                 CreatedDate = DateTime.Now,
             };
 

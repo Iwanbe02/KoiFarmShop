@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.HealthCertificateDTO;
 using Repositories.Interface;
 using Services.Interface;
@@ -25,7 +26,7 @@ namespace Services.Implement
             {
                 KoiId = createHealthCertificate.KoiId,
                 OrderId = createHealthCertificate.OrderId,
-                Status = createHealthCertificate.Status,
+                Status = CertificateStatus.Valid.ToString(),
                 StartTime = createHealthCertificate.StartTime,
                 EndTime = createHealthCertificate.EndTime,
                 CreatedDate = DateTime.Now

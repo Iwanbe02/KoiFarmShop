@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.OrderDTO;
 using Repositories.Implement;
 using Repositories.Interface;
@@ -27,7 +28,7 @@ namespace Services.Implement
                 KoiFishyId = createOrder.KoiFishyId,
                 AccountId = createOrder.AccountId,
                 PaymentId = createOrder.PaymentId,
-                Status = createOrder.Status,
+                Status = OrderStatus.Pending.ToString(),
                 Type = createOrder.Type,
                 Price = createOrder.Price,
                 CreatedDate = DateTime.Now
@@ -54,34 +55,40 @@ namespace Services.Implement
             return await _orderRepository.GetAllAsync();
         }
 
-        public async Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyOrders()
+        public async Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyKoiSales()
         {
             var orders = await _orderRepository.GetAllAsync();
 
-            // Group donations by year and month
-            var monthlyOrders = orders
-                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month })
+            var monthlyKoiSales = orders
+                .Where(order => order.KoiId.HasValue && order.Status == OrderStatus.Paid.ToString())  
+                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month, d.KoiId })
                 .Select(g => new
                 {
                     Year = g.Key.Year,
                     Month = g.Key.Month,
+                    KoiId = g.Key.KoiId.Value,  
                     TotalPrice = g.Sum(d => d.Price)
                 });
 
-            // Create a nested dictionary to hold the total amounts for each month of each year
-            var result = new Dictionary<int, Dictionary<string, decimal>>();
-            foreach (var item in monthlyOrders)
+            var result = new Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>();
+
+            foreach (var item in monthlyKoiSales)
             {
                 if (!result.ContainsKey(item.Year))
                 {
-                    result[item.Year] = new Dictionary<string, decimal>();
+                    result[item.Year] = new Dictionary<string, Dictionary<int, decimal>>();
                 }
 
                 string monthName = new DateTime(item.Year, item.Month, 1).ToString("MMMM");
-                result[item.Year][monthName] = item.TotalPrice;
+
+                if (!result[item.Year].ContainsKey(monthName))
+                {
+                    result[item.Year][monthName] = new Dictionary<int, decimal>();
+                }
+
+                result[item.Year][monthName][item.KoiId] = item.TotalPrice;
             }
 
-            // Fill in months with zero for years that have no donations
             foreach (var year in result.Keys)
             {
                 for (int month = 1; month <= 12; month++)
@@ -89,13 +96,63 @@ namespace Services.Implement
                     string monthName = new DateTime(year, month, 1).ToString("MMMM");
                     if (!result[year].ContainsKey(monthName))
                     {
-                        result[year][monthName] = 0.00m; // Set to zero if no donations for that month
+                        result[year][monthName] = new Dictionary<int, decimal>();
                     }
                 }
             }
 
             return result;
         }
+
+        public async Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyKoiFishySales()
+        {
+            var orders = await _orderRepository.GetAllAsync();
+
+            var monthlyKoiSales = orders
+                .Where(order => order.KoiFishyId.HasValue && order.Status == OrderStatus.Paid.ToString())
+                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month, d.KoiFishyId })
+                .Select(g => new
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    KoiFishyId = g.Key.KoiFishyId.Value,
+                    TotalPrice = g.Sum(d => d.Price)
+                });
+
+            var result = new Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>();
+
+            foreach (var item in monthlyKoiSales)
+            {
+                if (!result.ContainsKey(item.Year))
+                {
+                    result[item.Year] = new Dictionary<string, Dictionary<int, decimal>>();
+                }
+
+                string monthName = new DateTime(item.Year, item.Month, 1).ToString("MMMM");
+
+                if (!result[item.Year].ContainsKey(monthName))
+                {
+                    result[item.Year][monthName] = new Dictionary<int, decimal>();
+                }
+
+                result[item.Year][monthName][item.KoiFishyId] = item.TotalPrice;
+            }
+
+            foreach (var year in result.Keys)
+            {
+                for (int month = 1; month <= 12; month++)
+                {
+                    string monthName = new DateTime(year, month, 1).ToString("MMMM");
+                    if (!result[year].ContainsKey(monthName))
+                    {
+                        result[year][monthName] = new Dictionary<int, decimal>();
+                    }
+                }
+            }
+
+            return result;
+        }
+
 
         public async Task<Order> GetOrderById(int id)
         {
@@ -107,7 +164,9 @@ namespace Services.Implement
             var orders = await _orderRepository.GetAllAsync();
 
             // Filter donations for the specified month and count them
-            var totalOrders = orders.Count(d => d.CreatedDate.Month == month);
+            var totalOrders = orders
+                .Where(o => o.Status == OrderStatus.Paid.ToString() && o.CreatedDate.Month == month)
+                .Count();
 
             return totalOrders;
         }
@@ -115,7 +174,12 @@ namespace Services.Implement
         public async Task<decimal> GetTotalPriceOrders()
         {
             var orderPrice = await _orderRepository.GetAllAsync();
-            return orderPrice.Sum(o => o.Price);
+
+            var totalPrice = orderPrice
+                .Where(o => o.Status == OrderStatus.Paid.ToString())
+                .Sum(o => o.Price);
+
+            return totalPrice;
         }
 
         public async Task<Order> RestoreOrder(int id)

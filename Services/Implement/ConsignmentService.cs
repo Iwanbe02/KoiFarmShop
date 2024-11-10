@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.ConsignmentDTO;
 using Microsoft.Identity.Client;
 using Repositories.Implement;
@@ -32,7 +33,7 @@ namespace Services.Implement
                 KoiId = createConsignment.KoiId,
                 PaymentId = createConsignment.PaymentId,
                 Price = createConsignment.Price,
-                Status = createConsignment.Status,
+                Status = OrderStatus.Pending.ToString(),
                 CreatedDate = DateTime.Now
             };
             await _consignmentRepository.AddAsync(consignment);
@@ -82,6 +83,7 @@ namespace Services.Implement
 
             // Group donations by year and month
             var monthlyConsignments = consignment
+                .Where(consignment => consignment.Status == OrderStatus.Paid.ToString())
                 .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month })
                 .Select(g => new
                 {
@@ -111,7 +113,7 @@ namespace Services.Implement
                     string monthName = new DateTime(year, month, 1).ToString("MMMM");
                     if (!result[year].ContainsKey(monthName))
                     {
-                        result[year][monthName] = 0.00m; // Set to zero if no donations for that month
+                        result[year][monthName] = 0.00m; 
                     }
                 }
             }
@@ -123,8 +125,9 @@ namespace Services.Implement
         {
             var consignments = await _consignmentRepository.GetAllAsync();
 
-            // Filter donations for the specified month and count them
-            var totalConsignments = consignments.Count(d => d.CreatedDate.Month == month);
+            var totalConsignments = consignments
+                .Where(o => o.Status == OrderStatus.Paid.ToString() && o.CreatedDate.Month == month)
+                .Count();
 
             return totalConsignments;
         }
@@ -132,7 +135,12 @@ namespace Services.Implement
         public async Task<decimal> GetTotalPriceConsignments()
         {
             var consignmentPrice = await _consignmentRepository.GetAllAsync();
-            return consignmentPrice.Sum(c => c.Price);
+
+            var totalPrice = consignmentPrice
+                .Where(o => o.Status == OrderStatus.Paid.ToString())
+                .Sum(o => o.Price);
+
+            return totalPrice;
         }
 
         public async Task<Consignment> RestoreConsignment(int id)
