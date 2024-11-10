@@ -18,12 +18,14 @@ namespace Services.Implement
     {
         private readonly IPaymentRepository _paymentRepository;
         private readonly IOrderRepository _orderRepository;
+        private readonly IConsignmentRepository _consignmentRepository;
         private readonly IConfiguration _configuration;
-        public PaymentService(IPaymentRepository paymentRepository, IConfiguration configuration, IOrderRepository orderRepository)
+        public PaymentService(IPaymentRepository paymentRepository, IConfiguration configuration, IOrderRepository orderRepository, IConsignmentRepository consignmentRepository)
         {
             _paymentRepository = paymentRepository;
             _configuration = configuration;
             _orderRepository = orderRepository;
+            _consignmentRepository = consignmentRepository;
         }
 
         public async Task<string> CreatePaymentAsync(int orderId)
@@ -53,7 +55,9 @@ namespace Services.Implement
             vnPay.AddRequestData("vnp_OrderInfo", $"Payment for order {orderId}");
             vnPay.AddRequestData("vnp_OrderType", "billpayment");
             vnPay.AddRequestData("vnp_ReturnUrl", _configuration["VNPay:ReturnUrl"]);
-            vnPay.AddRequestData("vnp_TxnRef", orderId.ToString());
+
+            string uniqueTxnRef = $"{orderId}_{DateTime.Now.Ticks}";
+            vnPay.AddRequestData("vnp_TxnRef", uniqueTxnRef);
 
             string vnpBaseUrl = _configuration["VNPay:Url"];
             string vnpHashSecret = _configuration["VNPay:HashSecret"];

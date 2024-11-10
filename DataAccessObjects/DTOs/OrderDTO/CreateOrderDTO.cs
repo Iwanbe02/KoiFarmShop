@@ -11,6 +11,7 @@ namespace DataAccessObjects.DTOs.OrderDTO
         public int? KoiId { get; set; }
 
         public int? KoiFishyId { get; set; }
+        public int? ConsignmentId { get; set; }
 
         public int? AccountId { get; set; }
 

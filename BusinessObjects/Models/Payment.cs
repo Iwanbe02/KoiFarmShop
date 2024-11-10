@@ -19,7 +19,5 @@ public partial class Payment
 
     public bool? IsDeleted { get; set; }
 
-    public virtual ICollection<Consignment> Consignments { get; set; } = new List<Consignment>();
-
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

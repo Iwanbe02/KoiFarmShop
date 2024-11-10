@@ -11,6 +11,8 @@ public partial class Order
 
     public int? KoiFishyId { get; set; }
 
+    public int? ConsignmentId { get; set; }
+
     public int? AccountId { get; set; }
 
     public int? PaymentId { get; set; }
@@ -30,6 +32,8 @@ public partial class Order
     public bool? IsDeleted { get; set; }
 
     public virtual Account? Account { get; set; }
+
+    public virtual Consignment? Consignment { get; set; }
 
     public virtual KoiFish? Koi { get; set; }
 

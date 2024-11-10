@@ -10,9 +10,6 @@ namespace DataAccessObjects.DTOs.ConsignmentDTO
     public class CreateConsignmentDTO
     {
         public int? AccountId { get; set; }
-
-        public int? PaymentId { get; set; }
-
         public decimal Price { get; set; }
         public List<IFormFile> Img { get; set; }
 
