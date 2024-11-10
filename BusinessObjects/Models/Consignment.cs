@@ -11,8 +11,6 @@ public partial class Consignment
 
     public string? KoiCode { get; set; }
 
-    public int? PaymentId { get; set; }
-
     public decimal Price { get; set; }
 
     public string? Status { get; set; }
@@ -29,5 +27,5 @@ public partial class Consignment
 
     public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
-    public virtual Payment? Payment { get; set; }
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

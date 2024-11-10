@@ -38,7 +38,6 @@ namespace Services.Implement
             {
                 AccountId = createConsignment.AccountId,
                 KoiCode = newKoiCode,
-                PaymentId = createConsignment.PaymentId,
                 Price = createConsignment.Price,
                 Status = OrderStatus.Pending.ToString(),
                 CreatedDate = DateTime.Now

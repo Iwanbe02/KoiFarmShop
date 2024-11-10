@@ -18,12 +18,14 @@ namespace Services.Implement
     {
         private readonly IPaymentRepository _paymentRepository;
         private readonly IOrderRepository _orderRepository;
+        private readonly IConsignmentRepository _consignmentRepository;
         private readonly IConfiguration _configuration;
-        public PaymentService(IPaymentRepository paymentRepository, IConfiguration configuration, IOrderRepository orderRepository)
+        public PaymentService(IPaymentRepository paymentRepository, IConfiguration configuration, IOrderRepository orderRepository, IConsignmentRepository consignmentRepository)
         {
             _paymentRepository = paymentRepository;
             _configuration = configuration;
             _orderRepository = orderRepository;
+            _consignmentRepository = consignmentRepository;
         }
 
         public async Task<string> CreatePaymentAsync(int orderId)
