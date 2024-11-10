@@ -25,6 +25,7 @@ namespace Services.Implement
             {
                 KoiId = createOrder.KoiId,
                 KoiFishyId = createOrder.KoiFishyId,
+                ConsignmentId = createOrder.ConsignmentId,
                 AccountId = createOrder.AccountId,
                 PaymentId = createOrder.PaymentId,
                 Status = OrderStatus.Pending.ToString(),
