@@ -19,6 +19,7 @@ namespace Services.Interface
         Task<Order> RestoreOrder(int id);
         Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyKoiSales();
         Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyKoiFishySales();
+        Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyConsignment();
         Task<decimal> GetTotalPriceOrders();
         Task<int> GetTotalOrdersByMonth(int month);
     }

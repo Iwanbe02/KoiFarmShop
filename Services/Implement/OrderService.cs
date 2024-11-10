@@ -153,6 +153,54 @@ namespace Services.Implement
             return result;
         }
 
+        public async Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyConsignment()
+        {
+            var orders = await _orderRepository.GetAllAsync();
+
+            var monthlyKoiSales = orders
+                .Where(order => order.ConsignmentId.HasValue && order.Status == OrderStatus.Paid.ToString())
+                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month, d.ConsignmentId })
+                .Select(g => new
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    ConsignmentId = g.Key.ConsignmentId.Value,
+                    TotalPrice = g.Sum(d => d.Price)
+                });
+
+            var result = new Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>();
+
+            foreach (var item in monthlyKoiSales)
+            {
+                if (!result.ContainsKey(item.Year))
+                {
+                    result[item.Year] = new Dictionary<string, Dictionary<int, decimal>>();
+                }
+
+                string monthName = new DateTime(item.Year, item.Month, 1).ToString("MMMM");
+
+                if (!result[item.Year].ContainsKey(monthName))
+                {
+                    result[item.Year][monthName] = new Dictionary<int, decimal>();
+                }
+
+                result[item.Year][monthName][item.ConsignmentId] = item.TotalPrice;
+            }
+
+            foreach (var year in result.Keys)
+            {
+                for (int month = 1; month <= 12; month++)
+                {
+                    string monthName = new DateTime(year, month, 1).ToString("MMMM");
+                    if (!result[year].ContainsKey(monthName))
+                    {
+                        result[year][monthName] = new Dictionary<int, decimal>();
+                    }
+                }
+            }
+
+            return result;
+        }
 
         public async Task<Order> GetOrderById(int id)
         {
