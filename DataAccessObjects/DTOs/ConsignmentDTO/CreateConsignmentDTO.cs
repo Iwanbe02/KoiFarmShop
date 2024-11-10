@@ -11,8 +11,6 @@ namespace DataAccessObjects.DTOs.ConsignmentDTO
     {
         public int? AccountId { get; set; }
 
-        public int? KoiId { get; set; }
-
         public int? PaymentId { get; set; }
 
         public decimal Price { get; set; }

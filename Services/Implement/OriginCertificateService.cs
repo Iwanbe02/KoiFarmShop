@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.OrriginCetificateDTO;
 using Repositories.Interface;
 using Services.Interface;
@@ -25,6 +26,7 @@ namespace Services.Implement
                 OrderId = createOriginCertificate.OrderId,
                 StartTime = createOriginCertificate.StartTime,
                 EndTime = createOriginCertificate.EndTime,
+                Status = CertificateStatus.Valid.ToString(),
                 CreatedDate = DateTime.Now
             };
             await _originCertificateRepository.AddAsync(originCertificate);

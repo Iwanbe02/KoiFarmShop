@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.RewardCertificateDTO;
 using Repositories.Interface;
 using Services.Interface;
@@ -26,6 +27,7 @@ namespace Services.Implement
                 KoiId = createRewardCertificate.KoiId,
                 OrderId = createRewardCertificate.OrderId,
                 Description = createRewardCertificate.Description,
+                Status = CertificateStatus.Valid.ToString(),
                 CreatedDate = DateTime.Now
             };
             await _rewardCertificateRepository.AddAsync(rewardCertificate);
