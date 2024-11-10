@@ -24,6 +24,4 @@ public partial class Feedback
     public bool? IsDeleted { get; set; }
 
     public virtual Account? Account { get; set; }
-
-    public virtual ICollection<CartDetail> CartDetails { get; set; } = new List<CartDetail>();
 }

@@ -23,7 +23,6 @@ namespace Services.Implement
         {
             var order = new Order
             {
-                CartId = createOrder.CartId,
                 KoiId = createOrder.KoiId,
                 KoiFishyId = createOrder.KoiFishyId,
                 AccountId = createOrder.AccountId,
