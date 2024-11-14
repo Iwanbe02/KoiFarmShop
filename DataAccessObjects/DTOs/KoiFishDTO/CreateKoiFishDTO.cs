@@ -9,26 +9,29 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
 {
     public class CreateKoiFishDTO
     {
-        public int CategoryId { get; set; }
+        public string? Name { get; set; }
+        public int? CategoryId { get; set; }
 
+        public string? Origin { get; set; }
+
+        public string? Gender { get; set; }
+
+        public int? YearOfBirth { get; set; }
+
+        public double? Size { get; set; }
+
+        public string? Variety { get; set; }
+
+        public string? Character { get; set; }
+
+        public string? Diet { get; set; }
+
+        public double? AmountFood { get; set; }
+
+        public double? ScreeningRate { get; set; }
+
+        public string? Type { get; set; }
         public decimal? Price { get; set; }
-
-        public string Origin { get; set; } = null!;
-
-        public string Gender { get; set; } = null!;
-
-        public int Age { get; set; }
-
-        public double Size { get; set; }
-
-        public string Species { get; set; } = null!;
-
-        public string Character { get; set; } = null!;
-
-        public double AmountFood { get; set; }
-
-        public double ScreeningRate { get; set; }
-        public string Type { get; set; } = null!;
         public List<IFormFile> Img { get; set; }
 
     }

@@ -23,13 +23,15 @@ namespace Services.Implement
         {
             var order = new Order
             {
+                CartId = createOrder.CartId,
                 KoiId = createOrder.KoiId,
                 KoiFishyId = createOrder.KoiFishyId,
                 ConsignmentId = createOrder.ConsignmentId,
                 AccountId = createOrder.AccountId,
                 PaymentId = createOrder.PaymentId,
                 Status = OrderStatus.Pending.ToString(),
-                Type = createOrder.Type,
+                Address = createOrder.Address,
+                Phone = createOrder.Phone,
                 Price = createOrder.Price,
                 CreatedDate = DateTime.Now
             };
@@ -252,8 +254,9 @@ namespace Services.Implement
             {
                 throw new Exception($"Order with ID{id} is not found");
             }
+            order.Address = updateOrder.Address;
+            order.Phone = updateOrder.Phone;
             order.Status = updateOrder.Status;
-            order.Type = updateOrder.Type;
             order.Price = updateOrder.Price;
             order.ModifiedDate = DateTime.Now;
 

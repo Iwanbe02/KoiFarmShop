@@ -8,6 +8,7 @@ namespace DataAccessObjects.DTOs.OrderDTO
 {
     public class CreateOrderDTO
     {
+        public int? CartId { get; set; }
         public int? KoiId { get; set; }
 
         public int? KoiFishyId { get; set; }
@@ -16,9 +17,9 @@ namespace DataAccessObjects.DTOs.OrderDTO
         public int? AccountId { get; set; }
 
         public int? PaymentId { get; set; }
+        public string? Address { get; set; }
 
-        public bool? Type { get; set; }
-
+        public string? Phone { get; set; }
         public decimal Price { get; set; }
     }
 }

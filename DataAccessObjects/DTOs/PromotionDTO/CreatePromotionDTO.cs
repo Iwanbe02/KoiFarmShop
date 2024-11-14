@@ -10,6 +10,7 @@ namespace DataAccessObjects.DTOs.PromotionDTO
     {
         public int? Point { get; set; }
 
+        public string? Status { get; set; }
         public double? DiscountPercentage { get; set; }
     }
 }

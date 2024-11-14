@@ -32,7 +32,7 @@ namespace KoiFarmShop_WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<KoiFish>> CreateCategory(CreateCategoryDTO createCategoryDTO)
+        public async Task<ActionResult<Category>> CreateCategory(CreateCategoryDTO createCategoryDTO)
         {
             var category = await _categoryService.CreateCategory(createCategoryDTO);
             return Ok(category);

@@ -15,6 +15,8 @@ public partial class Image
 
     public int? ConsignmentId { get; set; }
 
+    public int? OriginCertificateId { get; set; }
+
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? ModifiedDate { get; set; }
@@ -28,4 +30,6 @@ public partial class Image
     public virtual KoiFish? Koi { get; set; }
 
     public virtual KoiFishy? KoiFishy { get; set; }
+
+    public virtual OriginCertificate? OriginCertificate { get; set; }
 }

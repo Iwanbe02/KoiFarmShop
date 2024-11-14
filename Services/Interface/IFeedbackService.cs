@@ -1,6 +1,5 @@
 ﻿using BusinessObjects.Models;
 using DataAccessObjects.DTOs.FeedbackDTO;
-using DataAccessObjects.DTOs.RewardCertificateDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

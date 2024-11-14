@@ -10,6 +10,7 @@ namespace BusinessObjects.Enums
     {
         Active,
         InActive,
+        Sold
     }
     
 }

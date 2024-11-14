@@ -9,13 +9,19 @@ public partial class OriginCertificate
 
     public int? KoiId { get; set; }
 
-    public int? OrderId { get; set; }
+    public string? Variety { get; set; }
 
-    public string? Status { get; set; }
+    public string? Gender { get; set; }
 
-    public DateTime? StartTime { get; set; }
+    public double? Size { get; set; }
 
-    public DateTime? EndTime { get; set; }
+    public int? YearOfBirth { get; set; }
+
+    public DateTime? Date { get; set; }
+
+    public string? Signature { get; set; }
+
+    public string? Location { get; set; }
 
     public DateTime? CreatedDate { get; set; }
 
@@ -24,6 +30,8 @@ public partial class OriginCertificate
     public DateTime? DeletedDate { get; set; }
 
     public bool? IsDeleted { get; set; }
+
+    public virtual Image? Image { get; set; }
 
     public virtual KoiFish? Koi { get; set; }
 }

@@ -23,10 +23,13 @@ namespace Services.Implement
             var originCertificate = new OriginCertificate
             {
                 KoiId = createOriginCertificate.KoiId,
-                OrderId = createOriginCertificate.OrderId,
-                StartTime = createOriginCertificate.StartTime,
-                EndTime = createOriginCertificate.EndTime,
-                Status = CertificateStatus.Valid.ToString(),
+                Variety = createOriginCertificate.Variety,
+                Gender = createOriginCertificate.Gender,
+                Size = createOriginCertificate.Size,
+                YearOfBirth = createOriginCertificate.YearOfBirth,
+                Date = createOriginCertificate.Date,
+                Signature = createOriginCertificate.Signature,
+                Location = createOriginCertificate.Location,
                 CreatedDate = DateTime.Now
             };
             await _originCertificateRepository.AddAsync(originCertificate);
@@ -79,9 +82,13 @@ namespace Services.Implement
             {
                 throw new Exception($"Origin with ID{id} is not found");
             }
-            originCertificate.OrderId = updateOriginCertificate.OrderId;
-            originCertificate.StartTime = updateOriginCertificate.StartTime;
-            originCertificate.EndTime = updateOriginCertificate.EndTime;
+            originCertificate.Variety = updateOriginCertificate.Variety;
+            originCertificate.Gender = updateOriginCertificate.Gender;
+            originCertificate.Size = updateOriginCertificate.Size;
+            originCertificate.YearOfBirth = updateOriginCertificate.YearOfBirth;
+            originCertificate.Date = updateOriginCertificate.Date;
+            originCertificate.Signature = updateOriginCertificate.Signature;
+            originCertificate.Location = updateOriginCertificate.Location;
             originCertificate.ModifiedDate = DateTime.Now;
 
             await _originCertificateRepository.UpdateAsync(originCertificate);

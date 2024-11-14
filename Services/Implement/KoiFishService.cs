@@ -29,13 +29,15 @@ namespace Services.Implement
             var koi = new KoiFish
             {
                 CategoryId = createKoiFish.CategoryId,
+                Name = createKoiFish.Name,
                 Price = createKoiFish.Price,
                 Origin = createKoiFish.Origin,
                 Gender = createKoiFish.Gender,
-                Age = createKoiFish.Age,
+                YearOfBirth = createKoiFish.YearOfBirth,
                 Size = createKoiFish.Size,
-                Species = createKoiFish.Species,
+                Variety = createKoiFish.Variety,
                 Character = createKoiFish.Character,
+                Diet = createKoiFish.Diet,
                 AmountFood = createKoiFish.AmountFood,
                 ScreeningRate = createKoiFish.ScreeningRate,
                 Type = createKoiFish.Type,
@@ -104,14 +106,16 @@ namespace Services.Implement
             {
                 throw new Exception($"Koi with ID{id} is not found");
             }
+            koi.Name = updateKoiFish.Name;
             koi.Price = updateKoiFish.Price;
             koi.Origin = updateKoiFish.Origin;
             koi.Gender = updateKoiFish.Gender;
-            koi.Age = updateKoiFish.Age;
+            koi.YearOfBirth = updateKoiFish.YearOfBirth;
             koi.Size = updateKoiFish.Size;
-            koi.Species = updateKoiFish.Species;
+            koi.Variety = updateKoiFish.Variety;
             koi.Character = updateKoiFish.Character;
             koi.AmountFood = updateKoiFish.AmountFood;
+            koi.Diet = updateKoiFish.Diet;
             koi.ScreeningRate = updateKoiFish.ScreeningRate;
             koi.Type = updateKoiFish.Type;
             koi.Status = updateKoiFish.Status;

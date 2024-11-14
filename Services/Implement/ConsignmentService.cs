@@ -38,7 +38,14 @@ namespace Services.Implement
             {
                 AccountId = createConsignment.AccountId,
                 KoiCode = newKoiCode,
-                Price = createConsignment.Price,
+                Name = createConsignment.Name,
+                YearOfBirth = createConsignment.YearOfBirth,
+                Gender = createConsignment.Gender,
+                Origin = createConsignment.Origin,
+                Variety = createConsignment.Variety,
+                Character = createConsignment.Character,
+                Size = createConsignment.Size,
+                AmountFood = createConsignment.AmountFood,
                 Status = OrderStatus.Pending.ToString(),
                 CreatedDate = DateTime.Now
             };
@@ -105,6 +112,14 @@ namespace Services.Implement
             {
                 throw new Exception($"Cart with ID{id} is not found");
             }
+            consignment.Name = updateConsignment.Name;
+            consignment.YearOfBirth = updateConsignment.YearOfBirth;
+            consignment.Gender = updateConsignment.Gender;
+            consignment.Origin = updateConsignment.Origin;
+            consignment.Variety = updateConsignment.Variety;
+            consignment.Character = updateConsignment.Character;
+            consignment.Size = updateConsignment.Size;
+            consignment.AmountFood = updateConsignment.AmountFood;
             consignment.Price = updateConsignment.Price;
             consignment.Status = updateConsignment.Status;
             consignment.ModifiedDate = DateTime.Now;
