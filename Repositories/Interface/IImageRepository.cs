@@ -12,5 +12,6 @@ namespace Repositories.Interface
         Task<List<Image>> GetByKoiFishyIdAsync(int koiFishyId);
         Task<List<Image>> GetByKoiIdAsync(int koiId);
         Task<List<Image>> GetByConsignmentIdAsync(int consignmentId);
+        Task<Image?> GetByCertificateIdAsync(int originCertificateId);
     }
 }

@@ -35,5 +35,11 @@ namespace Repositories.Implement
                 .Where(img => img.ConsignmentId == consignmentId && img.IsDeleted == false)
                 .ToListAsync();
         }
+
+        public async Task<Image?> GetByCertificateIdAsync(int originCertificateId)
+        {
+            return await _dbContext.Images
+                .FirstOrDefaultAsync(img => img.OriginCertificateId == originCertificateId && img.IsDeleted == false);
+        }
     }
 }
