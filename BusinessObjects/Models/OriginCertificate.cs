@@ -31,7 +31,7 @@ public partial class OriginCertificate
 
     public bool? IsDeleted { get; set; }
 
-    public virtual Image? Image { get; set; }
+    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
     public virtual KoiFish? Koi { get; set; }
 }
