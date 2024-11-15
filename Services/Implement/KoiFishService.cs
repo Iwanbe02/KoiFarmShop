@@ -28,6 +28,7 @@ namespace Services.Implement
         {
             var koi = new KoiFish
             {
+                OriginCertificateId = createKoiFish.OriginCertificateId,
                 CategoryId = createKoiFish.CategoryId,
                 Name = createKoiFish.Name,
                 Price = createKoiFish.Price,

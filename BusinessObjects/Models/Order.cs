@@ -9,12 +9,6 @@ public partial class Order
 
     public int? CartId { get; set; }
 
-    public int? KoiId { get; set; }
-
-    public int? KoiFishyId { get; set; }
-
-    public int? ConsignmentId { get; set; }
-
     public int? AccountId { get; set; }
 
     public int? PaymentId { get; set; }
@@ -38,12 +32,6 @@ public partial class Order
     public virtual Account? Account { get; set; }
 
     public virtual Cart? Cart { get; set; }
-
-    public virtual Consignment? Consignment { get; set; }
-
-    public virtual KoiFish? Koi { get; set; }
-
-    public virtual KoiFishy? KoiFishy { get; set; }
 
     public virtual Payment? Payment { get; set; }
 }

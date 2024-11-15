@@ -23,8 +23,8 @@ namespace Services.Implement
         {
             var cart = new Cart
             {
-                KoiId = createCart.KoiId,
-                KoiFishyId = createCart.KoiFishyId,
+                AccountId = createCart.AccountId,
+                Quantity = createCart.Quantity,
                 Price = createCart.Price,
                 CreatedDate = DateTime.Now
             };
@@ -78,6 +78,7 @@ namespace Services.Implement
                 throw new Exception($"Cart with ID{id} is not found");
             }
             cart.Price = updateCart.Price;
+            cart.Quantity = updateCart.Quantity;
             cart.ModifiedDate = DateTime.Now;
             await _cartRepository.UpdateAsync(cart);
             return cart;

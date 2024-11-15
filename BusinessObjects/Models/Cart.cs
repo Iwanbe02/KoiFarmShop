@@ -7,9 +7,9 @@ public partial class Cart
 {
     public int Id { get; set; }
 
-    public int? KoiId { get; set; }
+    public int? AccountId { get; set; }
 
-    public int? KoiFishyId { get; set; }
+    public int? Quantity { get; set; }
 
     public decimal? Price { get; set; }
 
@@ -21,9 +21,9 @@ public partial class Cart
 
     public bool? IsDeleted { get; set; }
 
-    public virtual KoiFish? Koi { get; set; }
+    public virtual Account? Account { get; set; }
 
-    public virtual KoiFishy? KoiFishy { get; set; }
+    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
     public virtual Order? Order { get; set; }
 }

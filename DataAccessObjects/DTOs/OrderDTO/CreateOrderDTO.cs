@@ -9,14 +9,11 @@ namespace DataAccessObjects.DTOs.OrderDTO
     public class CreateOrderDTO
     {
         public int? CartId { get; set; }
-        public int? KoiId { get; set; }
-
-        public int? KoiFishyId { get; set; }
-        public int? ConsignmentId { get; set; }
 
         public int? AccountId { get; set; }
 
         public int? PaymentId { get; set; }
+
         public string? Address { get; set; }
 
         public string? Phone { get; set; }

@@ -14,24 +14,10 @@ namespace KoiFarmShop_WebAPI.Controllers
             _orderService = orderService;
         }
 
-        [HttpGet("GetMonthlyKoiSales")]
-        public async Task<IActionResult> GetMonthlyKoiSales()
+        [HttpGet("GetMonthlyOrders")]
+        public async Task<IActionResult> GetMonthlyOrders()
         {
-            var monthlyOrders = await _orderService.GetMonthlyKoiSales();
-            return Ok(monthlyOrders);
-        }
-
-        [HttpGet("GetMonthlyKoiFishySales")]
-        public async Task<IActionResult> GetMonthlyKoiFishySales()
-        {
-            var monthlyOrders = await _orderService.GetMonthlyKoiFishySales();
-            return Ok(monthlyOrders);
-        }
-
-        [HttpGet("GetMonthlyConsignments")]
-        public async Task<IActionResult> GetMonthlyConsignments()
-        {
-            var monthlyConsignments = await _orderService.GetMonthlyConsignment();
+            var monthlyConsignments = await _orderService.GetMonthlyOrders();
             return Ok(monthlyConsignments);
         }
 

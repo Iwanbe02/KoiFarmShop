@@ -41,7 +41,7 @@ public partial class Consignment
 
     public virtual Account? Account { get; set; }
 
-    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
+    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 }

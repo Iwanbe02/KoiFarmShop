@@ -8,9 +8,9 @@ namespace DataAccessObjects.DTOs.CartDTO
 {
     public class CreateCartDTO
     {
-        public int? KoiId { get; set; }
+        public int? AccountId { get; set; }
 
-        public int? KoiFishyId { get; set; }
+        public int? Quantity { get; set; }
 
         public decimal? Price { get; set; }
     }

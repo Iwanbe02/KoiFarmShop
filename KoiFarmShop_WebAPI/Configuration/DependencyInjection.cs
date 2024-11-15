@@ -23,6 +23,7 @@ namespace KoiFarmShop_WebAPI.Configuration
             services.AddScoped<IFeedbackRepository, FeedbackRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
             services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<ICartItemRepository, CartItemRepository>();
             return services;
         }
 
@@ -41,6 +42,7 @@ namespace KoiFarmShop_WebAPI.Configuration
             services.AddScoped<IFeedbackService, FeedbackService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<ICartService, CartService>();
+            services.AddScoped<ICartItemService, CartItemService>();
             return services;
         }
     }

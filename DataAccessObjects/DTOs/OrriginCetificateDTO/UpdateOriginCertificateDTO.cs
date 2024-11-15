@@ -19,9 +19,7 @@ namespace DataAccessObjects.DTOs.OrriginCetificateDTO
 
         public DateTime? Date { get; set; }
 
-        public string? Signature { get; set; }
-
-        public string? Location { get; set; }
+        public string? PlaceOfIssue { get; set; }
         public IFormFile Img { get; set; }
 
     }

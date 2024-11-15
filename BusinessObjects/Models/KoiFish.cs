@@ -7,6 +7,8 @@ public partial class KoiFish
 {
     public int Id { get; set; }
 
+    public int? OriginCertificateId { get; set; }
+
     public string? Name { get; set; }
 
     public decimal? Price { get; set; }
@@ -43,13 +45,11 @@ public partial class KoiFish
 
     public bool? IsDeleted { get; set; }
 
-    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
+    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
     public virtual Category? Category { get; set; }
 
     public virtual ICollection<Image> Images { get; set; } = new List<Image>();
-
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     public virtual OriginCertificate? OriginCertificate { get; set; }
 }

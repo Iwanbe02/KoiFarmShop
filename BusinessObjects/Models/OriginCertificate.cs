@@ -7,8 +7,6 @@ public partial class OriginCertificate
 {
     public int Id { get; set; }
 
-    public int? KoiId { get; set; }
-
     public string? Variety { get; set; }
 
     public string? Gender { get; set; }
@@ -19,9 +17,7 @@ public partial class OriginCertificate
 
     public DateTime? Date { get; set; }
 
-    public string? Signature { get; set; }
-
-    public string? Location { get; set; }
+    public string? PlaceOfIssue { get; set; }
 
     public DateTime? CreatedDate { get; set; }
 
@@ -33,5 +29,5 @@ public partial class OriginCertificate
 
     public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
-    public virtual KoiFish? Koi { get; set; }
+    public virtual KoiFish? KoiFish { get; set; }
 }

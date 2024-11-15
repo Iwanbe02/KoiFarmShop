@@ -27,14 +27,12 @@ namespace Services.Implement
         {
             var originCertificate = new OriginCertificate
             {
-                KoiId = createOriginCertificate.KoiId,
                 Variety = createOriginCertificate.Variety,
                 Gender = createOriginCertificate.Gender,
                 Size = createOriginCertificate.Size,
                 YearOfBirth = createOriginCertificate.YearOfBirth,
                 Date = createOriginCertificate.Date,
-                Signature = createOriginCertificate.Signature,
-                Location = createOriginCertificate.Location,
+                PlaceOfIssue = createOriginCertificate.PlaceOfIssue,
                 CreatedDate = DateTime.Now
             };
             await _originCertificateRepository.AddAsync(originCertificate);
@@ -103,8 +101,7 @@ namespace Services.Implement
             originCertificate.Size = updateOriginCertificate.Size;
             originCertificate.YearOfBirth = updateOriginCertificate.YearOfBirth;
             originCertificate.Date = updateOriginCertificate.Date;
-            originCertificate.Signature = updateOriginCertificate.Signature;
-            originCertificate.Location = updateOriginCertificate.Location;
+            originCertificate.PlaceOfIssue = updateOriginCertificate.PlaceOfIssue;
             originCertificate.ModifiedDate = DateTime.Now;
 
             await _originCertificateRepository.UpdateAsync(originCertificate);

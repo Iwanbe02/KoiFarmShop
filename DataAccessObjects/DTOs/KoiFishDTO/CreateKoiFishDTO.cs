@@ -9,6 +9,7 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
 {
     public class CreateKoiFishDTO
     {
+        public int? OriginCertificateId { get; set; }
         public string? Name { get; set; }
         public int? CategoryId { get; set; }
 
