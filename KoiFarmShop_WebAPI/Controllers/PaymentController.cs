@@ -46,7 +46,7 @@ namespace KoiFarmShop_WebAPI.Controllers
             return Ok(new { PaymentUrl = paymentUrl });
         }
 
-        [HttpGet("return")]
+        [HttpPost("return")]
         public async Task<IActionResult> Return([FromQuery] int vnp_TxnRef, [FromQuery] string vnp_ResponseCode, [FromQuery] string vnp_SecureHash)
         {
             try

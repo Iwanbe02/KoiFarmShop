@@ -23,13 +23,12 @@ namespace Services.Implement
         {
             var order = new Order
             {
-                KoiId = createOrder.KoiId,
-                KoiFishyId = createOrder.KoiFishyId,
-                ConsignmentId = createOrder.ConsignmentId,
+                CartId = createOrder.CartId,
                 AccountId = createOrder.AccountId,
                 PaymentId = createOrder.PaymentId,
                 Status = OrderStatus.Pending.ToString(),
-                Type = createOrder.Type,
+                Address = createOrder.Address,
+                Phone = createOrder.Phone,
                 Price = createOrder.Price,
                 CreatedDate = DateTime.Now
             };
@@ -55,38 +54,32 @@ namespace Services.Implement
             return await _orderRepository.GetAllAsync();
         }
 
-        public async Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyKoiSales()
+        public async Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyOrders()
         {
             var orders = await _orderRepository.GetAllAsync();
 
-            var monthlyKoiSales = orders
-                .Where(order => order.KoiId.HasValue && order.Status == OrderStatus.Paid.ToString())  
-                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month, d.KoiId })
+            var monthlySales = orders
+                .Where(order => order.Status == OrderStatus.Paid.ToString())  
+                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month })
                 .Select(g => new
                 {
                     Year = g.Key.Year,
                     Month = g.Key.Month,
-                    KoiId = g.Key.KoiId.Value,  
                     TotalPrice = g.Sum(d => d.Price)
                 });
 
-            var result = new Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>();
+            var result = new Dictionary<int, Dictionary<string, decimal>>();
 
-            foreach (var item in monthlyKoiSales)
+            foreach (var item in monthlySales)
             {
                 if (!result.ContainsKey(item.Year))
                 {
-                    result[item.Year] = new Dictionary<string, Dictionary<int, decimal>>();
+                    result[item.Year] = new Dictionary<string, decimal>();
                 }
 
                 string monthName = new DateTime(item.Year, item.Month, 1).ToString("MMMM");
 
-                if (!result[item.Year].ContainsKey(monthName))
-                {
-                    result[item.Year][monthName] = new Dictionary<int, decimal>();
-                }
-
-                result[item.Year][monthName][item.KoiId] = item.TotalPrice;
+                result[item.Year][monthName] = item.TotalPrice;
             }
 
             foreach (var year in result.Keys)
@@ -96,56 +89,7 @@ namespace Services.Implement
                     string monthName = new DateTime(year, month, 1).ToString("MMMM");
                     if (!result[year].ContainsKey(monthName))
                     {
-                        result[year][monthName] = new Dictionary<int, decimal>();
-                    }
-                }
-            }
-
-            return result;
-        }
-
-        public async Task<Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>> GetMonthlyKoiFishySales()
-        {
-            var orders = await _orderRepository.GetAllAsync();
-
-            var monthlyKoiSales = orders
-                .Where(order => order.KoiFishyId.HasValue && order.Status == OrderStatus.Paid.ToString())
-                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month, d.KoiFishyId })
-                .Select(g => new
-                {
-                    Year = g.Key.Year,
-                    Month = g.Key.Month,
-                    KoiFishyId = g.Key.KoiFishyId.Value,
-                    TotalPrice = g.Sum(d => d.Price)
-                });
-
-            var result = new Dictionary<int, Dictionary<string, Dictionary<int, decimal>>>();
-
-            foreach (var item in monthlyKoiSales)
-            {
-                if (!result.ContainsKey(item.Year))
-                {
-                    result[item.Year] = new Dictionary<string, Dictionary<int, decimal>>();
-                }
-
-                string monthName = new DateTime(item.Year, item.Month, 1).ToString("MMMM");
-
-                if (!result[item.Year].ContainsKey(monthName))
-                {
-                    result[item.Year][monthName] = new Dictionary<int, decimal>();
-                }
-
-                result[item.Year][monthName][item.KoiFishyId] = item.TotalPrice;
-            }
-
-            foreach (var year in result.Keys)
-            {
-                for (int month = 1; month <= 12; month++)
-                {
-                    string monthName = new DateTime(year, month, 1).ToString("MMMM");
-                    if (!result[year].ContainsKey(monthName))
-                    {
-                        result[year][monthName] = new Dictionary<int, decimal>();
+                        result[year][monthName] = 0m;  
                     }
                 }
             }
@@ -204,8 +148,9 @@ namespace Services.Implement
             {
                 throw new Exception($"Order with ID{id} is not found");
             }
+            order.Address = updateOrder.Address;
+            order.Phone = updateOrder.Phone;
             order.Status = updateOrder.Status;
-            order.Type = updateOrder.Type;
             order.Price = updateOrder.Price;
             order.ModifiedDate = DateTime.Now;
 

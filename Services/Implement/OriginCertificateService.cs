@@ -1,6 +1,7 @@
 ﻿using BusinessObjects.Enums;
 using BusinessObjects.Models;
 using DataAccessObjects.DTOs.OrriginCetificateDTO;
+using Repositories.Implement;
 using Repositories.Interface;
 using Services.Interface;
 using System;
@@ -14,22 +15,38 @@ namespace Services.Implement
     public class OriginCertificateService : IOriginCertificateService
     {
         private readonly IOriginCertificateRepository _originCertificateRepository;
-        public OriginCertificateService(IOriginCertificateRepository originCertificateRepository)
+        private readonly IImageService _imageService;
+        private readonly IImageRepository _imageRepository;
+        public OriginCertificateService(IOriginCertificateRepository originCertificateRepository, IImageRepository imageRepository, IImageService imageService)
         {
             _originCertificateRepository = originCertificateRepository;
+            _imageRepository = imageRepository;
+            _imageService = imageService;
         }
         public async Task<OriginCertificate> CreateOriginCertificate(CreateOriginCertificateDTO createOriginCertificate)
         {
             var originCertificate = new OriginCertificate
             {
-                KoiId = createOriginCertificate.KoiId,
-                OrderId = createOriginCertificate.OrderId,
-                StartTime = createOriginCertificate.StartTime,
-                EndTime = createOriginCertificate.EndTime,
-                Status = CertificateStatus.Valid.ToString(),
+                Variety = createOriginCertificate.Variety,
+                Gender = createOriginCertificate.Gender,
+                Size = createOriginCertificate.Size,
+                YearOfBirth = createOriginCertificate.YearOfBirth,
+                Date = createOriginCertificate.Date,
+                PlaceOfIssue = createOriginCertificate.PlaceOfIssue,
                 CreatedDate = DateTime.Now
             };
             await _originCertificateRepository.AddAsync(originCertificate);
+
+            string imageUrl = await _imageService.UploadCertificateImage(createOriginCertificate.Img, originCertificate.Id);
+            var image = new Image
+            {
+                UrlPath = imageUrl,  
+                OriginCertificateId = originCertificate.Id,  
+                CreatedDate = DateTime.Now,  
+                IsDeleted = false,  
+            };
+
+            await _imageRepository.AddAsync(image);;  
             return originCertificate;
         }
 
@@ -79,11 +96,42 @@ namespace Services.Implement
             {
                 throw new Exception($"Origin with ID{id} is not found");
             }
-            originCertificate.OrderId = updateOriginCertificate.OrderId;
-            originCertificate.StartTime = updateOriginCertificate.StartTime;
-            originCertificate.EndTime = updateOriginCertificate.EndTime;
+            originCertificate.Variety = updateOriginCertificate.Variety;
+            originCertificate.Gender = updateOriginCertificate.Gender;
+            originCertificate.Size = updateOriginCertificate.Size;
+            originCertificate.YearOfBirth = updateOriginCertificate.YearOfBirth;
+            originCertificate.Date = updateOriginCertificate.Date;
+            originCertificate.PlaceOfIssue = updateOriginCertificate.PlaceOfIssue;
             originCertificate.ModifiedDate = DateTime.Now;
 
+            await _originCertificateRepository.UpdateAsync(originCertificate);
+
+            if (updateOriginCertificate.Img != null)
+            {
+                var existingImage = await _imageRepository.GetByCertificateIdAsync(originCertificate.Id);
+
+                if (existingImage != null)
+                {
+                    bool isDeleted = await _imageService.DeleteImageAsync(existingImage.UrlPath, "Certificate");
+
+                    if (!isDeleted)
+                    {
+                        throw new Exception("Không thể xóa ảnh cũ trên Cloudinary");
+                    }
+                    await _imageRepository.RemoveAsync(existingImage);
+
+                    string newImageUrl = await _imageService.UploadCertificateImage(updateOriginCertificate.Img, originCertificate.Id);
+                    var newImage = new Image
+                    {
+                        UrlPath = newImageUrl,
+                        OriginCertificateId = originCertificate.Id,
+                        ModifiedDate = DateTime.Now,
+                        IsDeleted = false,
+                    };
+
+                    await _imageRepository.AddAsync(newImage);
+                }
+            }
             await _originCertificateRepository.UpdateAsync(originCertificate);
             return originCertificate;
         }

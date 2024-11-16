@@ -18,12 +18,12 @@ namespace KoiFarmShop_WebAPI.Configuration
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IConsignmentRepository, ConsignmentRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IHealthCertificateRepository, HealthCertificateRepository>();
             services.AddScoped<IOriginCertificateRepository, OriginCertificateRepository>();
             services.AddScoped<IPromotionRepository, PromotionRepository>();
-            services.AddScoped<IRewardCertificateRepository, RewardCertificateRepository>();
             services.AddScoped<IFeedbackRepository, FeedbackRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
+            services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<ICartItemRepository, CartItemRepository>();
             return services;
         }
 
@@ -37,12 +37,12 @@ namespace KoiFarmShop_WebAPI.Configuration
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IConsignmentService, ConsignmentService>();
             services.AddScoped<IUserServices, UserService>();
-            services.AddScoped<IHealthCertificateService, HealthCertificateService>();
             services.AddScoped<IOriginCertificateService, OriginCertificateService>();
             services.AddScoped<IPromotionService, PromotionService>();
-            services.AddScoped<IRewardCertificateService, RewardCertificateService>();
             services.AddScoped<IFeedbackService, FeedbackService>();
             services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<ICartService, CartService>();
+            services.AddScoped<ICartItemService, CartItemService>();
             return services;
         }
     }

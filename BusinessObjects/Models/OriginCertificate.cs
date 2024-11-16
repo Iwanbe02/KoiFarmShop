@@ -7,15 +7,17 @@ public partial class OriginCertificate
 {
     public int Id { get; set; }
 
-    public int? KoiId { get; set; }
+    public string? Variety { get; set; }
 
-    public int? OrderId { get; set; }
+    public string? Gender { get; set; }
 
-    public string? Status { get; set; }
+    public double? Size { get; set; }
 
-    public DateTime? StartTime { get; set; }
+    public int? YearOfBirth { get; set; }
 
-    public DateTime? EndTime { get; set; }
+    public DateTime? Date { get; set; }
+
+    public string? PlaceOfIssue { get; set; }
 
     public DateTime? CreatedDate { get; set; }
 
@@ -25,5 +27,7 @@ public partial class OriginCertificate
 
     public bool? IsDeleted { get; set; }
 
-    public virtual KoiFish? Koi { get; set; }
+    public virtual ICollection<Image> Images { get; set; } = new List<Image>();
+
+    public virtual KoiFish? KoiFish { get; set; }
 }

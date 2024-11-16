@@ -188,6 +188,32 @@ namespace Services.Implement
             return imageUrls;
         }
 
+        public async Task<string> UploadCertificateImage(IFormFile file, int originCertificateId)
+        {
+            if (!file.ContentType.ToLower().StartsWith("image/"))
+            {
+                throw new Exception("File is not a image!");
+            }
+            var account = new CloudinaryDotNet.Account(_cloudName, _apiKey, _apiSecret);
+            _cloudinary = new Cloudinary(account);
+            var uploadParameters = new ImageUploadParams
+            {
+                Folder = $"Certificate/{originCertificateId}",
+                PublicId = $"{originCertificateId}_{Path.GetFileNameWithoutExtension(file.FileName)}"
+            };
+            using (var memoryStream = new MemoryStream())
+            {
+                await file.CopyToAsync(memoryStream);
+                uploadParameters.File = new FileDescription(file.FileName, new MemoryStream(memoryStream.ToArray()));
+            }
+            var result = await _cloudinary.UploadAsync(uploadParameters);
+            if (result.Error != null)
+            {
+                throw new Exception($"Error upload image: {result.Error.Message}");
+            }
+            return result.SecureUrl.ToString();
+        }
+
         public async Task<IEnumerable<Image>> GetAllImages()
         {
             return await _imageRepository.GetAllAsync();

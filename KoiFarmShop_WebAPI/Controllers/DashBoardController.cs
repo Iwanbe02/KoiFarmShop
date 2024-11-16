@@ -9,26 +9,16 @@ namespace KoiFarmShop_WebAPI.Controllers
     public class DashBoardController : ControllerBase
     {
         private readonly IOrderService _orderService;
-        private readonly IConsignmentService _consignmentService;
-        public DashBoardController(IOrderService orderService, IConsignmentService consignmentService)
+        public DashBoardController(IOrderService orderService)
         {
             _orderService = orderService;
-            _consignmentService = consignmentService;
-
         }
 
-        [HttpGet("GetMonthlyKoiSales")]
-        public async Task<IActionResult> GetMonthlyKoiSales()
+        [HttpGet("GetMonthlyOrders")]
+        public async Task<IActionResult> GetMonthlyOrders()
         {
-            var monthlyOrders = await _orderService.GetMonthlyKoiSales();
-            return Ok(monthlyOrders);
-        }
-
-        [HttpGet("GetMonthlyKoiFishySales")]
-        public async Task<IActionResult> GetMonthlyKoiFishySales()
-        {
-            var monthlyOrders = await _orderService.GetMonthlyKoiFishySales();
-            return Ok(monthlyOrders);
+            var monthlyConsignments = await _orderService.GetMonthlyOrders();
+            return Ok(monthlyConsignments);
         }
 
         [HttpGet("GetTotalPriceOrders")]
@@ -43,29 +33,7 @@ namespace KoiFarmShop_WebAPI.Controllers
         {
             var totalDonations = await _orderService.GetTotalOrdersByMonth(month);
             return Ok(totalDonations);
-        }
-
-        [HttpGet("GetMonthlyConsignments")]
-        public async Task<IActionResult> GetMonthlyConsignments()
-        {
-            var monthlyConsignments = await _consignmentService.GetMonthlyConsignments();
-            return Ok(monthlyConsignments);
-        }     
-
-        [HttpGet("GetTotalPriceConsignments")]
-        public async Task<IActionResult> GetTotalPriceConsignments()
-        {
-            var consignment = await _consignmentService.GetTotalPriceConsignments();
-            return Ok(consignment);
-        }
-
-        [HttpGet("TotalConsignments/{month}")]
-        public async Task<IActionResult> GetTotalConsignmentsByMonth(int month)
-        {
-            var totalConsignments = await _consignmentService.GetTotalConsignmentsByMonth(month);
-            return Ok(totalConsignments);
-        }
-
-        
+        }    
+       
     }
 }

@@ -35,6 +35,8 @@ public partial class Account
 
     public bool? IsDeleted { get; set; }
 
+    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
+
     public virtual ICollection<Consignment> Consignments { get; set; } = new List<Consignment>();
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();

@@ -26,7 +26,7 @@ namespace Services.Implement
             {
                 Point = createPromotion.Point,
                 DiscountPercentage = createPromotion.DiscountPercentage,
-                Status = CertificateStatus.Valid.ToString(),
+                Status = createPromotion.Status,
                 CreatedDate = DateTime.Now
             };
             await _promotionRepository.AddAsync(promotion);

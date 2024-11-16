@@ -29,6 +29,14 @@ namespace Services.Implement
             var koi = new KoiFishy
             {
                 CategoryId = createKoiFishy.CategoryId,
+                Name = createKoiFishy.Name,
+                Gender = createKoiFishy.Gender,
+                Size = createKoiFishy.Size,
+                YearOfBirth = createKoiFishy.YearOfBirth,
+                Variety = createKoiFishy.Variety,
+                Origin = createKoiFishy.Origin,
+                Diet = createKoiFishy.Diet,
+                Character = createKoiFishy.Character,
                 Price = createKoiFishy.Price,
                 Quantity = createKoiFishy.Quantity,
                 Status = KoiFishStatus.Active.ToString(),
@@ -106,6 +114,14 @@ namespace Services.Implement
             }
 
             // Cập nhật các thuộc tính cơ bản của KoiFishy
+            koi.Name = updateKoiFishy.Name;
+            koi.Gender = updateKoiFishy.Gender;
+            koi.Size = updateKoiFishy.Size;
+            koi.YearOfBirth = updateKoiFishy.YearOfBirth;
+            koi.Variety = updateKoiFishy.Variety;
+            koi.Origin = updateKoiFishy.Origin;
+            koi.Diet = updateKoiFishy.Diet;
+            koi.Character = updateKoiFishy.Character;
             koi.Price = updateKoiFishy.Price;
             koi.Quantity = updateKoiFishy.Quantity;
             koi.Status = updateKoiFishy.Status;
