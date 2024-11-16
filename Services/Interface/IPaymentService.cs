@@ -12,6 +12,7 @@ namespace Services.Interface
     public interface IPaymentService
     {
         Task<IEnumerable<Payment>> GetAllPayments();
+        Task ProcessPaymentAsync(int orderId, string responseCode);
         Task<Payment> GetPaymentById(int id);
         Task<string> CreatePaymentAsync(int orderId);
         Task<Payment> UpdatePayment(int id, UpdatePaymentDTO updatePayment);

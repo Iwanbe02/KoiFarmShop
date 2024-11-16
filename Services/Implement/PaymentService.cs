@@ -17,15 +17,21 @@ namespace Services.Implement
     public class PaymentService : IPaymentService
     {
         private readonly IPaymentRepository _paymentRepository;
+        private readonly ICartItemRepository _cartItemRepository;
+        private readonly IKoiFishService _koiFishService;
+        private readonly IKoiFishyService _koiFishyService;
+        private readonly IConsignmentService _consignmentService;
         private readonly IOrderRepository _orderRepository;
-        private readonly IConsignmentRepository _consignmentRepository;
         private readonly IConfiguration _configuration;
-        public PaymentService(IPaymentRepository paymentRepository, IConfiguration configuration, IOrderRepository orderRepository, IConsignmentRepository consignmentRepository)
+        public PaymentService(IPaymentRepository paymentRepository, IConfiguration configuration, IOrderRepository orderRepository, ICartItemRepository cartItemRepository, IKoiFishService koiFishService, IKoiFishyService koiFishyService, IConsignmentService consignmentService)
         {
             _paymentRepository = paymentRepository;
             _configuration = configuration;
             _orderRepository = orderRepository;
-            _consignmentRepository = consignmentRepository;
+            _cartItemRepository = cartItemRepository;
+            _koiFishService = koiFishService;
+            _koiFishyService = koiFishyService;
+            _consignmentService = consignmentService;
         }
 
         public async Task<string> CreatePaymentAsync(int orderId)
@@ -68,6 +74,44 @@ namespace Services.Implement
             await _orderRepository.UpdateAsync(order);
 
             return paymentUrl;
+        }
+
+        public async Task ProcessPaymentAsync(int orderId, string responseCode)
+        {
+            var order = await _orderRepository.GetByIdAsync(orderId);
+
+            if (order == null)
+            {
+                throw new Exception("Order not found.");
+            }
+
+            if (responseCode == "00") 
+            {
+                order.Status = OrderStatus.Paid.ToString();
+                await _orderRepository.UpdateAsync(order);
+
+                var cartItems = await _cartItemRepository.GetByOrderIdAsync(order.Id);  
+                foreach (var cartItem in cartItems)
+                {
+                    if (cartItem.KoiFishId.HasValue)
+                    {
+                        await _koiFishService.UpdateKoiFishStatus(cartItem.KoiFishId.Value, KoiFishStatus.Sold.ToString());
+                    }
+                    if (cartItem.KoiFishyId.HasValue)
+                    {
+                        await _koiFishyService.UpdateKoiFishyStatus(cartItem.KoiFishyId.Value, KoiFishStatus.Sold.ToString());
+                    }
+                    if (cartItem.ConsignmentId.HasValue)
+                    {
+                        await _consignmentService.UpdateConsignmentStatus(cartItem.ConsignmentId.Value, KoiFishStatus.Sold.ToString());
+                    }
+                }
+            }
+            else 
+            {
+                order.Status = OrderStatus.Cancelled.ToString();
+                await _orderRepository.UpdateAsync(order);
+            }
         }
 
         public async Task<Payment> DeletePayment(int id)

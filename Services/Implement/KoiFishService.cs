@@ -154,5 +154,18 @@ namespace Services.Implement
             await _koiFishRepository.UpdateAsync(koi);
             return koi;
         }
+
+        public async Task<KoiFish> UpdateKoiFishStatus(int koiFishId, string newStatus)
+        {
+            var koiFish = await _koiFishRepository.GetByIdAsync(koiFishId);
+            if (koiFish == null || koiFish.IsDeleted == true)
+            {
+                throw new Exception("KoiFish không tồn tại hoặc đã bị xóa.");
+            }
+
+            koiFish.Status = newStatus;
+            await _koiFishRepository.UpdateAsync(koiFish);
+            return koiFish;
+        }
     }
 }

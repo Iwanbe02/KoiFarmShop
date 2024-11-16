@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\code\\SWP391\\KoiFarmShop\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{B5B18B94-F9D3-48AF-8F2E-AE9C6EC8D6F3}|DataAccessObjects\\DataAccessObjects.csproj|d:\\code\\swp391\\koifarmshop\\dataaccessobjects\\dtos\\orderdto\\createorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5B18B94-F9D3-48AF-8F2E-AE9C6EC8D6F3}|DataAccessObjects\\DataAccessObjects.csproj|solutionrelative:dataaccessobjects\\dtos\\orderdto\\createorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CreateOrderDTO.cs",
-              "DocumentMoniker": "D:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DTOs\\OrderDTO\\CreateOrderDTO.cs",
-              "RelativeDocumentMoniker": "DataAccessObjects\\DTOs\\OrderDTO\\CreateOrderDTO.cs",
-              "ToolTip": "D:\\code\\SWP391\\KoiFarmShop\\DataAccessObjects\\DTOs\\OrderDTO\\CreateOrderDTO.cs",
-              "RelativeToolTip": "DataAccessObjects\\DTOs\\OrderDTO\\CreateOrderDTO.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T15:49:07.473Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

@@ -9,5 +9,6 @@ namespace Repositories.Interface
 {
     public interface ICartItemRepository : IGenericRepository<CartItem>
     {
+        Task<IEnumerable<CartItem>> GetByOrderIdAsync(int orderId);
     }
 }

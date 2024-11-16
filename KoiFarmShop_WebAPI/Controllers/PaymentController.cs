@@ -51,53 +51,14 @@ namespace KoiFarmShop_WebAPI.Controllers
         {
             try
             {
-                var payLib = new VnPayLibrary();
+                await _paymentService.ProcessPaymentAsync(vnp_TxnRef, vnp_ResponseCode);
 
-                var url = _configuration.GetValue<string>("VNPay:Url");
-                var returnUrl = _configuration.GetValue<string>("VNPay:ReturnUrl");
-                var tmnCode = _configuration.GetValue<string>("VNPay:TmnCode");
-                var hashSecret = _configuration.GetValue<string>("VNPay:HashSecret");
-
-                var order = await _orderRepository.GetByIdAsync(vnp_TxnRef);
-                payLib.AddRequestData("vnp_Version", "2.1.0");
-                payLib.AddRequestData("vnp_Command", "pay");
-                payLib.AddRequestData("vnp_TmnCode", tmnCode);
-                payLib.AddRequestData("vnp_Amount", (order.Price * 100).ToString()); 
-                payLib.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
-                payLib.AddRequestData("vnp_CurrCode", "VND");
-                payLib.AddRequestData("vnp_IpAddr", "123.21.100.96");
-                payLib.AddRequestData("vnp_Locale", "vn");
-                payLib.AddRequestData("vnp_OrderInfo", $"Thanh toán cho Donation {order.Id}");
-                payLib.AddRequestData("vnp_OrderType", "donation");
-                payLib.AddRequestData("vnp_ReturnUrl", returnUrl);
-                payLib.AddRequestData("vnp_TxnRef", order.Id.ToString());
-                payLib.AddRequestData("vnp_ExpireDate", DateTime.Now.AddMinutes(15).ToString("yyyyMMddHHmmss"));
-                string paymentUrl = payLib.CreateRequestUrl(url, hashSecret);
-
-                if (vnp_ResponseCode == "00") 
+                return Ok(new
                 {
-                    order.Status = OrderStatus.Paid.ToString();
-                    await _orderRepository.UpdateAsync(order);
-
-                    return Ok(new
-                    {
-                        success = true,
-                        message = "Payment successful.",
-                        OrderId = order.Id,
-                    });
-                }
-                else
-                {
-                    order.Status = OrderStatus.Cancelled.ToString();
-                    await _orderRepository.UpdateAsync(order);
-
-                    return Ok(new
-                    {
-                        success = false,
-                        message = "Payment failed.",
-                        OrderId = order.Id,
-                    });
-                }
+                    success = vnp_ResponseCode == "00",
+                    message = vnp_ResponseCode == "00" ? "Payment successful." : "Payment failed.",
+                    OrderId = vnp_TxnRef,
+                });
             }
             catch (Exception ex)
             {
@@ -105,6 +66,7 @@ namespace KoiFarmShop_WebAPI.Controllers
                 return StatusCode(500, "Internal server error.");
             }
         }
+
 
         [HttpPut("{Id}")]
         public async Task<IActionResult> UpdatePayment(int Id, UpdatePaymentDTO updatePaymentDTO)

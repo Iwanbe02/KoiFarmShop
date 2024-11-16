@@ -155,5 +155,18 @@ namespace Services.Implement
             await _consignmentRepository.UpdateAsync(consignment);
             return consignment;
         }
+
+        public async Task<Consignment> UpdateConsignmentStatus(int consignmentId, string newStatus)
+        {
+            var consignment = await _consignmentRepository.GetByIdAsync(consignmentId);
+            if (consignment == null || consignment.IsDeleted == true)
+            {
+                throw new Exception("Consignment không tồn tại hoặc đã bị xóa.");
+            }
+
+            consignment.Status = newStatus;
+            await _consignmentRepository.UpdateAsync(consignment);
+            return consignment;
+        }
     }
 }

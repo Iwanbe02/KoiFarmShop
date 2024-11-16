@@ -14,6 +14,7 @@ namespace Services.Interface
         Task<KoiFish> GetKoiFishById(int id);
         Task<KoiFish> CreateKoiFish(CreateKoiFishDTO createKoiFish);
         Task<KoiFish> UpdateKoiFish(int id, UpdateKoiFishDTO updateKoiFish);
+        Task<KoiFish> UpdateKoiFishStatus(int koiFishId, string newStatus);
         Task<KoiFish> DeleteKoiFish(int id);
         Task<KoiFish> RestoreKoiFish(int id);
     }

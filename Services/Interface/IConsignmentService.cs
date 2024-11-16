@@ -15,6 +15,7 @@ namespace Services.Interface
         Task<Consignment> GetConsignmentById(int id);
         Task<Consignment> CreateConsignment(CreateConsignmentDTO createConsignment);
         Task<Consignment> UpdateConsignment(int id, UpdateConsignmentDTO updateConsignment);
+        Task<Consignment> UpdateConsignmentStatus(int consignmentId, string newStatus);
         Task<Consignment> DeleteConsignment(int id);
         Task<Consignment> RestoreConsignment(int id);
     }

@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Models;
+﻿using BusinessObjects.Enums;
+using BusinessObjects.Models;
 using DataAccessObjects.DTOs.CartItemDTO;
 using Repositories.Implement;
 using Repositories.Interface;
@@ -14,9 +15,13 @@ namespace Services.Implement
     public class CartItemService : ICartItemService
     {
         private readonly ICartItemRepository _cartItemRepository;
-        public CartItemService(ICartItemRepository cartItemRepository)
+        private readonly IKoiFishService _koiFishService;
+        private readonly IKoiFishyService _koiFishyService;
+        public CartItemService(ICartItemRepository cartItemRepository, IKoiFishService koiFishService, IKoiFishyService koiFishyService)
         {
             _cartItemRepository = cartItemRepository;
+            _koiFishService = koiFishService;
+            _koiFishyService = koiFishyService;
         }
         public async Task<CartItem> CreateCartItem(CreateCartItemDTO createCartItem)
         {
@@ -30,6 +35,14 @@ namespace Services.Implement
                 CreatedDate = DateTime.Now
             };
             await _cartItemRepository.AddAsync(cart);
+            if (createCartItem.KoiFishId.HasValue)
+            {
+                await _koiFishService.UpdateKoiFishStatus(createCartItem.KoiFishId.Value, KoiFishStatus.Pending.ToString());
+            }
+            if (createCartItem.KoiFishyId.HasValue)
+            {
+                await _koiFishyService.UpdateKoiFishyStatus(createCartItem.KoiFishyId.Value, KoiFishStatus.Pending.ToString());
+            }
             return cart;
         }
 
