@@ -103,7 +103,7 @@ namespace Services.Implement
                     }
                     if (cartItem.ConsignmentId.HasValue)
                     {
-                        await _consignmentService.UpdateConsignmentStatus(cartItem.ConsignmentId.Value, KoiFishStatus.Sold.ToString());
+                        await _consignmentService.UpdateConsignmentStatus(cartItem.ConsignmentId.Value, OrderStatus.Paid.ToString());
                     }
                 }
             }
