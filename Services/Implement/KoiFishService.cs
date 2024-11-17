@@ -70,6 +70,7 @@ namespace Services.Implement
                 throw new Exception($"Koi with ID{id} is not found");
             }
             koi.IsDeleted = true;
+            koi.Status = KoiFishStatus.InActive.ToString();
             koi.DeletedDate = DateTime.Now;
             await _koiFishRepository.UpdateAsync(koi);
             return koi;
