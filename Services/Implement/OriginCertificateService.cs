@@ -132,6 +132,10 @@ namespace Services.Implement
                     await _imageRepository.AddAsync(newImage);
                 }
             }
+            else
+            {
+            }
+
             await _originCertificateRepository.UpdateAsync(originCertificate);
             return originCertificate;
         }

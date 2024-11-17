@@ -151,6 +151,9 @@ namespace Services.Implement
                     await _imageRepository.AddAsync(newImage);
                 }
             }
+            else
+            {
+            }
 
             await _consignmentRepository.UpdateAsync(consignment);
             return consignment;

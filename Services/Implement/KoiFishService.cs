@@ -96,6 +96,7 @@ namespace Services.Implement
             if (koi.IsDeleted == true)
             {
                 koi.IsDeleted = false;
+                koi.Status = KoiFishStatus.Active.ToString();
                 await _koiFishRepository.UpdateAsync(koi);
             }
             return koi;
@@ -150,6 +151,9 @@ namespace Services.Implement
                     };
                     await _imageRepository.AddAsync(newImage);
                 }
+            }
+            else
+            {
             }
 
             await _koiFishRepository.UpdateAsync(koi);
