@@ -17,5 +17,8 @@ namespace Services.Interface
         Task<KoiFish> UpdateKoiFishStatus(int koiFishId, string newStatus);
         Task<KoiFish> DeleteKoiFish(int id);
         Task<KoiFish> RestoreKoiFish(int id);
+        Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyKoiFish();
+        Task<int> GetTotalKoiFishByMonth(int month);
+        Task<decimal> GetTotalPriceKoiFish();
     }
 }

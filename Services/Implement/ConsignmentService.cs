@@ -168,5 +168,69 @@ namespace Services.Implement
             await _consignmentRepository.UpdateAsync(consignment);
             return consignment;
         }
+
+        public async Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyConsignments()
+        {
+            var consignment = await _consignmentRepository.GetAllAsync();
+
+            var monthlySales = consignment
+                .Where(consignment => consignment.Status == OrderStatus.Paid.ToString())
+                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month })
+                .Select(g => new
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    TotalPrice = g.Sum(d => d.Price)
+                });
+
+            var result = new Dictionary<int, Dictionary<string, decimal>>();
+
+            foreach (var item in monthlySales)
+            {
+                if (!result.ContainsKey(item.Year))
+                {
+                    result[item.Year] = new Dictionary<string, decimal>();
+                }
+
+                string monthName = new DateTime(item.Year, item.Month, 1).ToString("MMMM");
+
+                result[item.Year][monthName] = item.TotalPrice;
+            }
+
+            foreach (var year in result.Keys)
+            {
+                for (int month = 1; month <= 12; month++)
+                {
+                    string monthName = new DateTime(year, month, 1).ToString("MMMM");
+                    if (!result[year].ContainsKey(monthName))
+                    {
+                        result[year][monthName] = 0m;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public async Task<int> GetTotaConsignmentsByMonth(int month)
+        {
+            var consignment = await _consignmentRepository.GetAllAsync();
+
+            var totalConsignments = consignment
+                .Where(o => o.Status == OrderStatus.Paid.ToString() && o.CreatedDate.Month == month)
+                .Count();
+            return totalConsignments;
+        }
+
+        public async Task<decimal> GetTotalPriceConsignments()
+        {
+            var consignmentPrice = await _consignmentRepository.GetAllAsync();
+
+            var totalPrice = consignmentPrice
+                .Where(o => o.Status == OrderStatus.Paid.ToString())
+                .Sum(o => o.Price);
+
+            return totalPrice;
+        }
     }
 }

@@ -177,5 +177,69 @@ namespace Services.Implement
             await _koiFishyRepository.UpdateAsync(koiFishy);
             return koiFishy;
         }
+
+        public async Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyKoiFishy()
+        {
+            var koi = await _koiFishyRepository.GetAllAsync();
+
+            var monthlySales = koi
+                .Where(koi => koi.Status == KoiFishStatus.Sold.ToString())
+                .GroupBy(d => new { d.CreatedDate.Year, d.CreatedDate.Month })
+                .Select(g => new
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    TotalPrice = g.Sum(d => d.Price)
+                });
+
+            var result = new Dictionary<int, Dictionary<string, decimal>>();
+
+            foreach (var item in monthlySales)
+            {
+                if (!result.ContainsKey(item.Year))
+                {
+                    result[item.Year] = new Dictionary<string, decimal>();
+                }
+
+                string monthName = new DateTime(item.Year, item.Month, 1).ToString("MMMM");
+
+                result[item.Year][monthName] = item.TotalPrice;
+            }
+
+            foreach (var year in result.Keys)
+            {
+                for (int month = 1; month <= 12; month++)
+                {
+                    string monthName = new DateTime(year, month, 1).ToString("MMMM");
+                    if (!result[year].ContainsKey(monthName))
+                    {
+                        result[year][monthName] = 0m;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public async Task<int> GetTotalKoiFishyByMonth(int month)
+        {
+            var koi = await _koiFishyRepository.GetAllAsync();
+
+            var totalKoi = koi
+                .Where(o => o.Status == KoiFishStatus.Sold.ToString() && o.CreatedDate.Month == month)
+                .Count();
+            return totalKoi;
+        }
+
+        public async Task<decimal> GetTotalPriceKoiFishy()
+        {
+            var koiPrice = await _koiFishyRepository.GetAllAsync();
+
+            var totalPrice = koiPrice
+                .Where(o => o.Status == KoiFishStatus.Sold.ToString())
+                .Sum(o => o.Price);
+
+            return totalPrice;
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace DataAccessObjects.DTOs.KoiFishDTO
         public double? ScreeningRate { get; set; }
 
         public string? Type { get; set; }
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
         public string? Status { get; set; }
         public List<IFormFile> Img { get; set; }
 

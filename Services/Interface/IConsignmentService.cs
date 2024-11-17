@@ -18,5 +18,8 @@ namespace Services.Interface
         Task<Consignment> UpdateConsignmentStatus(int consignmentId, string newStatus);
         Task<Consignment> DeleteConsignment(int id);
         Task<Consignment> RestoreConsignment(int id);
+        Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyConsignments();
+        Task<int> GetTotaConsignmentsByMonth(int month);
+        Task<decimal> GetTotalPriceConsignments();
     }
 }

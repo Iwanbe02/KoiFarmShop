@@ -23,7 +23,7 @@ public partial class KoiFishy
 
     public string? Character { get; set; }
 
-    public decimal? Price { get; set; }
+    public decimal Price { get; set; }
 
     public int? CategoryId { get; set; }
 
@@ -31,7 +31,7 @@ public partial class KoiFishy
 
     public string? Status { get; set; }
 
-    public DateTime? CreatedDate { get; set; }
+    public DateTime CreatedDate { get; set; }
 
     public DateTime? ModifiedDate { get; set; }
 

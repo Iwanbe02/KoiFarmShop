@@ -107,11 +107,9 @@ namespace Services.Implement
         {
             var orders = await _orderRepository.GetAllAsync();
 
-            // Filter donations for the specified month and count them
             var totalOrders = orders
                 .Where(o => o.Status == OrderStatus.Paid.ToString() && o.CreatedDate.Month == month)
                 .Count();
-
             return totalOrders;
         }
 

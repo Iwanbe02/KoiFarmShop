@@ -18,5 +18,8 @@ namespace Services.Interface
         Task<KoiFishy> UpdateKoiFishyStatus(int koiFishyId, string newStatus);
         Task<KoiFishy> DeleteKoiFishy(int id);
         Task<KoiFishy> RestoreKoiFishy(int id);
+        Task<decimal> GetTotalPriceKoiFishy();
+        Task<int> GetTotalKoiFishyByMonth(int month);
+        Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyKoiFishy();
     }
 }

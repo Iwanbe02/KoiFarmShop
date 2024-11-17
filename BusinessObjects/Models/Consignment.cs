@@ -27,11 +27,11 @@ public partial class Consignment
 
     public double? AmountFood { get; set; }
 
-    public decimal? Price { get; set; }
+    public decimal Price { get; set; }
 
     public string? Status { get; set; }
 
-    public DateTime? CreatedDate { get; set; }
+    public DateTime CreatedDate { get; set; }
 
     public DateTime? ModifiedDate { get; set; }
 

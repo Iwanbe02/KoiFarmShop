@@ -11,7 +11,7 @@ public partial class KoiFish
 
     public string? Name { get; set; }
 
-    public decimal? Price { get; set; }
+    public decimal Price { get; set; }
 
     public int? CategoryId { get; set; }
 
@@ -37,7 +37,7 @@ public partial class KoiFish
 
     public string? Status { get; set; }
 
-    public DateTime? CreatedDate { get; set; }
+    public DateTime CreatedDate { get; set; }
 
     public DateTime? ModifiedDate { get; set; }
 
