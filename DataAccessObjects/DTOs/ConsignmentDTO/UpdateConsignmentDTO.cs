@@ -28,6 +28,6 @@ namespace DataAccessObjects.DTOs.ConsignmentDTO
         public decimal Price { get; set; }
         public string? Status { get; set; }
 
-        public List<IFormFile> Img { get; set; }
+        public List<IFormFile>? Img { get; set; }
     }
 }
