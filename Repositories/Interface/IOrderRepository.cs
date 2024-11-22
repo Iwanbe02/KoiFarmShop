@@ -9,5 +9,6 @@ namespace Repositories.Interface
 {
     public interface IOrderRepository : IGenericRepository<Order>
     {
+        Task<IEnumerable<Order>> GetAllWithIncludesAsync();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BusinessObjects.Enums;
 using BusinessObjects.Models;
 using DataAccessObjects.DTOs.OrderDTO;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Implement;
 using Repositories.Interface;
 using Services.Interface;
@@ -49,9 +50,29 @@ namespace Services.Implement
             return order;
         }
 
-        public async Task<IEnumerable<Order>> GetAllOrders()
+        public async Task<IEnumerable<OrderDTO>> GetAllOrders()
         {
-            return await _orderRepository.GetAllAsync();
+            var orders = await _orderRepository.GetAllWithIncludesAsync();
+
+            var orderDtos = orders.Select(o => new OrderDTO
+            {
+                OrderId = o.Id,
+                CartId = o.Cart?.Id,
+                AccountId = o.AccountId,
+                TotalPrice = o.Price,
+                Address = o.Address,
+                Phone = o.Phone,
+                Status = o.Status,
+                OrderDate = o.CreatedDate,
+                Items = o.Cart?.CartItems.Select(ci => new OrderItemDTO
+                {
+                    Name = ci.KoiFish?.Name ?? ci.KoiFishy?.Name ?? ci.Consignment?.Name ?? "Unknown", 
+                    Price = ci.KoiFish?.Price ?? ci.KoiFishy?.Price ?? ci.Consignment?.Price ?? 0, 
+
+                }).ToList()
+            });
+
+            return orderDtos;
         }
 
         public async Task<Dictionary<int, Dictionary<string, decimal>>> GetMonthlyOrders()

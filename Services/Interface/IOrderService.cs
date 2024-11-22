@@ -11,7 +11,7 @@ namespace Services.Interface
 {
     public interface IOrderService
     {
-        Task<IEnumerable<Order>> GetAllOrders();
+        Task<IEnumerable<OrderDTO>> GetAllOrders();
         Task<Order> GetOrderById(int id);
         Task<Order> CreateOrder(CreateOrderDTO createOrder);
         Task<Order> UpdateOrder(int id, UpdateOrderDTO updateOrder);
