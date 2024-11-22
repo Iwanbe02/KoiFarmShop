@@ -33,5 +33,7 @@ public partial class Order
 
     public virtual Cart? Cart { get; set; }
 
+    public virtual Feedback? Feedback { get; set; }
+
     public virtual Payment? Payment { get; set; }
 }

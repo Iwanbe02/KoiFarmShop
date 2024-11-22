@@ -9,6 +9,8 @@ public partial class Feedback
 
     public int? AccountId { get; set; }
 
+    public int? OrderId { get; set; }
+
     public string? Status { get; set; }
 
     public string? Description { get; set; }
@@ -24,4 +26,6 @@ public partial class Feedback
     public bool? IsDeleted { get; set; }
 
     public virtual Account? Account { get; set; }
+
+    public virtual Order? Order { get; set; }
 }

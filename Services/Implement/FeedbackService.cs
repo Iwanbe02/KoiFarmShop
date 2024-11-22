@@ -25,6 +25,7 @@ namespace Services.Implement
             var feedback = new Feedback
             {
                 AccountId = createFeedback.AccountId,
+                OrderId = createFeedback.OrderId,
                 Status = FeedbackStatus.Pending.ToString(),
                 Description = createFeedback.Description,
                 Rating = createFeedback.Rating,
